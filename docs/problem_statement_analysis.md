@@ -1,95 +1,95 @@
 # Problem Statement Analysis: SIH26177 (Qualcomm Inc.)
 
 **Problem Title**: Autonomous AI-Powered Search and Rescue (SAR) UAV for Disaster Reconnaissance  
-**Organization**: Qualcomm Inc.  
+**Sponsoring Organization**: Qualcomm Inc.  
 **Category**: Hardware | **Theme**: Robotics and Drones  
 **Author**: Team Phoenix (Systems Engineering & Pitch Strategy)  
 
 ---
 
-## 1. Context and Problem Characterization
+## 1. Official Problem Background & Description
 
-Disaster response operations following earthquakes, landslides, flash floods, or industrial collapses are governed by the **72-Hour "Golden Window"**, within which the probability of extricating trapped survivors alive drops exponentially with every passing hour.
+### 1.1 Official Background
+> *"India is highly vulnerable to natural disasters including floods, cyclones, earthquakes, landslides, and flash floods, which often result in damaged infrastructure, inaccessible terrain, and delayed rescue operations. During the first few critical hours after a disaster, responders need rapid situational awareness to locate survivors, assess hazards, and prioritize rescue efforts. Traditional ground-based assessments can be slow, dangerous, and resource-intensive, particularly in remote or heavily damaged areas. Autonomous drones equipped with on-device AI can provide real-time aerial intelligence while operating in environments with limited connectivity."*
+
+### 1.2 Official Description
+> *"Develop an autonomous drone system capable of navigating disaster-affected areas and performing real-time detection of survivors and hazards using on-device AI. The drone should use RGB and thermal cameras to identify stranded individuals, detect signs of human presence, and recognize environmental hazards such as fire, floodwaters, damaged structures, exposed electrical lines, debris, landslides, or chemical leaks. The solution must process data locally on the drone to ensure low latency and continued operation even when network connectivity is unavailable. The drone should autonomously map affected regions, generate situational reports, and transmit actionable insights to emergency response teams. This concept aligns with existing edge-AI drone approaches for incident response and disaster assessment."*
+
+---
+
+## 2. The 8 Expected Solution Pillars: Architectural Mapping
+
+The official problem statement mandates 8 explicit technical capabilities. Below is Team Phoenix's direct systems engineering response for each pillar:
 
 ```
-Survival Probability vs. Post-Disaster Time Elapsed
-100% ┼───────╮
- 80% │       ╰──╮  [Golden Window: 0 - 72 Hours]
- 60% │          ╰──╮
- 40% │             ╰──────╮
- 20% │                    ╰────────────
-  0% ┼───────┴────────────┴────────────┴───────
-     0h     24h          48h          72h     96h+
+┌────────────────────────────────────────────────────────────────────────────────────────┐
+│                        PROJECT PHOENIX: 8-PILLAR SOLUTION MAPPING                      │
+├────────────────────────────────────────────────────────────────────────────────────────┤
+│ 1. Autonomous Navigation       │ GPS + VIO SLAM + Forward/Downward ToF Obstacle Avoid  │
+│ 2. On-Device AI Inference      │ Qualcomm Flight™ RB5 (Hexagon 698 NPU, INT8 SNPE)     │
+│ 3. Multi-Sensor Fusion         │ Hardware-Synced 4K RGB + Radiometric LWIR + IMU/LiDAR │
+│ 4. Hazard Classification       │ Multi-Head Neural Segmentation (Fires, Floods, Lines) │
+│ 5. Geo-Tagged Mapping          │ 3D Ray-Casting Projection + Safe Responder Corridors  │
+│ 6. Emergency Alerting          │ Dynamic Triage Engine + 64-Byte LoRa Mesh Alerts      │
+│ 7. Offline Resilience          │ Non-Volatile Flash Store-and-Forward + Dual-Tier Comms│
+│ 8. Command Center Dashboard    │ Tactical GIS Web Dashboard (Offline QGIS / Mapbox)    │
+└────────────────────────────────────────────────────────────────────────────────────────┘
 ```
 
-### Critical Operational Bottlenecks in Conventional SAR:
-1. **Terrain Inaccessibility**: Rubble, damaged bridges, mud deposits, and flood currents prevent ground personnel and wheeled/tracked robotic rovers from reaching ground zero during initial hours.
-2. **Environmental Occlusion**: Dense smoke, suspended particulate dust, post-disaster fires, and night operations completely blind conventional optical RGB cameras.
-3. **Infrastructure Collapse**: Cellular backhauls (4G/5G towers) and power grids are routinely severed or destroyed, prohibiting cloud-reliant AI services.
-4. **GNSS Vulnerability**: "Urban canyon" multipath reflections from collapsed buildings, magnetic anomalies from twisted rebar, or intentional/unintentional RF interference severely degrade standard civilian GPS.
-5. **High False-Positive Latency**: Human operators reviewing raw drone video feeds suffer cognitive fatigue; manual detection of victims under rubble takes 15–40 minutes per square kilometer.
+### Pillar 1: Autonomous Navigation (GPS-Enabled & GPS-Denied SLAM)
+* **GPS-Enabled Mode**: Standard waypoint navigation and boustrophedon search sweeps via PX4 Autopilot over multi-constellation GNSS (NavIC, GPS, GLONASS).
+* **GPS-Denied Mode (Urban Canyons / Collapsed Bridges)**: When GNSS drops (multipath or jamming), the platform automatically engages **Visual-Inertial Odometry (VIO)** and optical flow processed through the **Qualcomm Spectra™ 480 ISP** paired with a downward ToF LiDAR.
+* **Obstacle Avoidance**: 3D spatial voxel grid generated in real time from forward and downward stereo vision / solid-state LiDAR, autonomously dodging dangling high-voltage electrical wires, collapsed rebar, and tree canopies.
+
+### Pillar 2: On-Device AI Inference (Zero-Cloud Autonomy)
+* **Compute Heart**: **Qualcomm Flight™ RB5 (Snapdragon® QRB5165 SoC)**.
+* **Inference Engine**: **Qualcomm Snapdragon Neural Processing Engine (SNPE) SDK** running quantized INT8 neural backbones.
+* **Throughput & Power**: Sustained **35 FPS** across dual video streams at just **8.4W active NPU power**, operating within an ultra-tight total compute budget of $<12\text{W}$ (saving 20W+ compared to NVIDIA Jetson or desktop-class GPU boards).
+
+### Pillar 3: Multi-Sensor Fusion (RGB + Radiometric LWIR + IMU + GPS)
+* **Hardware Ingestion**: Pixel-synchronized dual-stream ingest (Sony IMX586 4K RGB + InfiRay/FLIR $640 \times 512$ Radiometric LWIR).
+* **Spatial Alignment**: Homographic projective warping aligning wide-angle RGB FOV with thermal FOV.
+* **False-Alarm Mitigation**: Fused confidence metric cross-referencing apparent temperature ($32^\circ\text{C} - 38.5^\circ\text{C}$) against optical human limb/contour signatures, preventing false alarms from solar-baked asphalt or hot metal debris.
+
+### Pillar 4: Hazard Classification (Dual-Task Perception Pipeline)
+The edge neural network features a **Dual-Head Architecture**:
+* **Head A (Survivor & Victim Detection)**: Detects standing, prone, gesturing, or partially rubble-trapped individuals.
+* **Head B (Disaster Hazard Semantic Segmentation)**:
+  * **Class 1 (Hydrological)**: Rising floodwaters, breached embankments.
+  * **Class 2 (Thermal / Fire)**: Active flames, structural hot-spots, smoke plumes.
+  * **Class 3 (Structural & Debris)**: Collapsed structures, impassable rubble piles, landslide scarps.
+  * **Class 4 (Infrastructure Threats)**: Snapped/exposed high-voltage electrical lines, hazardous industrial/chemical leak plumes.
+
+### Pillar 5: Geo-Tagged Mapping & Safe Access Routes
+* **Exact Ground Geolocation**: Trigonometric 3D ray-casting projects image detection centroids through the UAV's 6-DoF state estimate (roll, pitch, yaw, altitude AGL, gimbal pan/tilt) directly to WGS-84 coordinates ($\pm 2.5\text{m}$).
+* **Dynamic Safe Corridor Generation**: Using an $A^*$ / Dijkstra graph-search algorithm on the local occupancy grid, the system identifies ground obstacles and hazard zones (fires, live wires, deep floodwaters) and computes **Safe Ingress & Egress Corridors** for NDRF rescue teams.
+
+### Pillar 6: Emergency Alerting & Prioritized Rescue Recommendations
+* **Dynamic Triage Scoring Formula**:
+  $$\text{Triage Priority} = w_1 \cdot \text{Vitality}(\Delta T) + w_2 \cdot \text{Movement} + w_3 \cdot \text{Hazard Proximity}$$
+  * **Critical (Code Red)**: Living human detected adjacent to rising floodwaters or active fire.
+  * **Urgent (Code Yellow)**: Trapped survivor detected under stable void without immediate external threats.
+  * **Non-Urgent (Code Green)**: Ambulatory individuals in safe clear zones.
+* **Alert Transmission**: Generates compact 64-byte structured triage packets broadcast immediately across the tactical mesh.
+
+### Pillar 7: Offline Resilience & Communication Hierarchy
+* **Tier 1 (High Bandwidth / Local)**: Wi-Fi 6 / 5G sub-6 for real-time video streaming to mobile incident command trucks within line-of-sight.
+* **Tier 2 (Long-Range Resilient Fallback)**: SX1262 LoRa (868 MHz) mesh network transmitting encrypted micro-telemetry up to 10–15 km with zero dependence on commercial cellular towers.
+* **Store-and-Forward**: If complete RF silence occurs, all geotagged detections, metadata, and high-res thumbnails are cryptographically signed (Ed25519) and logged in onboard NVMe flash, bursting to ground control immediately upon link reconnection.
+
+### Pillar 8: Tactical Command Center Dashboard
+* **Offline-First Architecture**: Runs on ruggedized laptops or tablets with cached vector maps (OpenStreetMap / QGIS).
+* **Live GIS Visualizations**:
+  * Real-time UAV flight trajectory, battery reserve, and sensor FOV footprint.
+  * Color-coded casualty pins with photo thumbnails, estimated depth, and medical triage priority.
+  * Hazard overlay polygons (fire zones in red, floodwater in blue, downed wires in yellow).
+  * Auto-generated Safe Access Path overlaid directly for boots-on-the-ground rescue teams.
 
 ---
 
-## 2. Deep Dive into Qualcomm's Strategic Expectations (SIH26177)
-
-Qualcomm’s sponsorship of this problem statement indicates distinct evaluation priorities that differentiate winning proposals from generic hobbyist drone entries:
-
-| Evaluation Dimension | Conventional Academic Drone Approach | Team Phoenix's Qualcomm-Centric Architecture |
-| :--- | :--- | :--- |
-| **Compute Hardware** | Heavy, power-hungry desktop GPU or NVIDIA Jetson Orin Nano (25W–40W) | **Qualcomm Flight™ RB5 Platform (Snapdragon QRB5165)** utilizing the **Hexagon™ 698 DSP/NPU (15 TOPS) at <12W** |
-| **Inference Pipeline** | Unquantized FP32 PyTorch / ROS nodes | **INT8 Quantized YOLOv8/v10 via Qualcomm SNPE SDK** running natively on Hexagon Vector Extensions (HVX) |
-| **Perception Strategy**| RGB-only or unaligned thermal display | **Hardware-synchronized Spatial/Radiometric Dual-Stream Fusion (RGB + LWIR)** |
-| **Geolocation Strategy**| Naive drone GPS tag (where drone hovers) | **Real-Time 3D Ray-Casting Projection** resolving exact ground victim coordinates |
-| **Connectivity** | Standard Wi-Fi or cellular with failure upon disconnect | **Hybrid Dual-Band 5G + LoRa Tactical Mesh (868/915 MHz)** store-and-forward telemetry |
-| **Power Efficiency** | Short flight times (<18 mins) due to heavy compute payload | **Lightweight SWaP-C profile** yielding **32–38 minutes** operational endurance |
-
----
-
-## 3. Requirements Specification Matrix
-
-### 3.1 Functional Requirements (FR)
-* **FR-01 (Multi-Spectral Acquisition)**: Capture synchronized 4K visible optical imagery and $640 \times 512$ Long-Wave Infrared (LWIR) radiometric thermal imagery at $\ge 30\text{ FPS}$.
-* **FR-02 (Edge Object Detection)**: Identify human beings (standing, prone, trapped under partial rubble, gesturing) with an inference latency $\le 35\text{ ms}$ per frame entirely on-board.
-* **FR-03 (Precision Geolocation)**: Compute ground survivor WGS-84 coordinates (Latitude, Longitude, Estimated Altitude) within a spherical error probable (SEP) of $\le 2.5\text{ m}$.
-* **FR-04 (Autonomous Triage Classification)**: Tag detections with a multi-factor triage priority rating (Critical, Urgent, Non-Urgent) based on temperature delta, movement vector, and environment.
-* **FR-05 (Resilient Telemetry Transmission)**: Broadcast compressed victim metadata (Timestamp, Lat/Long, Triage Score, Thumbnail crop) over LoRa to ground command within $\le 3\text{ seconds}$ of detection.
-
-### 3.2 Non-Functional Requirements (NFR)
-* **NFR-01 (Power & Compute Budget)**: Total companion compute + sensor payload draw must remain within $\le 15\text{W}$ at peak inference to preserve flight battery.
-* **NFR-02 (Flight Endurance)**: Total operational flight time must achieve $\ge 30\text{ minutes}$ on a single standard 6S LiPo/Li-Ion pack with full payload.
-* **NFR-03 (Environmental Ruggedness)**: Dust and water resistance rated to IP54; operation in ambient temperatures from $-5^\circ\text{C}$ to $+50^\circ\text{C}$.
-* **NFR-04 (Cybersecurity & Integrity)**: Cryptographic signing (Ed25519) of telemetry packets and encrypted command links (AES-256-GCM) to prevent malicious spoofing or hijacking.
-
----
-
-## 4. Edge-Case Hazard & Mitigation Analysis
-
-```mermaid
-graph TD
-    A[Disaster Reconnaissance Edge Cases] --> B[Thermal False Positives]
-    A --> C[Comms / Radio Blackout]
-    A --> D[GNSS Jamming / Denial]
-    A --> E[Smoke / Dust Occlusion]
-
-    B --> B1[Solar-Heated Asphalt / Metal Debris]
-    B1 --> B2[Solution: Dual-threshold radiometric verification 35C-38C + RGB contour cross-validation]
-
-    C --> C1[Complete 5G / RF Loss]
-    C1 --> C2[Solution: LoRa 868MHz Mesh Fallback + Onboard Non-Volatile Flash Store-and-Forward]
-
-    D --> D1[Multipath in Urban Canyon / Jamming]
-    D1 --> D2[Solution: VIO Visual Inertial Odometry via Qualcomm Spectra ISP tracking features]
-
-    E --> E1[Visible Spectrum Blindness]
-    E1 --> E2[Solution: Adaptive Thermal-dominant weighting in multi-spectral fusion pipeline]
-```
-
----
-
-## 5. Indian Regulatory & Operational Compliance
-
-The architecture complies with the **Directorate General of Civil Aviation (DGCA) & Ministry of Civil Aviation (MoCA) Drone Rules 2021 / 2023 Amendments**:
-* **NPNT (No Permission, No Takeoff)**: Firmware-level geofence and digital sky token compliance interface.
-* **Fail-Safe Returns**: Autonomous Return-To-Home (RTH) upon dual battery threshold trigger ($<20\%$).
-* **Green Zone Deployment**: Emergency SAR missions qualify for expedited priority dispatch under National Disaster Management Authority (NDMA) protocols.
+## 3. Indian Regulatory & Operational Alignment
+* **National Disaster Management Authority (NDMA)**: Directly matches the Incident Response System (IRS) protocols for rapid damage assessment and search teams.
+* **DGCA Drone Rules 2021 / 2023 Amendments**: 
+  * Full NPNT (No Permission, No Takeoff) digital sky architecture.
+  * Fail-safe autonomous Return-To-Home (RTH) upon battery reaching critical 20% reserve.
+  * RF link loss contingency routines compliant with Indian civil airspace guidelines.
