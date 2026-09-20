@@ -3,29 +3,35 @@
 > **Problem Statement ID:** SIH26177  
 > **Sponsoring Organization:** Qualcomm Inc.  
 > **Category:** Hardware | **Theme:** Robotics and Drones  
+> **Presentation Deck:** [`presentation/Team_Phoenix_SIH26177_Official_Deck.pptx`](presentation/Team_Phoenix_SIH26177_Official_Deck.pptx)  
 
 ---
 
 ## 📌 Project Overview
 **Team Phoenix** is designing a field-deployable, edge-AI-powered autonomous Unmanned Aerial Vehicle (UAV) tailored for emergency disaster reconnaissance (earthquakes, structural collapses, floods, and industrial hazards). 
 
-The platform is engineered to operate in **GPS-denied, communication-constrained environments**, combining on-device multi-spectral computer vision (RGB + LWIR Thermal) with autonomous frontier exploration and real-time survivor geo-localization.
+The platform is engineered to operate in **GPS-denied, communication-constrained environments**, combining on-device multi-spectral computer vision (RGB + LWIR Thermal) with autonomous frontier exploration, real-time survivor geo-localization, and long-range LoRa peer-to-peer telemetry.
 
 ---
 
 ## 🚀 Key Theoretical Pillars & Research Foundations
 
-The system architecture, aerodynamics, and mathematical dynamics are built upon rigorous aerospace and robotics foundations:
+The system architecture, aerodynamics, communications, and mathematical dynamics are built upon rigorous academic research:
 
-* **12-State Rigid Body Dynamics & Sizing:** Complete 6-DOF nonlinear equations of motion incorporating rotor gyroscopic precession, actuator dynamic lag, and sizing optimization rules from **Dr. Samir Bouabdallah** (*EPFL Thesis No. 3727, 2007*).
-* **Camera-to-Ground Ray-Casting Geolocation:** Utilizing the complete Tait-Bryan rotation matrix $R(\phi, \theta, \psi)$ to project 2D camera detections into ground GPS coordinates without hovering directly overhead.
-* **Cascaded Dual-Loop Spectral Separation:** Decoupled inner attitude loop (100–250 Hz) and outer position navigation loop (20–50 Hz).
-* **Rotor Airfoil Selection & Vibration Control:** Grounded in **NASA TM-4741** (Langley Research Center), utilizing zero-pitching-moment ($C_{m, c/4} = 0$) reflexed/semi-symmetric airfoils to eliminate torsional blade flutter and protect flight controller IMUs.
-* **Disaster-Resilient Heading (Anti-Compass Drift):** Overcomes motor current and reinforced steel magnetic distortions by fusing Visual-Inertial Odometry (VIO) / Optical Flow with rate gyros.
+1. **12-State Rigid Body Dynamics & Sizing Laws:** Complete 6-DOF nonlinear equations of motion incorporating rotor gyroscopic precession, actuator dynamic lag, and sizing optimization rules from **Dr. Samir Bouabdallah** (*EPFL Thesis No. 3727, 2007*).
+2. **Integrated ROS-LoRa Mission-Critical Telemetry:** Grounded in recent breakthrough research by **Souli, Karatzia, Kolios, & Ellinas** (*Computer Communications, Elsevier, Vol. 225, 2024*), utilizing 17-byte binary bit-packing and priority-based queueing over raw LoRa (868 MHz) to stream survivor coordinates over 3–5+ km during cellular/Wi-Fi blackouts.
+3. **Dual-Brain Edge Compute on Single Board:** Extending the open-source **JRFCQAI platform** (*Ravi Butani, 2024*), combining the **Qualcomm Dragonwing™ QRB2210 Linux MPU** for INT8 YOLO vision with an **STM32U585 MCU running Zephyr RTOS** at 250 Hz on the **Arduino UNO Q**.
+4. **Camera-to-Ground Ray-Casting Geolocation:** Utilizing the complete Tait-Bryan rotation matrix $R(\phi, \theta, \psi)$ to project 2D camera detections into ground GPS coordinates without hovering directly overhead.
+5. **Rotor Airfoil Selection & Vibration Control:** Grounded in **NASA TM-4741** (Langley Research Center), utilizing zero-pitching-moment ($C_{m, c/4} = 0$) reflexed/semi-symmetric airfoils to eliminate torsional blade flutter and protect flight controller IMUs.
 
-For full mathematical derivations, design indicators, and benchmarks, see:  
-📖 **[`docs/bouabdallah_quadrotor_research_findings.md`](docs/bouabdallah_quadrotor_research_findings.md)**  
-📖 **[`docs/aerodynamic_airfoil_considerations.md`](docs/aerodynamic_airfoil_considerations.md)**
+---
+
+## 📖 Research Documentation Index
+
+* 📄 **[`docs/bouabdallah_quadrotor_research_findings.md`](docs/bouabdallah_quadrotor_research_findings.md)**: Sizing laws, 12-state equations, cascaded dual-loop control, and magnetic compass drift mitigations.
+* 📄 **[`docs/ros_lora_mission_critical_uav_swarm_research.md`](docs/ros_lora_mission_critical_uav_swarm_research.md)**: Elsevier 2024 paper synthesis on ROS-LoRa integration, binary packet serialization, and GPS-denied cooperative positioning.
+* 📄 **[`docs/aerodynamic_airfoil_considerations.md`](docs/aerodynamic_airfoil_considerations.md)**: NASA TM-4741 rotorcraft airfoil dynamics, lift slopes, and blade flutter prevention.
+* 📄 **[`docs/references.bib`](docs/references.bib)**: Complete BibTeX citations for all academic literature.
 
 ---
 
@@ -37,14 +43,16 @@ Phoenix-SIH26177-SAR-UAV/
 │
 ├── docs/                              # Research & System Design Documentation
 │   ├── bouabdallah_quadrotor_research_findings.md  # Synthesized EPFL thesis foundations & math
-│   ├── aerodynamic_airfoil_considerations.md       # NASA TM-4741 airfoil & rotor selection principles
+│   ├── ros_lora_mission_critical_uav_swarm_research.md # Elsevier 2024 ROS-LoRa architecture
+│   ├── aerodynamic_airfoil_considerations.md       # NASA TM-4741 airfoil & rotor selection
 │   ├── problem_statement_analysis.md  # Qualcomm problem statement breakdown & edge cases
 │   ├── system_architecture.md         # Full subsystem block diagrams & data flows
 │   └── references.bib                 # Academic and technical citations (BibTeX)
 │
 ├── presentation/                      # SIH PPT Presentation & Defense Assets
-│   ├── sih_presentation_outline.md   # Slide-by-slide script & pitch talking points
-│   └── diagrams/                      # System architecture and workflow schematics
+│   ├── Team_Phoenix_SIH26177_Official_Deck.pptx   # Official SIH PowerPoint Presentation
+│   ├── generate_deck.py               # Programmatic PPTX builder script
+│   └── sih_presentation_outline.md   # Slide-by-slide script & pitch talking points
 │
 └── hardware_bom/                      # Engineering Sizing & Feasibility
     ├── component_sizing_matrix.md     # Motor KV, propeller size, and battery sizing models
@@ -57,14 +65,7 @@ Phoenix-SIH26177-SAR-UAV/
 
 | Subsystem Domain | Team Specialization | Key Deliverables |
 | :--- | :--- | :--- |
-| **Edge AI & Computer Vision** | AI & Data Science (AD) | Quantized multi-spectral detection (YOLOv11/v8 INT8), RGB + Thermal late fusion, hazard segmentation. |
-| **Flight Dynamics & Autonomy** | Computer Science (CSE) | ROS2 / PX4 flight simulation, Boustrophedon grid coverage path planning, target ray-casting engine. |
-| **Ground Control & C2 Dashboard**| Computer Science (CSE) | Offline-first tactical map (React/Leaflet), telemetry bus, survivor priority triage queue. |
-| **Secure Comms & Reliability** | Cyber Security (CY) | Telemetry HMAC packet authentication, store-and-forward buffer synchronization, LoRa fallback beacon. |
-
----
-
-## 📚 References
-* Bouabdallah, S. (2007). *Design and Control of Quadrotors with Application to Autonomous Flying*. Doctoral Thesis No. 3727, École Polytechnique Fédérale de Lausanne (EPFL).
-* Ladson, C. L., Brooks, C. W., Hill, A. S., & Sproles, D. W. (1996). *Computer Program To Obtain Ordinates for NACA Airfoils*. NASA Technical Memorandum 4741, NASA Langley Research Center.
-* Bouabdallah, S., & Siegwart, R. (2005). *Backstepping and Sliding-Mode Techniques Applied to an Indoor Micro Quadrotor*. IEEE ICRA.
+| **Edge AI & Computer Vision** | AI & Data Science (AD) | Quantized multi-spectral detection (YOLOv11/v8 INT8 on Qualcomm NPU), RGB + Thermal late fusion. |
+| **Flight Dynamics & Autonomy** | Computer Science (CSE) | Zephyr RTOS / PX4 flight loop, Boustrophedon grid coverage path planning, Tait-Bryan ray-casting engine. |
+| **Ground Control & C2 Dashboard**| Computer Science (CSE) | Offline-first tactical map (React/Leaflet), automated survivor priority triage queue, safe-path routing. |
+| **Secure Comms & Reliability** | Cyber Security (CY) | Telemetry HMAC packet authentication, ROS-LoRa binary serialization (Souli et al., 2024), store-and-forward sync. |
