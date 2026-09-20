@@ -511,9 +511,11 @@ def build_deck():
              "  - Ray-Casting Geolocation Python Engine"
     p.font.size = Pt(9.5); p.font.color.rgb = TEXT_MAIN
 
-    out_file = "/Users/justin/.gemini/antigravity/scratch/Phoenix-SIH26177-SAR-UAV/presentation/Team_Phoenix_SIH26177_Official_Deck.pptx"
-    prs.save(out_file)
-    print(f"Deck successfully generated and saved to: {out_file}")
+    out_v2 = "/Users/justin/.gemini/antigravity/scratch/Phoenix-SIH26177-SAR-UAV/presentation/Team_Phoenix_SIH26177_Deck_v2.pptx"
+    out_master = "/Users/justin/.gemini/antigravity/scratch/Phoenix-SIH26177-SAR-UAV/presentation/Team_Phoenix_SIH26177_Official_Deck.pptx"
+    prs.save(out_v2)
+    prs.save(out_master)
+    print(f"Deck successfully generated and saved to:\n  • {out_v2}\n  • {out_master}")
 
 if __name__ == "__main__":
     build_deck()

@@ -3,7 +3,8 @@
 > **Problem Statement ID:** SIH26177  
 > **Sponsoring Organization:** Qualcomm Inc.  
 > **Category:** Hardware | **Theme:** Robotics and Drones  
-> **Presentation Deck:** [`presentation/Team_Phoenix_SIH26177_Official_Deck.pptx`](presentation/Team_Phoenix_SIH26177_Official_Deck.pptx)  
+> **Master Presentation (Latest):** [`presentation/Team_Phoenix_SIH26177_Deck_v2.pptx`](presentation/Team_Phoenix_SIH26177_Deck_v2.pptx)  
+> **Slide-by-Slide Master Document & Script:** [`presentation/slide_by_slide_presentation_content_doc.md`](presentation/slide_by_slide_presentation_content_doc.md)  
 
 ---
 
@@ -35,28 +36,31 @@ The system architecture, aerodynamics, communications, and mathematical dynamics
 
 ---
 
-## 📂 Repository Directory Structure
+## 📂 Repository Directory Structure & Presentation Versioning
 
 ```text
 Phoenix-SIH26177-SAR-UAV/
-├── README.md                          # Project landing page & executive summary
+├── README.md                                      # Project landing page & executive summary
 │
-├── docs/                              # Research & System Design Documentation
-│   ├── bouabdallah_quadrotor_research_findings.md  # Synthesized EPFL thesis foundations & math
+├── docs/                                          # Research & System Design Documentation
+│   ├── bouabdallah_quadrotor_research_findings.md # Synthesized EPFL thesis foundations & math
 │   ├── ros_lora_mission_critical_uav_swarm_research.md # Elsevier 2024 ROS-LoRa architecture
-│   ├── aerodynamic_airfoil_considerations.md       # NASA TM-4741 airfoil & rotor selection
-│   ├── problem_statement_analysis.md  # Qualcomm problem statement breakdown & edge cases
-│   ├── system_architecture.md         # Full subsystem block diagrams & data flows
-│   └── references.bib                 # Academic and technical citations (BibTeX)
+│   ├── aerodynamic_airfoil_considerations.md    # NASA TM-4741 airfoil & rotor selection
+│   ├── problem_statement_analysis.md              # Qualcomm problem statement breakdown & edge cases
+│   ├── system_architecture.md                     # Full subsystem block diagrams & data flows
+│   └── references.bib                             # Academic and technical citations (BibTeX)
 │
-├── presentation/                      # SIH PPT Presentation & Defense Assets
-│   ├── Team_Phoenix_SIH26177_Official_Deck.pptx   # Official SIH PowerPoint Presentation
-│   ├── generate_deck.py               # Programmatic PPTX builder script
-│   └── sih_presentation_outline.md   # Slide-by-slide script & pitch talking points
+├── presentation/                                  # SIH PPT Presentation Decks & Defense Assets
+│   ├── Team_Phoenix_SIH26177_Deck_v2.pptx         # Latest Master Deck (THULYA-style visual cards)
+│   ├── Team_Phoenix_SIH26177_Deck_v1.pptx         # Initial Baseline Deck (Preserved)
+│   ├── Team_Phoenix_SIH26177_Official_Deck.pptx   # Master Deck Pointer
+│   ├── slide_by_slide_presentation_content_doc.md # Slide-by-slide master text & verbal pitch scripts
+│   ├── sih_presentation_outline.md               # Quick bullet-point presentation outline
+│   └── generate_deck.py                           # Programmatic PPTX builder script
 │
-└── hardware_bom/                      # Engineering Sizing & Feasibility
-    ├── component_sizing_matrix.md     # Motor KV, propeller size, and battery sizing models
-    └── preliminary_cost_estimate.md   # Tiered Bill of Materials (BOM)
+└── hardware_bom/                                  # Engineering Sizing & Feasibility
+    ├── component_sizing_matrix.md                 # Motor KV, propeller size, and battery sizing models
+    └── preliminary_cost_estimate.md               # Tiered Bill of Materials (BOM)
 ```
 
 ---
