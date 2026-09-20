@@ -15,16 +15,17 @@ The platform is engineered to operate in **GPS-denied, communication-constrained
 
 ## 🚀 Key Theoretical Pillars & Research Foundations
 
-The system architecture and mathematical dynamics are built upon the foundational work by **Dr. Samir Bouabdallah** (*Design and Control of Quadrotors with Application to Autonomous Flying*, EPFL Thesis No. 3727, 2007).
+The system architecture, aerodynamics, and mathematical dynamics are built upon rigorous aerospace and robotics foundations:
 
-* **12-State Rigid Body Dynamics:** Complete 6-DOF nonlinear equations of motion incorporating rotor gyroscopic precession and actuator dynamic lag.
+* **12-State Rigid Body Dynamics & Sizing:** Complete 6-DOF nonlinear equations of motion incorporating rotor gyroscopic precession, actuator dynamic lag, and sizing optimization rules from **Dr. Samir Bouabdallah** (*EPFL Thesis No. 3727, 2007*).
 * **Camera-to-Ground Ray-Casting Geolocation:** Utilizing the complete Tait-Bryan rotation matrix $R(\phi, \theta, \psi)$ to project 2D camera detections into ground GPS coordinates without hovering directly overhead.
 * **Cascaded Dual-Loop Spectral Separation:** Decoupled inner attitude loop (100–250 Hz) and outer position navigation loop (20–50 Hz).
-* **System Sizing Optimization:** Designed with a $2:1$ thrust-to-weight ratio ($\beta \ge 2.0$) and an optimal $35\%-44\%$ battery mass fraction.
+* **Rotor Airfoil Selection & Vibration Control:** Grounded in **NASA TM-4741** (Langley Research Center), utilizing zero-pitching-moment ($C_{m, c/4} = 0$) reflexed/semi-symmetric airfoils to eliminate torsional blade flutter and protect flight controller IMUs.
 * **Disaster-Resilient Heading (Anti-Compass Drift):** Overcomes motor current and reinforced steel magnetic distortions by fusing Visual-Inertial Odometry (VIO) / Optical Flow with rate gyros.
 
 For full mathematical derivations, design indicators, and benchmarks, see:  
-📖 **[`docs/bouabdallah_quadrotor_research_findings.md`](docs/bouabdallah_quadrotor_research_findings.md)**
+📖 **[`docs/bouabdallah_quadrotor_research_findings.md`](docs/bouabdallah_quadrotor_research_findings.md)**  
+📖 **[`docs/aerodynamic_airfoil_considerations.md`](docs/aerodynamic_airfoil_considerations.md)**
 
 ---
 
@@ -36,9 +37,10 @@ Phoenix-SIH26177-SAR-UAV/
 │
 ├── docs/                              # Research & System Design Documentation
 │   ├── bouabdallah_quadrotor_research_findings.md  # Synthesized EPFL thesis foundations & math
+│   ├── aerodynamic_airfoil_considerations.md       # NASA TM-4741 airfoil & rotor selection principles
 │   ├── problem_statement_analysis.md  # Qualcomm problem statement breakdown & edge cases
 │   ├── system_architecture.md         # Full subsystem block diagrams & data flows
-│   └── references.bib                 # Academic and technical citations
+│   └── references.bib                 # Academic and technical citations (BibTeX)
 │
 ├── presentation/                      # SIH PPT Presentation & Defense Assets
 │   ├── sih_presentation_outline.md   # Slide-by-slide script & pitch talking points
@@ -64,4 +66,5 @@ Phoenix-SIH26177-SAR-UAV/
 
 ## 📚 References
 * Bouabdallah, S. (2007). *Design and Control of Quadrotors with Application to Autonomous Flying*. Doctoral Thesis No. 3727, École Polytechnique Fédérale de Lausanne (EPFL).
+* Ladson, C. L., Brooks, C. W., Hill, A. S., & Sproles, D. W. (1996). *Computer Program To Obtain Ordinates for NACA Airfoils*. NASA Technical Memorandum 4741, NASA Langley Research Center.
 * Bouabdallah, S., & Siegwart, R. (2005). *Backstepping and Sliding-Mode Techniques Applied to an Indoor Micro Quadrotor*. IEEE ICRA.
