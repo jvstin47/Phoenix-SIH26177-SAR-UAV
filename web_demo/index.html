@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" class="dark">
+<html lang="en" class="light">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,6 +49,12 @@
         <button id="audio-toggle-btn" onclick="toggleAudio()" class="tech-chip hover:border-slate-500 cursor-pointer">
           <svg id="audio-icon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
           <span id="audio-label" class="text-[10px]">AUDIO: OFF</span>
+        </button>
+
+        <!-- Theme Mode Toggle (Light / Dark) -->
+        <button id="theme-toggle-btn" onclick="toggleTheme()" class="tech-chip hover:border-slate-500 cursor-pointer" title="Toggle Light/Dark Theme">
+          <span id="theme-icon">☽</span>
+          <span id="theme-label">DARK MODE</span>
         </button>
 
         <!-- Fullscreen Presentation Toggle -->
@@ -1066,7 +1072,44 @@
       }
     }
 
+    function updateThemeUI(isLight) {
+      const icon = document.getElementById('theme-icon');
+      const label = document.getElementById('theme-label');
+      if (icon && label) {
+        if (isLight) {
+          icon.textContent = '☼';
+          label.textContent = 'LIGHT MODE';
+        } else {
+          icon.textContent = '☽';
+          label.textContent = 'DARK MODE';
+        }
+      }
+    }
+
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isLight = html.classList.toggle('light');
+      localStorage.setItem('phoenix_theme', isLight ? 'light' : 'dark');
+      updateThemeUI(isLight);
+      if (window.TechShowcase && TechShowcase.drawGCS) TechShowcase.drawGCS();
+      if (window.PerceptionLab && PerceptionLab.render) PerceptionLab.render();
+      if (window.OperatorHUD && OperatorHUD.drawHUD) OperatorHUD.drawHUD();
+    }
+
+    function initTheme() {
+      const savedTheme = localStorage.getItem('phoenix_theme');
+      const html = document.documentElement;
+      if (savedTheme === 'dark') {
+        html.classList.remove('light');
+        updateThemeUI(false);
+      } else {
+        html.classList.add('light');
+        updateThemeUI(true);
+      }
+    }
+
     window.addEventListener('DOMContentLoaded', () => {
+      initTheme();
       MissionState.init();
       PerceptionLab.init();
       OperatorHUD.init();

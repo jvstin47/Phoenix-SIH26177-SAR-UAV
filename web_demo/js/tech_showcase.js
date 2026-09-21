@@ -255,6 +255,12 @@ const TechShowcase = {
     ctx.clearRect(0, 0, w, h);
 
     const cs = this.cellSize;
+    const isLight = document.documentElement.classList.contains('light');
+
+    if (isLight) {
+      ctx.fillStyle = '#F8FAFC';
+      ctx.fillRect(0, 0, w, h);
+    }
 
     // Draw Grid Cells
     for (let x = 0; x < this.gridSize; x++) {
@@ -262,9 +268,9 @@ const TechShowcase = {
         const px = x * cs + 20;
         const py = y * cs + 20;
 
-        ctx.fillStyle = '#101720';
+        ctx.fillStyle = isLight ? '#FFFFFF' : '#101720';
         ctx.fillRect(px, py, cs - 3, cs - 3);
-        ctx.strokeStyle = '#1e293b';
+        ctx.strokeStyle = isLight ? '#CBD5E1' : '#1e293b';
         ctx.strokeRect(px, py, cs - 3, cs - 3);
       }
     }
