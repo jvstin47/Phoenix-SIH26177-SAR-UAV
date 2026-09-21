@@ -55,12 +55,12 @@ const NetworkSimulator = {
     if (statusBox) {
       if (!this.internetOnline && !this.cellularOnline && this.loraOnline) {
         statusBox.innerHTML = `
-          <div class="p-3 rounded bg-slate-900 border border-slate-800 space-y-1 font-mono text-xs">
-            <div class="text-emerald-400 font-bold flex items-center space-x-1.5">
-              <span class="w-2 h-2 rounded-full bg-emerald-400"></span>
+          <div class="p-4 rounded-lg bg-slate-900 border border-slate-800 space-y-2 font-mono text-xs">
+            <div class="text-emerald-400 font-bold flex items-center space-x-2 text-sm">
+              <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
               <span>NOMINAL DISASTER OPERATIONAL MODE (100% AIR-GAPPED)</span>
             </div>
-            <p class="text-slate-400 text-[11px] leading-relaxed">
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans">
               • All neural inference runs on Qualcomm QRB2210 NPU (zero cloud latency).<br>
               • Mission-critical casualty triage packets broadcast via SX1262 LoRa direct to NDRF handheld terminals.<br>
               • High-resolution raw images logged to onboard NVMe flash (store-and-forward architecture).
@@ -69,12 +69,12 @@ const NetworkSimulator = {
         `;
       } else if (!this.loraOnline) {
         statusBox.innerHTML = `
-          <div class="p-3 rounded bg-rose-950/40 border border-rose-800 space-y-1 font-mono text-xs">
-            <div class="text-rose-400 font-bold flex items-center space-x-1.5">
-              <span class="w-2 h-2 rounded-full bg-rose-500 animate-ping"></span>
+          <div class="p-4 rounded-lg bg-rose-950/40 border border-rose-800 space-y-2 font-mono text-xs">
+            <div class="text-rose-400 font-bold flex items-center space-x-2 text-sm">
+              <span class="w-2.5 h-2.5 rounded-full bg-rose-500 animate-ping"></span>
               <span>COMPLETE RF SILENCE DETECTED (STORE-AND-FORWARD FALLBACK)</span>
             </div>
-            <p class="text-slate-400 text-[11px] leading-relaxed">
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans">
               • Autonomous survey continues under PX4 autopilot dead reckoning.<br>
               • Geotagged detections cryptographically signed (HMAC-SHA256) and held in flash memory until landing or link restoration.
             </p>
@@ -82,9 +82,9 @@ const NetworkSimulator = {
         `;
       } else {
         statusBox.innerHTML = `
-          <div class="p-3 rounded bg-slate-900 border border-slate-800 space-y-1 font-mono text-xs">
-            <div class="text-sky-400 font-bold">HYBRID CONNECTIVITY ACTIVE</div>
-            <p class="text-slate-400 text-[11px] leading-relaxed">
+          <div class="p-4 rounded-lg bg-slate-900 border border-slate-800 space-y-2 font-mono text-xs">
+            <div class="text-sky-400 font-bold text-sm">HYBRID CONNECTIVITY ACTIVE</div>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans">
               Live high-bandwidth video stream available to base camp via 5G/Wi-Fi link alongside LoRa tactical mesh telemetry.
             </p>
           </div>

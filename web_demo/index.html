@@ -13,29 +13,29 @@
   <!-- PERSISTENT TOP NAVIGATION BAR                                     -->
   <!-- ================================================================= -->
   <header class="border-b border-[#202D3B] bg-[#101720]/95 backdrop-blur-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-3">
+    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-4">
       
       <!-- System Identification -->
       <div class="flex items-center space-x-3">
-        <a href="#hero" class="flex items-center space-x-2 text-decoration-none">
-          <div class="w-7 h-7 rounded bg-sky-600 flex items-center justify-center font-mono font-bold text-white text-xs border border-sky-400/40 shadow-sm">
+        <a href="#hero" class="flex items-center space-x-3 text-decoration-none">
+          <div class="w-8 h-8 rounded-lg bg-sky-600 flex items-center justify-center font-mono font-bold text-white text-xs border border-sky-400/40 shadow-sm">
             PX
           </div>
           <div>
-            <div class="flex items-center space-x-2">
-              <span class="font-mono font-bold text-sm tracking-wider uppercase text-white">PHOENIX X</span>
-              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#141E29] text-sky-400 border border-[#283544]">SIH26177</span>
-              <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#141E29] text-amber-400 border border-[#283544]">TEAM 141943</span>
+            <div class="flex items-center space-x-2.5">
+              <span class="font-mono font-bold text-base tracking-wider uppercase text-white">PHOENIX X</span>
+              <span class="text-xs font-mono px-2 py-0.5 rounded bg-[#141E29] text-sky-400 border border-[#283544]">SIH26177</span>
+              <span class="text-xs font-mono px-2 py-0.5 rounded bg-[#141E29] text-amber-400 border border-[#283544]">TEAM 141943</span>
             </div>
-            <span class="text-[10px] text-slate-400 font-normal">Dual-Brain Edge-AI Scout // Qualcomm Inc. Hardware Edition</span>
+            <span class="text-xs text-slate-400 font-normal">Dual-Brain Edge-AI Scout // Qualcomm Inc. Hardware Edition</span>
           </div>
         </a>
       </div>
 
       <!-- Live Datalink & System Badges -->
-      <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
+      <div class="flex flex-wrap items-center gap-2.5 text-xs font-mono">
         <div class="tech-chip tech-chip-green">
-          <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
           <span>AIR-GAPPED SCOUT</span>
         </div>
         <div class="tech-chip tech-chip-blue">
@@ -48,13 +48,13 @@
         <!-- Audio Alert Toggle -->
         <button id="audio-toggle-btn" onclick="toggleAudio()" class="tech-chip hover:border-slate-500 cursor-pointer">
           <svg id="audio-icon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
-          <span id="audio-label" class="text-[10px]">AUDIO: OFF</span>
+          <span id="audio-label">AUDIO: OFF</span>
         </button>
 
         <!-- Theme Mode Toggle (Light / Dark) -->
         <button id="theme-toggle-btn" onclick="toggleTheme()" class="tech-chip hover:border-slate-500 cursor-pointer" title="Toggle Light/Dark Theme">
-          <span id="theme-icon">☽</span>
-          <span id="theme-label">DARK MODE</span>
+          <span id="theme-icon">☼</span>
+          <span id="theme-label">LIGHT MODE</span>
         </button>
 
         <!-- Fullscreen Presentation Toggle -->
@@ -66,7 +66,7 @@
     </div>
 
     <!-- Navigation Anchors Bar -->
-    <div class="max-w-7xl mx-auto px-4 flex space-x-1 overflow-x-auto border-t border-[#202D3B] text-xs font-mono">
+    <div class="max-w-7xl mx-auto px-4 flex space-x-2 overflow-x-auto border-t border-[#202D3B] text-xs font-mono font-medium">
       <a href="#mission-sim" class="px-3 py-2 text-sky-400 hover:text-white transition whitespace-nowrap">MISSION SIMULATOR</a>
       <a href="#perception-lab" class="px-3 py-2 text-slate-400 hover:text-white transition whitespace-nowrap">PERCEPTION LAB</a>
       <a href="#operator-hud" class="px-3 py-2 text-slate-400 hover:text-white transition whitespace-nowrap">TACTICAL COCKPIT</a>
@@ -80,7 +80,7 @@
   </header>
 
   <!-- Main Container -->
-  <main class="flex-1 w-full space-y-12 pb-16">
+  <main class="flex-1 w-full space-y-14 pb-20">
 
     <!-- ================================================================= -->
     <!-- SECTION A: CINEMATIC MISSION LANDING HERO                         -->
@@ -92,25 +92,25 @@
       </div>
       <div class="absolute inset-0 bg-gradient-to-r from-[#090D12] via-[#090D12]/85 to-[#090D12]/40 pointer-events-none"></div>
 
-      <div class="relative max-w-7xl mx-auto px-4 py-16 lg:py-20 grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+      <div class="relative max-w-7xl mx-auto px-4 py-16 lg:py-24 grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
         
         <!-- Left: Mission Pitch & Framing (8 Cols) -->
-        <div class="lg:col-span-8 space-y-5">
-          <div class="flex items-center space-x-2">
-            <span class="tech-chip tech-chip-blue text-[11px]">SMART INDIA HACKATHON 2026</span>
-            <span class="tech-chip text-[11px]">QUALCOMM INC. | HARDWARE EDITION</span>
+        <div class="lg:col-span-8 space-y-6">
+          <div class="flex items-center space-x-2.5">
+            <span class="tech-chip tech-chip-blue text-xs">SMART INDIA HACKATHON 2026</span>
+            <span class="tech-chip text-xs">QUALCOMM INC. | HARDWARE EDITION</span>
           </div>
 
-          <div class="space-y-2">
-            <h1 class="text-3xl lg:text-5xl font-extrabold tracking-tight text-white uppercase font-mono">
+          <div class="space-y-2.5">
+            <h1 class="text-3xl sm:text-4xl lg:text-5xl font-black uppercase font-mono tracking-wide text-white">
               PROJECT PHOENIX X
             </h1>
-            <p class="text-base lg:text-lg text-sky-400 font-medium">
+            <p class="text-base sm:text-lg lg:text-xl text-sky-400 font-semibold leading-snug">
               Dual-Brain Edge-AI Scout for Zero-Infrastructure Disaster Reconnaissance
             </p>
           </div>
 
-          <p class="text-sm lg:text-base text-slate-300 max-w-2xl leading-relaxed">
+          <p class="text-sm sm:text-base text-slate-300 max-w-2xl leading-relaxed">
             "An autonomous aerial scout engineered to detect trapped survivors, estimate their geographic location via real-time ray-casting, and guide rescue teams through hazard-free ingress corridors when conventional cellular and satellite communications are 100% inoperable."
           </p>
 
@@ -125,12 +125,12 @@
           </div>
 
           <!-- CTAs -->
-          <div class="flex flex-wrap items-center gap-3 pt-4 font-mono text-xs">
-            <a href="#mission-sim" class="px-5 py-2.5 rounded bg-sky-600 hover:bg-sky-500 text-white font-bold transition flex items-center space-x-2 shadow-lg shadow-sky-900/40">
+          <div class="flex flex-wrap items-center gap-3.5 pt-4 font-mono text-xs">
+            <a href="#mission-sim" class="px-6 py-3 rounded-lg bg-sky-600 hover:bg-sky-500 text-white font-bold transition flex items-center space-x-2 shadow-lg shadow-sky-900/40">
               <span>LAUNCH MISSION SIMULATOR</span>
               <span>➔</span>
             </a>
-            <a href="#dual-brain" class="px-4 py-2.5 rounded bg-[#141E29] hover:bg-slate-800 text-slate-300 font-medium border border-[#283544] transition">
+            <a href="#dual-brain" class="px-5 py-3 rounded-lg bg-[#141E29] hover:bg-slate-800 text-slate-300 font-semibold border border-[#283544] transition">
               EXPLORE ARCHITECTURE
             </a>
           </div>
@@ -138,36 +138,36 @@
 
         <!-- Right: Real-Time Illustrative Flight HUD Preview (4 Cols) -->
         <div class="lg:col-span-4">
-          <div class="mission-panel p-4 space-y-3 border-sky-500/30 bg-[#141E29]/90 backdrop-blur-md">
-            <div class="flex items-center justify-between border-b border-[#283544] pb-2 text-xs font-mono">
+          <div class="mission-panel p-5 space-y-4 border-sky-500/30 bg-[#141E29]/90 backdrop-blur-md">
+            <div class="flex items-center justify-between border-b border-[#283544] pb-2.5 text-xs font-mono">
               <span class="text-sky-400 font-bold">AVIONICS TELEMETRY OSD</span>
-              <span class="text-[10px] text-amber-400">[ILLUSTRATIVE TELEMETRY]</span>
+              <span class="text-xs text-amber-400 font-medium">[ILLUSTRATIVE TELEMETRY]</span>
             </div>
 
-            <div class="space-y-2 text-xs font-mono">
-              <div class="flex justify-between py-1 border-b border-slate-800/80">
+            <div class="space-y-2.5 text-xs font-mono">
+              <div class="flex justify-between py-1.5 border-b border-slate-800/80">
                 <span class="text-slate-400">FLIGHT STABILIZATION:</span>
                 <span class="text-emerald-400 font-bold">250 Hz (4ms) DETERMINISTIC</span>
               </div>
-              <div class="flex justify-between py-1 border-b border-slate-800/80">
+              <div class="flex justify-between py-1.5 border-b border-slate-800/80">
                 <span class="text-slate-400">COMPUTE ENVELOPE:</span>
                 <span class="text-sky-400 font-bold">&lt; 5.0 W (QRB2210 NPU)</span>
               </div>
-              <div class="flex justify-between py-1 border-b border-slate-800/80">
+              <div class="flex justify-between py-1.5 border-b border-slate-800/80">
                 <span class="text-slate-400">DOWNWARD LiDAR:</span>
                 <span class="text-amber-400 font-bold">28.4 m AGL (MS5611 FUSED)</span>
               </div>
-              <div class="flex justify-between py-1 border-b border-slate-800/80">
+              <div class="flex justify-between py-1.5 border-b border-slate-800/80">
                 <span class="text-slate-400">HEADING INTEGRITY:</span>
-                <span class="text-slate-200">VIO OVERRIDE (ANTI-DRIFT)</span>
+                <span class="text-slate-200 font-bold">VIO OVERRIDE (ANTI-DRIFT)</span>
               </div>
-              <div class="flex justify-between py-1">
+              <div class="flex justify-between py-1.5">
                 <span class="text-slate-400">LORA P2P BUFFER:</span>
                 <span class="text-sky-300 font-bold">17 BYTES (ZERO-CELLULAR)</span>
               </div>
             </div>
 
-            <div class="p-2 rounded bg-[#090D12] text-[10px] text-slate-400 font-mono border border-slate-800">
+            <div class="p-2.5 rounded-md bg-[#090D12] text-xs text-slate-400 font-mono border border-slate-800 leading-relaxed">
               "See the unseen. Locate the survivor. Bring rescue within reach."
             </div>
           </div>
@@ -182,212 +182,212 @@
     <!-- ================================================================= -->
     <section id="mission-sim" class="max-w-7xl mx-auto px-4 space-y-6">
       
-      <div class="mission-panel p-5 space-y-4">
+      <div class="mission-panel p-6 space-y-5">
         
-        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#283544]">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#283544]">
           <div>
-            <div class="flex items-center space-x-2">
-              <span class="text-xs font-mono font-bold px-2 py-0.5 rounded bg-sky-950 text-sky-300 border border-sky-800">CENTERPIECE WORKFLOW</span>
-              <h2 class="text-base font-bold uppercase tracking-wider text-white font-mono">End-to-End Autonomous SAR Mission Simulator</h2>
+            <div class="flex items-center space-x-2.5">
+              <span class="text-xs font-mono font-bold px-2.5 py-1 rounded bg-sky-950 text-sky-300 border border-sky-800">CENTERPIECE WORKFLOW</span>
+              <h2 class="text-lg font-bold uppercase tracking-wider text-white font-mono">End-to-End Autonomous SAR Mission Simulator</h2>
             </div>
-            <p class="text-xs text-slate-400 mt-0.5">Simulates the complete 9-stage operational pipeline from search sector assignment to ground rescue route generation.</p>
+            <p class="text-sm text-slate-400 mt-1">Simulates the complete 9-stage operational pipeline from search sector assignment to ground rescue route generation.</p>
           </div>
 
-          <div class="flex items-center space-x-2 font-mono text-xs">
-            <button onclick="MissionController.replayMission()" class="px-3 py-1.5 rounded bg-sky-700 hover:bg-sky-600 text-white font-bold transition flex items-center space-x-1.5">
+          <div class="flex items-center space-x-3 font-mono text-xs">
+            <button onclick="MissionController.replayMission()" class="px-4 py-2 rounded-md bg-sky-700 hover:bg-sky-600 text-white font-bold transition flex items-center space-x-2 shadow-sm">
               <span>▶ REPLAY FULL MISSION</span>
             </button>
-            <button onclick="MissionController.executeStepAction('reset_mission')" class="px-2.5 py-1.5 rounded bg-[#101720] hover:bg-slate-800 text-slate-400 border border-[#283544] transition">
+            <button onclick="MissionController.executeStepAction('reset_mission')" class="px-3 py-2 rounded-md bg-[#101720] hover:bg-slate-800 text-slate-300 border border-[#283544] transition font-semibold">
               RESET
             </button>
           </div>
         </div>
 
         <!-- 9-Step Interactive Flow Tracker -->
-        <div class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-1.5 font-mono text-center text-[10px]">
-          <div id="sim-step-node-1" onclick="MissionController.jumpToStep(1)" class="timeline-step p-2 rounded border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
-            <div class="text-slate-500 font-bold">01</div>
-            <div class="text-slate-300">SECTOR</div>
+        <div class="grid grid-cols-3 sm:grid-cols-5 lg:grid-cols-9 gap-2.5 font-mono text-center">
+          <div id="sim-step-node-1" onclick="MissionController.jumpToStep(1)" class="timeline-step p-2.5 sm:p-3 rounded-lg border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
+            <div class="text-xs text-slate-500 font-bold mb-0.5">01</div>
+            <div class="text-xs font-semibold tracking-wider text-slate-300">SECTOR</div>
           </div>
-          <div id="sim-step-node-2" onclick="MissionController.jumpToStep(2)" class="timeline-step p-2 rounded border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
-            <div class="text-slate-500 font-bold">02</div>
-            <div class="text-slate-300">SWEEP</div>
+          <div id="sim-step-node-2" onclick="MissionController.jumpToStep(2)" class="timeline-step p-2.5 sm:p-3 rounded-lg border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
+            <div class="text-xs text-slate-500 font-bold mb-0.5">02</div>
+            <div class="text-xs font-semibold tracking-wider text-slate-300">SWEEP</div>
           </div>
-          <div id="sim-step-node-3" onclick="MissionController.jumpToStep(3)" class="timeline-step p-2 rounded border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
-            <div class="text-slate-500 font-bold">03</div>
-            <div class="text-slate-300">DETECTION</div>
+          <div id="sim-step-node-3" onclick="MissionController.jumpToStep(3)" class="timeline-step p-2.5 sm:p-3 rounded-lg border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
+            <div class="text-xs text-slate-500 font-bold mb-0.5">03</div>
+            <div class="text-xs font-semibold tracking-wider text-slate-300">DETECTION</div>
           </div>
-          <div id="sim-step-node-4" onclick="MissionController.jumpToStep(4)" class="timeline-step p-2 rounded border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
-            <div class="text-slate-500 font-bold">04</div>
-            <div class="text-slate-300">RAY-CAST</div>
+          <div id="sim-step-node-4" onclick="MissionController.jumpToStep(4)" class="timeline-step p-2.5 sm:p-3 rounded-lg border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
+            <div class="text-xs text-slate-500 font-bold mb-0.5">04</div>
+            <div class="text-xs font-semibold tracking-wider text-slate-300">RAY-CAST</div>
           </div>
-          <div id="sim-step-node-5" onclick="MissionController.jumpToStep(5)" class="timeline-step p-2 rounded border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
-            <div class="text-slate-500 font-bold">05</div>
-            <div class="text-slate-300">17-BYTE LORA</div>
+          <div id="sim-step-node-5" onclick="MissionController.jumpToStep(5)" class="timeline-step p-2.5 sm:p-3 rounded-lg border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
+            <div class="text-xs text-slate-500 font-bold mb-0.5">05</div>
+            <div class="text-xs font-semibold tracking-wider text-slate-300">17-BYTE LORA</div>
           </div>
-          <div id="sim-step-node-6" onclick="MissionController.jumpToStep(6)" class="timeline-step p-2 rounded border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
-            <div class="text-slate-500 font-bold">06</div>
-            <div class="text-slate-300">TRANSMIT</div>
+          <div id="sim-step-node-6" onclick="MissionController.jumpToStep(6)" class="timeline-step p-2.5 sm:p-3 rounded-lg border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
+            <div class="text-xs text-slate-500 font-bold mb-0.5">06</div>
+            <div class="text-xs font-semibold tracking-wider text-slate-300">TRANSMIT</div>
           </div>
-          <div id="sim-step-node-7" onclick="MissionController.jumpToStep(7)" class="timeline-step p-2 rounded border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
-            <div class="text-slate-500 font-bold">07</div>
-            <div class="text-slate-300">TRIAGE</div>
+          <div id="sim-step-node-7" onclick="MissionController.jumpToStep(7)" class="timeline-step p-2.5 sm:p-3 rounded-lg border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
+            <div class="text-xs text-slate-500 font-bold mb-0.5">07</div>
+            <div class="text-xs font-semibold tracking-wider text-slate-300">TRIAGE</div>
           </div>
-          <div id="sim-step-node-8" onclick="MissionController.jumpToStep(8)" class="timeline-step p-2 rounded border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
-            <div class="text-slate-500 font-bold">08</div>
-            <div class="text-slate-300">ROUTING</div>
+          <div id="sim-step-node-8" onclick="MissionController.jumpToStep(8)" class="timeline-step p-2.5 sm:p-3 rounded-lg border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
+            <div class="text-xs text-slate-500 font-bold mb-0.5">08</div>
+            <div class="text-xs font-semibold tracking-wider text-slate-300">ROUTING</div>
           </div>
-          <div id="sim-step-node-9" onclick="MissionController.jumpToStep(9)" class="timeline-step p-2 rounded border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
-            <div class="text-slate-500 font-bold">09</div>
-            <div class="text-slate-300">DEBRIEF</div>
+          <div id="sim-step-node-9" onclick="MissionController.jumpToStep(9)" class="timeline-step p-2.5 sm:p-3 rounded-lg border border-slate-800 bg-[#101720] cursor-pointer hover:border-slate-600 transition">
+            <div class="text-xs text-slate-500 font-bold mb-0.5">09</div>
+            <div class="text-xs font-semibold tracking-wider text-slate-300">DEBRIEF</div>
           </div>
         </div>
 
         <!-- Dynamic Step Action Card Container -->
-        <div class="p-4 rounded bg-[#101720] border border-[#283544] min-h-[160px] flex items-center">
+        <div class="p-6 rounded-lg bg-[#101720] border border-[#283544] min-h-[175px] flex items-center">
           
           <!-- STEP 1: Sector Selection -->
-          <div id="sim-step-card-1" class="w-full space-y-3">
+          <div id="sim-step-card-1" class="w-full space-y-4">
             <div class="flex justify-between items-center text-xs font-mono">
-              <span class="text-sky-400 font-bold">STAGE 1: SEARCH POLYGON ASSIGNMENT</span>
-              <span class="text-slate-400">TARGET: 2.0 km² SECTOR</span>
+              <span class="text-sky-400 font-bold text-sm">STAGE 1: SEARCH POLYGON ASSIGNMENT</span>
+              <span class="text-slate-400 font-medium">TARGET: 2.0 km² SECTOR</span>
             </div>
-            <p class="text-xs text-slate-300">Operator assigns the 2.0 km² disaster search boundary on the offline tablet. The drone initializes pre-flight gyro calibration and NPNT digital sky compliance.</p>
-            <div class="flex flex-wrap gap-2 pt-1 font-mono text-xs">
-              <button onclick="MissionState.selectSector('SEC-01A')" class="px-3 py-1.5 rounded bg-[#141E29] border border-slate-700 hover:border-sky-500 text-slate-300">Sector 1A (1.8 km²)</button>
-              <button onclick="MissionState.selectSector('SEC-01B')" class="px-3 py-1.5 rounded bg-sky-900/60 border border-sky-500 text-white font-bold">Sector 1B (2.0 km² High Priority)</button>
-              <button onclick="MissionState.selectSector('SEC-01C')" class="px-3 py-1.5 rounded bg-[#141E29] border border-slate-700 hover:border-sky-500 text-slate-300">Sector 1C (1.5 km²)</button>
-              <button onclick="MissionController.executeStepAction('start_sweep')" class="ml-auto px-4 py-1.5 rounded bg-sky-600 hover:bg-sky-500 text-white font-bold transition">
+            <p class="text-sm text-slate-300 leading-relaxed">Operator assigns the 2.0 km² disaster search boundary on the offline tablet. The drone initializes pre-flight gyro calibration and NPNT digital sky compliance.</p>
+            <div class="flex flex-wrap gap-2.5 pt-1 font-mono text-xs">
+              <button onclick="MissionState.selectSector('SEC-01A')" class="px-3.5 py-2 rounded-md bg-[#141E29] border border-slate-700 hover:border-sky-500 text-slate-300 transition">Sector 1A (1.8 km²)</button>
+              <button onclick="MissionState.selectSector('SEC-01B')" class="px-3.5 py-2 rounded-md bg-sky-900/60 border border-sky-500 text-white font-bold transition">Sector 1B (2.0 km² High Priority)</button>
+              <button onclick="MissionState.selectSector('SEC-01C')" class="px-3.5 py-2 rounded-md bg-[#141E29] border border-slate-700 hover:border-sky-500 text-slate-300 transition">Sector 1C (1.5 km²)</button>
+              <button onclick="MissionController.executeStepAction('start_sweep')" class="ml-auto px-5 py-2 rounded-md bg-sky-600 hover:bg-sky-500 text-white font-bold transition shadow-sm">
                 CONFIRM & LAUNCH AUTONOMOUS SWEEP ➔
               </button>
             </div>
           </div>
 
           <!-- STEP 2: Autonomous Reconnaissance Sweep -->
-          <div id="sim-step-card-2" class="w-full space-y-3 hidden">
+          <div id="sim-step-card-2" class="w-full space-y-4 hidden">
             <div class="flex justify-between items-center text-xs font-mono">
-              <span class="text-sky-400 font-bold">STAGE 2: AUTONOMOUS GRID RECONNAISSANCE</span>
-              <span id="step2-sweep-text" class="text-emerald-400 font-bold">0% SWEEP COVERAGE</span>
+              <span class="text-sky-400 font-bold text-sm">STAGE 2: AUTONOMOUS GRID RECONNAISSANCE</span>
+              <span id="step2-sweep-text" class="text-emerald-400 font-bold text-sm">0% SWEEP COVERAGE</span>
             </div>
-            <p class="text-xs text-slate-300">STM32U5 / Zephyr RTOS executes 250 Hz deterministic flight stabilization. UAV traverses a boustrophedon lawnmower pattern at 28.4 m AGL with LiDAR terrain following.</p>
-            <div class="w-full h-2 bg-slate-800 rounded-full overflow-hidden">
+            <p class="text-sm text-slate-300 leading-relaxed">STM32U5 / Zephyr RTOS executes 250 Hz deterministic flight stabilization. UAV traverses a boustrophedon lawnmower pattern at 28.4 m AGL with LiDAR terrain following.</p>
+            <div class="w-full h-2.5 bg-slate-800 rounded-full overflow-hidden">
               <div id="step2-sweep-bar" class="h-full bg-sky-500 transition-all duration-300" style="width: 0%"></div>
             </div>
           </div>
 
           <!-- STEP 3: Candidate Detection -->
-          <div id="sim-step-card-3" class="w-full space-y-3 hidden">
+          <div id="sim-step-card-3" class="w-full space-y-4 hidden">
             <div class="flex justify-between items-center text-xs font-mono">
-              <span class="text-orange-400 font-bold">STAGE 3: THERMAL ANOMALY IDENTIFICATION</span>
-              <span class="tech-chip tech-chip-orange text-[10px]">INT8 YOLOv8 INFERENCE</span>
+              <span class="text-orange-400 font-bold text-sm">STAGE 3: THERMAL ANOMALY IDENTIFICATION</span>
+              <span class="tech-chip tech-chip-orange text-xs">INT8 YOLOv8 INFERENCE</span>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs font-mono text-slate-300">
-              <div><span class="text-slate-500">CANDIDATE:</span> <span id="step3-target-label" class="text-white font-bold">CAND-01</span></div>
-              <div><span class="text-slate-500">OPTICAL VISIBILITY:</span> <span id="step3-target-vis" class="text-amber-400 font-bold">~15%</span></div>
-              <div><span class="text-slate-500">THERMAL DELTA:</span> <span id="step3-target-temp" class="text-emerald-400 font-bold">+22.0°C</span></div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 text-xs font-mono text-slate-300">
+              <div><span class="text-slate-500">CANDIDATE:</span> <span id="step3-target-label" class="text-white font-bold text-sm ml-1">CAND-01</span></div>
+              <div><span class="text-slate-500">OPTICAL VISIBILITY:</span> <span id="step3-target-vis" class="text-amber-400 font-bold text-sm ml-1">~15%</span></div>
+              <div><span class="text-slate-500">THERMAL DELTA:</span> <span id="step3-target-temp" class="text-emerald-400 font-bold text-sm ml-1">+22.0°C</span></div>
             </div>
-            <div class="flex justify-end space-x-2 pt-2">
-              <a href="#perception-lab" class="px-3 py-1.5 rounded bg-[#141E29] border border-slate-700 text-slate-300 text-xs font-mono">INSPECT SENSOR FEEDS</a>
-              <button onclick="MissionController.executeStepAction('confirm_detection')" class="px-4 py-1.5 rounded bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs font-mono">
+            <div class="flex justify-end space-x-3 pt-2">
+              <a href="#perception-lab" class="px-4 py-2 rounded-md bg-[#141E29] border border-slate-700 text-slate-300 text-xs font-mono hover:border-sky-500 transition">INSPECT SENSOR FEEDS</a>
+              <button onclick="MissionController.executeStepAction('confirm_detection')" class="px-5 py-2 rounded-md bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs font-mono shadow-sm">
                 CONFIRM TARGET FOR RAY-CASTING ➔
               </button>
             </div>
           </div>
 
           <!-- STEP 4: Target Localization -->
-          <div id="sim-step-card-4" class="w-full space-y-3 hidden">
+          <div id="sim-step-card-4" class="w-full space-y-4 hidden">
             <div class="flex justify-between items-center text-xs font-mono">
-              <span class="text-emerald-400 font-bold">STAGE 4: TAIT-BRYAN RAY-CASTING GEOLOCATION</span>
-              <span class="tech-chip tech-chip-green text-[10px]">GROUND INTERSECTION RESOLVED</span>
+              <span class="text-emerald-400 font-bold text-sm">STAGE 4: TAIT-BRYAN RAY-CASTING GEOLOCATION</span>
+              <span class="tech-chip tech-chip-green text-xs">GROUND INTERSECTION RESOLVED</span>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-mono">
-              <div><span class="text-slate-400">DERIVED WGS-84 COORDS:</span> <span id="step4-target-coords" class="text-emerald-400 font-bold">11.581240° N, 76.128450° E</span></div>
-              <div><span class="text-slate-400">ESTIMATED SEP UNCERTAINTY:</span> <span id="step4-target-err" class="text-amber-400 font-bold">± 2.1 m</span></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs font-mono">
+              <div><span class="text-slate-400">DERIVED WGS-84 COORDS:</span> <span id="step4-target-coords" class="text-emerald-400 font-bold text-sm ml-1">11.581240° N, 76.128450° E</span></div>
+              <div><span class="text-slate-400">ESTIMATED SEP UNCERTAINTY:</span> <span id="step4-target-err" class="text-amber-400 font-bold text-sm ml-1">± 2.1 m</span></div>
             </div>
-            <div class="flex justify-end space-x-2 pt-1">
-              <a href="#operator-hud" class="px-3 py-1.5 rounded bg-[#141E29] border border-slate-700 text-slate-300 text-xs font-mono">VIEW TACTICAL COCKPIT HUD</a>
-              <button onclick="MissionController.jumpToStep(5)" class="px-4 py-1.5 rounded bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs font-mono">
+            <div class="flex justify-end space-x-3 pt-1">
+              <a href="#operator-hud" class="px-4 py-2 rounded-md bg-[#141E29] border border-slate-700 text-slate-300 text-xs font-mono hover:border-sky-500 transition">VIEW TACTICAL COCKPIT HUD</a>
+              <button onclick="MissionController.jumpToStep(5)" class="px-5 py-2 rounded-md bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs font-mono shadow-sm">
                 PROCEED TO TELEMETRY ENCODING ➔
               </button>
             </div>
           </div>
 
           <!-- STEP 5: 17-Byte Telemetry Encoding -->
-          <div id="sim-step-card-5" class="w-full space-y-3 hidden">
+          <div id="sim-step-card-5" class="w-full space-y-4 hidden">
             <div class="flex justify-between items-center text-xs font-mono">
-              <span class="text-sky-400 font-bold">STAGE 5: 17-BYTE BINARY PACKET SERIALIZATION</span>
-              <span class="tech-chip text-[10px]">SOULI ET AL. (2024) PROTOCOL</span>
+              <span class="text-sky-400 font-bold text-sm">STAGE 5: 17-BYTE BINARY PACKET SERIALIZATION</span>
+              <span class="tech-chip text-xs">SOULI ET AL. (2024) PROTOCOL</span>
             </div>
-            <div class="p-2.5 rounded bg-[#090D12] border border-slate-800 text-xs font-mono">
+            <div class="p-3.5 rounded-md bg-[#090D12] border border-slate-800 text-xs font-mono">
               <span class="text-slate-400">SERIALIZED FRAME:</span>
-              <span id="step5-packet-hex" class="text-amber-300 font-bold ml-2">50 41 39 4C CD 42 98 41 89 01 1C 4F 4E 30 70 A4 12</span>
+              <span id="step5-packet-hex" class="text-amber-300 font-bold text-sm ml-2 tracking-wider">50 41 39 4C CD 42 98 41 89 01 1C 4F 4E 30 70 A4 12</span>
             </div>
-            <div class="flex justify-end space-x-2">
-              <a href="#lora-inspector" class="px-3 py-1.5 rounded bg-[#141E29] border border-slate-700 text-slate-300 text-xs font-mono">INSPECT RAW BYTES</a>
-              <button onclick="MissionController.executeStepAction('transmit_lora')" class="px-4 py-1.5 rounded bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs font-mono">
+            <div class="flex justify-end space-x-3">
+              <a href="#lora-inspector" class="px-4 py-2 rounded-md bg-[#141E29] border border-slate-700 text-slate-300 text-xs font-mono hover:border-sky-500 transition">INSPECT RAW BYTES</a>
+              <button onclick="MissionController.executeStepAction('transmit_lora')" class="px-5 py-2 rounded-md bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs font-mono shadow-sm">
                 SIMULATE OFF-GRID LORA TRANSMISSION ➔
               </button>
             </div>
           </div>
 
           <!-- STEP 6: LoRa Transmission -->
-          <div id="sim-step-card-6" class="w-full space-y-3 hidden">
+          <div id="sim-step-card-6" class="w-full space-y-4 hidden">
             <div class="flex justify-between items-center text-xs font-mono">
-              <span class="text-amber-400 font-bold">STAGE 6: ZERO-INFRASTRUCTURE P2P TRANSMISSION</span>
-              <span class="tech-chip tech-chip-orange text-[10px]">868 MHz SX1262 RADIO</span>
+              <span class="text-amber-400 font-bold text-sm">STAGE 6: ZERO-INFRASTRUCTURE P2P TRANSMISSION</span>
+              <span class="tech-chip tech-chip-orange text-xs">868 MHz SX1262 RADIO</span>
             </div>
-            <p class="text-xs text-slate-300">Broadcasting 17-byte packet across disaster rubble without cellular backhaul. P2P link verified over 3–5 km range.</p>
+            <p class="text-sm text-slate-300 leading-relaxed">Broadcasting 17-byte packet across disaster rubble without cellular backhaul. P2P link verified over 3–5 km range.</p>
             <div class="flex justify-end">
-              <button onclick="MissionController.jumpToStep(7)" class="px-4 py-1.5 rounded bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs font-mono">
+              <button onclick="MissionController.jumpToStep(7)" class="px-5 py-2 rounded-md bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs font-mono shadow-sm">
                 VIEW GROUND STATION RECEPTION ➔
               </button>
             </div>
           </div>
 
           <!-- STEP 7: Ground Station Triage -->
-          <div id="sim-step-card-7" class="w-full space-y-3 hidden">
+          <div id="sim-step-card-7" class="w-full space-y-4 hidden">
             <div class="flex justify-between items-center text-xs font-mono">
-              <span class="text-rose-400 font-bold">STAGE 7: INCIDENT COMMAND TRIAGE PRIORITIZATION</span>
-              <span class="tech-chip text-[10px] text-rose-400 border-rose-800">PRIORITY CODE RED</span>
+              <span class="text-rose-400 font-bold text-sm">STAGE 7: INCIDENT COMMAND TRIAGE PRIORITIZATION</span>
+              <span class="tech-chip text-rose-400 border-rose-800 text-xs font-semibold">PRIORITY CODE RED</span>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs font-mono">
-              <div><span class="text-slate-400">RECEIVED TARGET:</span> <span id="step7-triage-coords" class="text-emerald-400 font-bold">11.581240° N, 76.128450° E</span></div>
-              <div><span class="text-slate-400">TRIAGE CLASSIFICATION:</span> <span class="text-rose-400 font-bold">CRITICAL ENTRAPMENT</span></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-mono">
+              <div><span class="text-slate-400">RECEIVED TARGET:</span> <span id="step7-triage-coords" class="text-emerald-400 font-bold text-sm ml-1">11.581240° N, 76.128450° E</span></div>
+              <div><span class="text-slate-400">TRIAGE CLASSIFICATION:</span> <span class="text-rose-400 font-bold text-sm ml-1">CRITICAL ENTRAPMENT</span></div>
             </div>
             <div class="flex justify-end">
-              <button onclick="MissionController.executeStepAction('calculate_route')" class="px-4 py-1.5 rounded bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs font-mono">
+              <button onclick="MissionController.executeStepAction('calculate_route')" class="px-5 py-2 rounded-md bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs font-mono shadow-sm">
                 GENERATE DIJKSTRA SAFE RESCUE ROUTE ➔
               </button>
             </div>
           </div>
 
           <!-- STEP 8: Dijkstra Rescue Routing -->
-          <div id="sim-step-card-8" class="w-full space-y-3 hidden">
+          <div id="sim-step-card-8" class="w-full space-y-4 hidden">
             <div class="flex justify-between items-center text-xs font-mono">
-              <span class="text-emerald-400 font-bold">STAGE 8: HAZARD-AWARE INGRESS ROUTE</span>
-              <span class="tech-chip tech-chip-green text-[10px]">ZERO-HAZARD GROUND CORRIDOR</span>
+              <span class="text-emerald-400 font-bold text-sm">STAGE 8: HAZARD-AWARE INGRESS ROUTE</span>
+              <span class="tech-chip tech-chip-green text-xs">ZERO-HAZARD GROUND CORRIDOR</span>
             </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-2 text-xs font-mono">
-              <div><span class="text-slate-400">TRAVERSED DISTANCE:</span> <span id="step8-route-dist" class="text-emerald-400 font-bold">480 m</span></div>
-              <div><span class="text-slate-400">ESTIMATED EVACUATION TIME:</span> <span id="step8-route-time" class="text-slate-200 font-bold">~6.5 min</span></div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-3 text-xs font-mono">
+              <div><span class="text-slate-400">TRAVERSED DISTANCE:</span> <span id="step8-route-dist" class="text-emerald-400 font-bold text-sm ml-1">480 m</span></div>
+              <div><span class="text-slate-400">ESTIMATED EVACUATION TIME:</span> <span id="step8-route-time" class="text-slate-200 font-bold text-sm ml-1">~6.5 min</span></div>
             </div>
-            <div class="flex justify-end space-x-2">
-              <a href="#tactical-routing" class="px-3 py-1.5 rounded bg-[#141E29] border border-slate-700 text-slate-300 text-xs font-mono">VIEW TACTICAL GCS MAP</a>
-              <button onclick="MissionController.executeStepAction('complete_mission')" class="px-4 py-1.5 rounded bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs font-mono">
+            <div class="flex justify-end space-x-3">
+              <a href="#tactical-routing" class="px-4 py-2 rounded-md bg-[#141E29] border border-slate-700 text-slate-300 text-xs font-mono hover:border-sky-500 transition">VIEW TACTICAL GCS MAP</a>
+              <button onclick="MissionController.executeStepAction('complete_mission')" class="px-5 py-2 rounded-md bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs font-mono shadow-sm">
                 COMPLETE MISSION & GENERATE REPORT ➔
               </button>
             </div>
           </div>
 
           <!-- STEP 9: Mission Summary Report -->
-          <div id="sim-step-card-9" class="w-full space-y-3 hidden">
+          <div id="sim-step-card-9" class="w-full space-y-4 hidden">
             <div class="flex justify-between items-center text-xs font-mono">
-              <span class="text-emerald-400 font-bold">STAGE 9: OPERATIONAL MISSION DEBRIEF</span>
-              <span class="tech-chip tech-chip-green text-[10px]">MISSION COMPLETE</span>
+              <span class="text-emerald-400 font-bold text-sm">STAGE 9: OPERATIONAL MISSION DEBRIEF</span>
+              <span class="tech-chip tech-chip-green text-xs">MISSION COMPLETE</span>
             </div>
-            <p class="text-xs text-slate-300">Complete autonomous reconnaissance loop executed without cloud or cellular infrastructure. Survivor localized and ground rescue team guided to coordinates safely.</p>
-            <div class="flex justify-end space-x-2">
-              <button onclick="MissionController.executeStepAction('reset_mission')" class="px-4 py-1.5 rounded bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs font-mono">
+            <p class="text-sm text-slate-300 leading-relaxed">Complete autonomous reconnaissance loop executed without cloud or cellular infrastructure. Survivor localized and ground rescue team guided to coordinates safely.</p>
+            <div class="flex justify-end space-x-3">
+              <button onclick="MissionController.executeStepAction('reset_mission')" class="px-5 py-2 rounded-md bg-sky-600 hover:bg-sky-500 text-white font-bold text-xs font-mono shadow-sm">
                 START NEW MISSION RECON ➔
               </button>
             </div>
@@ -403,87 +403,87 @@
     <!-- ================================================================= -->
     <!-- SECTION C: MULTISPECTRAL PERCEPTION LAB                           -->
     <!-- ================================================================= -->
-    <section id="perception-lab" class="max-w-7xl mx-auto px-4 space-y-4">
+    <section id="perception-lab" class="max-w-7xl mx-auto px-4 space-y-6">
       
-      <div class="mission-panel p-5 space-y-4">
+      <div class="mission-panel p-6 space-y-5">
         
-        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#283544]">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#283544]">
           <div>
-            <div class="flex items-center space-x-2">
-              <span class="tech-chip tech-chip-orange text-[10px]">MODULE 01</span>
-              <h2 class="text-base font-bold uppercase tracking-wider text-white font-mono">Multispectral Perception Lab</h2>
+            <div class="flex items-center space-x-2.5">
+              <span class="tech-chip tech-chip-orange text-xs">MODULE 01</span>
+              <h2 class="text-lg font-bold uppercase tracking-wider text-white font-mono">Multispectral Perception Lab</h2>
             </div>
-            <p class="text-xs text-slate-400 mt-0.5">Interactive co-registered analysis comparing 4K Visible (EO) and Radiometric LWIR Thermal (8–14 μm).</p>
+            <p class="text-sm text-slate-400 mt-1">Interactive co-registered analysis comparing 4K Visible (EO) and Radiometric LWIR Thermal (8–14 μm).</p>
           </div>
 
           <!-- Scenario Archetype Selector -->
-          <div class="flex flex-wrap gap-1.5 font-mono text-xs">
-            <button onclick="PerceptionLab.setScenario('landslide')" class="px-3 py-1 rounded border border-slate-700 bg-slate-800 text-slate-300 hover:border-sky-500">1. Torrential Mudflow</button>
-            <button onclick="PerceptionLab.setScenario('collapse')" class="px-3 py-1 rounded border border-slate-700 bg-slate-800 text-slate-300 hover:border-sky-500">2. Concrete Collapse</button>
-            <button onclick="PerceptionLab.setScenario('smoke_wire')" class="px-3 py-1 rounded border border-slate-700 bg-slate-800 text-slate-300 hover:border-sky-500">3. Night Smoke & Wire</button>
+          <div class="flex flex-wrap gap-2 font-mono text-xs">
+            <button onclick="PerceptionLab.setScenario('landslide')" class="px-3.5 py-1.5 rounded-md border border-slate-700 bg-slate-800 text-slate-300 hover:border-sky-500 font-semibold transition">1. Torrential Mudflow</button>
+            <button onclick="PerceptionLab.setScenario('collapse')" class="px-3.5 py-1.5 rounded-md border border-slate-700 bg-slate-800 text-slate-300 hover:border-sky-500 font-semibold transition">2. Concrete Collapse</button>
+            <button onclick="PerceptionLab.setScenario('smoke_wire')" class="px-3.5 py-1.5 rounded-md border border-slate-700 bg-slate-800 text-slate-300 hover:border-sky-500 font-semibold transition">3. Night Smoke & Wire</button>
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
           
           <!-- Left: Large Workstation (8 Cols) -->
-          <div class="lg:col-span-8 space-y-3">
+          <div class="lg:col-span-8 space-y-4">
             
-            <div class="flex flex-wrap items-center justify-between gap-2 text-xs font-mono">
+            <div class="flex flex-wrap items-center justify-between gap-3 text-xs font-mono">
               <div class="flex items-center space-x-2">
-                <span class="text-slate-400">BLEND MODE:</span>
-                <button id="btn-mode-split" onclick="PerceptionLab.setOverlayMode('split')" class="mode-btn px-2.5 py-0.5 rounded bg-sky-700 text-white border border-sky-500">Split Wipe</button>
-                <button id="btn-mode-blend" onclick="PerceptionLab.setOverlayMode('blend')" class="mode-btn px-2.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">Continuous Alpha</button>
-                <button id="btn-mode-edge" onclick="PerceptionLab.setOverlayMode('edge')" class="mode-btn px-2.5 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700">Edge Fusion</button>
+                <span class="text-slate-400 font-semibold">BLEND MODE:</span>
+                <button id="btn-mode-split" onclick="PerceptionLab.setOverlayMode('split')" class="mode-btn px-3 py-1 rounded-md bg-sky-700 text-white border border-sky-500 font-semibold">Split Wipe</button>
+                <button id="btn-mode-blend" onclick="PerceptionLab.setOverlayMode('blend')" class="mode-btn px-3 py-1 rounded-md bg-slate-800 text-slate-400 border border-slate-700 font-semibold">Continuous Alpha</button>
+                <button id="btn-mode-edge" onclick="PerceptionLab.setOverlayMode('edge')" class="mode-btn px-3 py-1 rounded-md bg-slate-800 text-slate-400 border border-slate-700 font-semibold">Edge Fusion</button>
               </div>
 
               <!-- Thermal Palette Switcher -->
-              <div class="flex items-center space-x-1.5">
-                <span class="text-slate-400">PALETTE:</span>
-                <button id="btn-pal-ironbow" onclick="PerceptionLab.setPalette('ironbow')" class="palette-btn px-2 py-0.5 rounded border border-sky-500 text-sky-400 text-[10px]">Ironbow</button>
-                <button id="btn-pal-whitehot" onclick="PerceptionLab.setPalette('whitehot')" class="palette-btn px-2 py-0.5 rounded border border-slate-700 text-slate-400 text-[10px]">White-Hot</button>
-                <button id="btn-pal-blackhot" onclick="PerceptionLab.setPalette('blackhot')" class="palette-btn px-2 py-0.5 rounded border border-slate-700 text-slate-400 text-[10px]">Black-Hot</button>
+              <div class="flex items-center space-x-2">
+                <span class="text-slate-400 font-semibold">PALETTE:</span>
+                <button id="btn-pal-ironbow" onclick="PerceptionLab.setPalette('ironbow')" class="palette-btn px-2.5 py-1 rounded-md border border-sky-500 text-sky-400 text-xs font-semibold">Ironbow</button>
+                <button id="btn-pal-whitehot" onclick="PerceptionLab.setPalette('whitehot')" class="palette-btn px-2.5 py-1 rounded-md border border-slate-700 text-slate-400 text-xs font-semibold">White-Hot</button>
+                <button id="btn-pal-blackhot" onclick="PerceptionLab.setPalette('blackhot')" class="palette-btn px-2.5 py-1 rounded-md border border-slate-700 text-slate-400 text-xs font-semibold">Black-Hot</button>
               </div>
             </div>
 
             <!-- Canvas Viewport -->
-            <div class="relative rounded overflow-hidden bg-black aspect-[7/4.2] border border-[#283544]">
+            <div class="relative rounded-lg overflow-hidden bg-black aspect-[7/4.2] border border-[#283544]">
               <canvas id="canvas-fused" width="720" height="430" class="w-full h-full cursor-crosshair"></canvas>
               
               <!-- Spot Temperature Tooltip -->
-              <div class="absolute bottom-2 left-2 bg-[#101720]/90 px-3 py-1 rounded border border-[#283544] font-mono text-xs flex items-center space-x-3 pointer-events-none">
+              <div class="absolute bottom-3 left-3 bg-[#101720]/90 px-3.5 py-1.5 rounded-md border border-[#283544] font-mono text-xs flex items-center space-x-4 pointer-events-none">
                 <div>
-                  <span class="text-slate-500 text-[10px]">CALIBRATED SPOT:</span>
-                  <span id="spot-temp-readout" class="font-bold text-white ml-1">--.- °C</span>
+                  <span class="text-slate-400 font-medium">CALIBRATED SPOT:</span>
+                  <span id="spot-temp-readout" class="font-bold text-white text-sm ml-1">--.- °C</span>
                 </div>
                 <div>
-                  <span class="text-slate-500 text-[10px]">CLASSIFICATION:</span>
-                  <span id="spot-class-readout" class="font-bold text-sky-400 ml-1">STANDBY</span>
+                  <span class="text-slate-400 font-medium">CLASSIFICATION:</span>
+                  <span id="spot-class-readout" class="font-bold text-sky-400 text-sm ml-1">STANDBY</span>
                 </div>
               </div>
 
               <!-- Thermal Scale -->
-              <div class="absolute bottom-2 right-2 bg-[#101720]/90 px-2 py-1 rounded border border-[#283544] font-mono text-[9px] flex items-center space-x-2 pointer-events-none">
-                <span class="text-slate-400">14°C</span>
-                <div class="w-20 h-1.5 rounded-sm palette-ironbow"></div>
+              <div class="absolute bottom-3 right-3 bg-[#101720]/90 px-3 py-1.5 rounded-md border border-[#283544] font-mono text-xs flex items-center space-x-2.5 pointer-events-none">
+                <span class="text-slate-400 font-medium">14°C</span>
+                <div class="w-24 h-2 rounded-sm palette-ironbow"></div>
                 <span class="text-white font-bold">40°C+</span>
               </div>
             </div>
 
             <!-- Slider Control -->
-            <div id="split-control-panel" class="pt-2 space-y-1">
-              <div class="flex justify-between text-[11px] font-mono text-slate-400">
+            <div id="split-control-panel" class="pt-2 space-y-2">
+              <div class="flex justify-between text-xs font-mono text-slate-400 font-medium">
                 <span class="text-sky-400 font-bold">◄ 4K DAYLIGHT EO (VISIBLE)</span>
-                <span class="text-slate-500 text-[10px]">DRAG TO PEEL OPTICAL LAYER AND REVEAL UNDERLYING HEAT SIGNATURE</span>
+                <span class="text-slate-400">DRAG SLIDER TO REVEAL UNDERLYING RADIOMETRIC HEAT SIGNATURE</span>
                 <span class="text-orange-400 font-bold">RADIOMETRIC LWIR (8–14μm) ►</span>
               </div>
               <input id="split-slider" type="range" min="0" max="100" value="50" class="w-full mission-slider cursor-pointer">
             </div>
 
-            <div id="blend-control-panel" class="pt-2 space-y-1 hidden">
-              <div class="flex justify-between text-[11px] font-mono text-slate-400">
+            <div id="blend-control-panel" class="pt-2 space-y-2 hidden">
+              <div class="flex justify-between text-xs font-mono text-slate-400 font-medium">
                 <span>0% (PURE EO)</span>
-                <span class="text-orange-400 font-semibold">THERMAL RADIATION LAYER OPACITY</span>
+                <span class="text-orange-400 font-bold">THERMAL RADIATION LAYER OPACITY</span>
                 <span>100% (PURE IR)</span>
               </div>
               <input id="blend-slider" type="range" min="0" max="100" value="70" class="w-full mission-slider cursor-pointer">
@@ -492,36 +492,36 @@
           </div>
 
           <!-- Right: Physics & Separate Channel Feeds (4 Cols) -->
-          <div class="lg:col-span-4 space-y-3">
+          <div class="lg:col-span-4 space-y-4">
             
             <!-- Scientific Physics Callout -->
-            <div class="p-3 rounded bg-[#101720] border border-[#283544] space-y-1.5">
+            <div class="p-4 rounded-lg bg-[#101720] border border-[#283544] space-y-2">
               <div class="flex items-center space-x-2 text-xs font-mono">
-                <span class="text-amber-400 font-bold">LWIR THERMAL PHYSICS IN DISASTER SAR</span>
+                <span class="text-amber-400 font-bold text-xs tracking-wider">LWIR THERMAL PHYSICS IN DISASTER SAR</span>
               </div>
-              <p class="text-[11px] text-slate-300 leading-relaxed">
+              <p class="text-xs sm:text-sm text-slate-300 leading-relaxed">
                 Long-Wave Infrared (8–14 μm) microbolometers measure emitted surface blackbody radiation. They do <span class="text-rose-400 font-bold">NOT</span> see through solid opaque concrete or deep soil. Rather, thermal sensors isolate the living 37.0°C body heat radiated through void openings, fissures, or shallow mud cover where optical cameras suffer total contrast failure.
               </p>
             </div>
 
             <!-- Channel 1: Optical RGB -->
-            <div class="p-2.5 rounded bg-[#101720] border border-[#283544] space-y-1">
+            <div class="p-3.5 rounded-lg bg-[#101720] border border-[#283544] space-y-2">
               <div class="flex justify-between text-xs font-mono">
-                <span class="text-slate-300 font-bold">PAYLOAD EO: DAYLIGHT OPTICAL</span>
-                <span class="text-[10px] text-slate-500">400–700 nm</span>
+                <span class="text-slate-200 font-bold">PAYLOAD EO: DAYLIGHT OPTICAL</span>
+                <span class="text-slate-400 font-medium">400–700 nm</span>
               </div>
-              <div class="rounded overflow-hidden aspect-[7/4.2] bg-black border border-slate-800">
+              <div class="rounded-md overflow-hidden aspect-[7/4.2] bg-black border border-slate-800">
                 <canvas id="canvas-rgb" width="350" height="210" class="w-full h-full"></canvas>
               </div>
             </div>
 
             <!-- Channel 2: Thermal LWIR -->
-            <div class="p-2.5 rounded bg-[#101720] border border-[#283544] space-y-1">
+            <div class="p-3.5 rounded-lg bg-[#101720] border border-[#283544] space-y-2">
               <div class="flex justify-between text-xs font-mono">
                 <span class="text-orange-400 font-bold">PAYLOAD IR: RADIOMETRIC LWIR</span>
-                <span class="text-[10px] text-slate-500">8–14 μm &lt;50mK</span>
+                <span class="text-slate-400 font-medium">8–14 μm &lt;50mK</span>
               </div>
-              <div class="rounded overflow-hidden aspect-[7/4.2] bg-black border border-slate-800">
+              <div class="rounded-md overflow-hidden aspect-[7/4.2] bg-black border border-slate-800">
                 <canvas id="canvas-thermal" width="350" height="210" class="w-full h-full"></canvas>
               </div>
             </div>
@@ -538,67 +538,67 @@
     <!-- ================================================================= -->
     <!-- SECTION D: OPERATOR TACTICAL COCKPIT (FPV)                        -->
     <!-- ================================================================= -->
-    <section id="operator-hud" class="max-w-7xl mx-auto px-4 space-y-4">
+    <section id="operator-hud" class="max-w-7xl mx-auto px-4 space-y-6">
       
-      <div class="mission-panel p-5 space-y-4">
+      <div class="mission-panel p-6 space-y-5">
         
-        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#283544]">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#283544]">
           <div>
-            <div class="flex items-center space-x-2">
-              <span class="tech-chip tech-chip-blue text-[10px]">MODULE 02</span>
-              <h2 class="text-base font-bold uppercase tracking-wider text-white font-mono">Operator Primary Flight Display (PFD) & Ray-Caster</h2>
+            <div class="flex items-center space-x-2.5">
+              <span class="tech-chip tech-chip-blue text-xs">MODULE 02</span>
+              <h2 class="text-lg font-bold uppercase tracking-wider text-white font-mono">Operator Primary Flight Display (PFD) & Ray-Caster</h2>
             </div>
-            <p class="text-xs text-slate-400 mt-0.5">Simulates first-person pilot reconnaissance feed. Click anywhere on the viewport to calculate real ground WGS-84 coordinates.</p>
+            <p class="text-sm text-slate-400 mt-1">Simulates first-person pilot reconnaissance feed. Click anywhere on the viewport to calculate real ground WGS-84 coordinates.</p>
           </div>
 
-          <div class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded border border-emerald-800">
+          <div class="text-xs font-mono font-semibold text-emerald-400 bg-emerald-950/60 px-3.5 py-1.5 rounded-md border border-emerald-800">
             CLICK ON VIEWPORT TO EXECUTE RAY-CASTING
           </div>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
           
           <!-- Cockpit Viewport (8 Cols) -->
-          <div class="lg:col-span-8 relative rounded overflow-hidden bg-black aspect-[7/4.2] border border-[#283544]">
+          <div class="lg:col-span-8 relative rounded-lg overflow-hidden bg-black aspect-[7/4.2] border border-[#283544]">
             <canvas id="canvas-hud" width="700" height="420" class="w-full h-full cursor-crosshair"></canvas>
-            <div class="absolute bottom-2 left-2 bg-[#101720]/90 px-2.5 py-1 rounded border border-[#283544] text-[10px] font-mono text-slate-400 pointer-events-none">
+            <div class="absolute bottom-3 left-3 bg-[#101720]/90 px-3 py-1.5 rounded-md border border-[#283544] text-xs font-mono text-slate-400 pointer-events-none">
               TAIT-BRYAN RAY-CASTER: CLICK AN OBJECT TO RESOLVE GROUND GPS
             </div>
           </div>
 
           <!-- Telemetry & Math Breakdown (4 Cols) -->
-          <div class="lg:col-span-4 space-y-3">
+          <div class="lg:col-span-4 space-y-4">
             
-            <div class="p-3.5 rounded bg-[#101720] border border-[#283544] space-y-2">
-              <div class="flex items-center justify-between border-b border-slate-800 pb-1 text-xs font-mono">
-                <span class="text-emerald-400 font-bold">TAIT-BRYAN GROUND PROJECTION</span>
-                <span class="text-[10px] text-slate-400 font-mono">WGS-84 LOCK</span>
+            <div class="p-4 rounded-lg bg-[#101720] border border-[#283544] space-y-3">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-2 text-xs font-mono">
+                <span class="text-emerald-400 font-bold text-sm">TAIT-BRYAN GROUND PROJECTION</span>
+                <span class="text-slate-400 font-mono font-semibold">WGS-84 LOCK</span>
               </div>
 
-              <div class="space-y-1 text-xs font-mono">
+              <div class="space-y-2 text-xs font-mono">
                 <div class="flex justify-between">
                   <span class="text-slate-400">CAMERA PIXEL (u, v):</span>
-                  <span id="raycast-pixel" class="text-white font-bold">[u: 350, v: 210]</span>
+                  <span id="raycast-pixel" class="text-white font-bold text-sm">[u: 350, v: 210]</span>
                 </div>
                 <div class="flex justify-between">
                   <span class="text-slate-400">DERIVED GROUND COORDS:</span>
-                  <span id="raycast-coords" class="text-emerald-400 font-bold">11.581240° N, 76.128450° E</span>
+                  <span id="raycast-coords" class="text-emerald-400 font-bold text-sm">11.581240° N, 76.128450° E</span>
                 </div>
                 <div class="flex justify-between">
                   <span class="text-slate-400">SLANT RANGE DISTANCE:</span>
-                  <span id="raycast-dist" class="text-slate-300">28.4 m</span>
+                  <span id="raycast-dist" class="text-slate-200 font-semibold text-sm">28.4 m</span>
                 </div>
                 <div class="flex justify-between">
                   <span class="text-slate-400">SEP UNCERTAINTY (95%):</span>
-                  <span id="raycast-err" class="text-amber-400 font-bold">± 2.1 m (Simulation Est.)</span>
+                  <span id="raycast-err" class="text-amber-400 font-bold text-sm">± 2.1 m (Simulation Est.)</span>
                 </div>
               </div>
 
               <!-- Mathematical Derivation -->
-              <div class="pt-2 border-t border-slate-800 space-y-1">
-                <span class="text-[10px] font-bold text-sky-400 font-mono">HOW THE COORDINATE WAS CALCULATED:</span>
-                <div id="math-step-breakdown" class="p-2 rounded bg-[#090D12] border border-slate-800/80">
-                  <div class="font-mono text-[9px] text-slate-400 leading-normal">
+              <div class="pt-2 border-t border-slate-800 space-y-1.5">
+                <span class="text-xs font-bold text-sky-400 font-mono block">HOW THE COORDINATE WAS CALCULATED:</span>
+                <div id="math-step-breakdown" class="p-3 rounded-md bg-[#090D12] border border-slate-800/80">
+                  <div class="font-mono text-xs text-slate-300 leading-relaxed">
                     P_target = P_uav + (H_agl / r_W,z) * (R_body^world * R_gimbal^body * K⁻¹[u, v, 1]ᵀ)
                   </div>
                 </div>
@@ -606,21 +606,21 @@
             </div>
 
             <!-- Drone Attitude Sliders -->
-            <div class="p-3 rounded bg-[#101720] border border-[#283544] space-y-2">
-              <span class="text-xs font-bold text-slate-300 font-mono block">ATTITUDE & SENSOR PARAMETERS</span>
+            <div class="p-4 rounded-lg bg-[#101720] border border-[#283544] space-y-3">
+              <span class="text-xs font-bold text-slate-300 font-mono block tracking-wider">ATTITUDE & SENSOR PARAMETERS</span>
 
-              <div class="space-y-1 text-xs font-mono">
-                <div class="flex justify-between text-[11px]">
+              <div class="space-y-1.5 text-xs font-mono">
+                <div class="flex justify-between">
                   <span class="text-slate-400">Gimbal Pitch (θ):</span>
-                  <span id="hud-pitch-val" class="text-sky-300">-2.5°</span>
+                  <span id="hud-pitch-val" class="text-sky-300 font-bold text-sm">-2.5°</span>
                 </div>
                 <input id="hud-pitch-slider" type="range" min="-45" max="15" value="-2.5" step="0.5" class="w-full mission-slider cursor-pointer">
               </div>
 
-              <div class="space-y-1 text-xs font-mono">
-                <div class="flex justify-between text-[11px]">
+              <div class="space-y-1.5 text-xs font-mono">
+                <div class="flex justify-between">
                   <span class="text-slate-400">LiDAR Altitude AGL:</span>
-                  <span id="hud-alt-val" class="text-amber-400 font-bold">28.4m</span>
+                  <span id="hud-alt-val" class="text-amber-400 font-bold text-sm">28.4m</span>
                 </div>
                 <input id="hud-alt-slider" type="range" min="10" max="80" value="28.4" step="1" class="w-full mission-slider cursor-pointer">
               </div>
@@ -638,53 +638,53 @@
     <!-- ================================================================= -->
     <!-- SECTION E: DUAL-BRAIN ARCHITECTURE EXPLORER (ARDUINO UNO Q)       -->
     <!-- ================================================================= -->
-    <section id="dual-brain" class="max-w-7xl mx-auto px-4 space-y-4">
+    <section id="dual-brain" class="max-w-7xl mx-auto px-4 space-y-6">
       
-      <div class="mission-panel p-5 space-y-4">
+      <div class="mission-panel p-6 space-y-5">
         
-        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#283544]">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#283544]">
           <div>
-            <div class="flex items-center space-x-2">
-              <span class="tech-chip tech-chip-blue text-[10px]">MODULE 03</span>
-              <h2 class="text-base font-bold uppercase tracking-wider text-white font-mono">Dual-Brain Hardware Architecture Explorer</h2>
+            <div class="flex items-center space-x-2.5">
+              <span class="tech-chip tech-chip-blue text-xs">MODULE 03</span>
+              <h2 class="text-lg font-bold uppercase tracking-wider text-white font-mono">Dual-Brain Hardware Architecture Explorer</h2>
             </div>
-            <p class="text-xs text-slate-400 mt-0.5">Physical AI compute partition on the Arduino UNO Q decoupling high-level Linux vision from hard real-time flight stabilization.</p>
+            <p class="text-sm text-slate-400 mt-1">Physical AI compute partition on the Arduino UNO Q decoupling high-level Linux vision from hard real-time flight stabilization.</p>
           </div>
 
-          <span class="tech-chip text-slate-300 text-xs font-mono">40 GRAM ALL-UP HARDWARE SPLIT</span>
+          <span class="tech-chip text-slate-300 text-xs font-mono font-semibold">40 GRAM ALL-UP HARDWARE SPLIT</span>
         </div>
 
         <!-- Architecture Block Diagram & Inspector -->
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
           
           <!-- Chips Buttons (4 Cols) -->
-          <div class="lg:col-span-4 space-y-2 font-mono text-xs">
-            <button id="btn-chip-qrb2210" onclick="TechShowcase.inspectChip('qrb2210')" class="chip-selector w-full p-3.5 rounded border border-sky-500 bg-sky-950/40 text-left transition space-y-1">
+          <div class="lg:col-span-4 space-y-3 font-mono text-xs">
+            <button id="btn-chip-qrb2210" onclick="TechShowcase.inspectChip('qrb2210')" class="chip-selector w-full p-4 rounded-lg border border-sky-500 bg-sky-950/40 text-left transition space-y-1.5 cursor-pointer shadow-sm">
               <div class="flex justify-between items-center">
-                <span class="font-bold text-sky-400">MISSION COMPUTER</span>
-                <span class="text-[9px] px-1.5 py-0.5 rounded bg-sky-900 text-sky-200">&lt;5W NPU</span>
+                <span class="font-bold text-sky-400 text-xs tracking-wider">MISSION COMPUTER</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-sky-900 text-sky-200 font-bold">&lt;5W NPU</span>
               </div>
-              <div class="font-bold text-sm text-white">Qualcomm Dragonwing QRB2210</div>
-              <p class="text-[11px] text-slate-400">Linux, INT8 YOLO, Ray-Caster, LoRa Driver</p>
+              <div class="font-bold text-base text-white">Qualcomm Dragonwing QRB2210</div>
+              <p class="text-xs text-slate-400 leading-normal">Linux, INT8 YOLO, Ray-Caster, LoRa Driver</p>
             </button>
 
-            <button id="btn-chip-stm32u5" onclick="TechShowcase.inspectChip('stm32u5')" class="chip-selector w-full p-3.5 rounded border border-slate-700 bg-slate-900/60 text-left transition space-y-1">
+            <button id="btn-chip-stm32u5" onclick="TechShowcase.inspectChip('stm32u5')" class="chip-selector w-full p-4 rounded-lg border border-slate-700 bg-slate-900/60 text-left transition space-y-1.5 cursor-pointer">
               <div class="flex justify-between items-center">
-                <span class="font-bold text-emerald-400">FLIGHT MANAGEMENT UNIT</span>
-                <span class="text-[9px] px-1.5 py-0.5 rounded bg-emerald-900 text-emerald-200">250 Hz RTOS</span>
+                <span class="font-bold text-emerald-400 text-xs tracking-wider">FLIGHT MANAGEMENT UNIT</span>
+                <span class="text-xs px-2 py-0.5 rounded bg-emerald-900 text-emerald-200 font-bold">250 Hz RTOS</span>
               </div>
-              <div class="font-bold text-sm text-white">STM32U585 MCU (Zephyr RTOS)</div>
-              <p class="text-[11px] text-slate-400">Hard real-time 4ms loop, ESC PWM, IMU, LiDAR</p>
+              <div class="font-bold text-base text-white">STM32U585 MCU (Zephyr RTOS)</div>
+              <p class="text-xs text-slate-400 leading-normal">Hard real-time 4ms loop, ESC PWM, IMU, LiDAR</p>
             </button>
 
-            <div class="p-3 rounded bg-[#101720] border border-[#283544] text-[11px] text-slate-400">
-              <span class="text-amber-400 font-bold block mb-1">INTER-BRAIN RPC BRIDGE:</span>
+            <div class="p-3.5 rounded-lg bg-[#101720] border border-[#283544] text-xs text-slate-300 leading-relaxed font-sans">
+              <span class="text-amber-400 font-bold block mb-1 font-mono text-xs tracking-wider">INTER-BRAIN RPC BRIDGE:</span>
               Asynchronous non-blocking message queue prevents Linux OS kernel stalls from ever delaying critical 250 Hz motor stabilization.
             </div>
           </div>
 
           <!-- Dynamic Chip Inspector Panel (8 Cols) -->
-          <div class="lg:col-span-8 p-4 rounded bg-[#101720] border border-[#283544]">
+          <div class="lg:col-span-8 p-5 rounded-lg bg-[#101720] border border-[#283544]">
             <div id="chip-inspector-content">
               <!-- Dynamically populated by TechShowcase.inspectChip() -->
             </div>
@@ -700,46 +700,46 @@
     <!-- ================================================================= -->
     <!-- SECTION F: 17-BYTE TELEMETRY INSPECTOR                            -->
     <!-- ================================================================= -->
-    <section id="lora-inspector" class="max-w-7xl mx-auto px-4 space-y-4">
+    <section id="lora-inspector" class="max-w-7xl mx-auto px-4 space-y-6">
       
-      <div class="mission-panel p-5 space-y-4">
+      <div class="mission-panel p-6 space-y-5">
         
-        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#283544]">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#283544]">
           <div>
-            <div class="flex items-center space-x-2">
-              <span class="tech-chip tech-chip-orange text-[10px]">MODULE 04</span>
-              <h2 class="text-base font-bold uppercase tracking-wider text-white font-mono">17-Byte Binary LoRa Telemetry Protocol</h2>
+            <div class="flex items-center space-x-2.5">
+              <span class="tech-chip tech-chip-orange text-xs">MODULE 04</span>
+              <h2 class="text-lg font-bold uppercase tracking-wider text-white font-mono">17-Byte Binary LoRa Telemetry Protocol</h2>
             </div>
-            <p class="text-xs text-slate-400 mt-0.5">Direct peer-to-peer binary frame encoding based on Souli et al. (Elsevier, 2024). Verifiable 17-byte footprint.</p>
+            <p class="text-sm text-slate-400 mt-1">Direct peer-to-peer binary frame encoding based on Souli et al. (Elsevier, 2024). Verifiable 17-byte footprint.</p>
           </div>
 
           <div class="flex items-center space-x-2 font-mono text-xs">
-            <button onclick="TechShowcase.transmitLoRaPacket()" class="px-3.5 py-1.5 rounded bg-amber-600 hover:bg-amber-500 text-white font-bold transition flex items-center space-x-1.5">
+            <button onclick="TechShowcase.transmitLoRaPacket()" class="px-4 py-2 rounded-md bg-amber-600 hover:bg-amber-500 text-white font-bold transition flex items-center space-x-2 shadow-sm">
               <span>TRANSMIT TEST BURST</span>
               <span>🔊</span>
             </button>
           </div>
         </div>
 
-        <div class="p-3 rounded bg-[#101720] border border-[#283544] space-y-3 font-mono">
-          <div class="flex flex-wrap items-center justify-between gap-2 pb-2 border-b border-slate-800 text-xs">
-            <span class="text-slate-400">RAW SERIALIZED HEXADECIMAL:</span>
-            <span id="lora-hex-string" class="text-amber-300 font-bold tracking-widest text-sm">50 41 39 4C CD 42 98 41 89 01 1C 4F 4E 30 70 A4 12</span>
-            <span id="lora-transmit-status" class="text-emerald-400 text-xs">READY FOR TRANSMISSION</span>
+        <div class="p-4 rounded-lg bg-[#101720] border border-[#283544] space-y-4 font-mono">
+          <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800 text-xs">
+            <span class="text-slate-400 font-semibold">RAW SERIALIZED HEXADECIMAL:</span>
+            <span id="lora-hex-string" class="text-amber-300 font-bold tracking-widest text-base">50 41 39 4C CD 42 98 41 89 01 1C 4F 4E 30 70 A4 12</span>
+            <span id="lora-transmit-status" class="text-emerald-400 text-xs font-semibold">READY FOR TRANSMISSION</span>
           </div>
 
           <!-- Byte-by-Byte Visualizer -->
-          <div class="space-y-1">
-            <span class="text-[10px] text-slate-400 font-bold block">17-BYTE FIELD ALLOCATION:</span>
-            <div id="lora-bytes-container" class="flex flex-wrap gap-1">
+          <div class="space-y-2">
+            <span class="text-xs text-slate-400 font-bold block tracking-wider">17-BYTE FIELD ALLOCATION:</span>
+            <div id="lora-bytes-container" class="flex flex-wrap gap-1.5">
               <!-- Rendered dynamically by TechShowcase.updateLoRaDisplay() -->
             </div>
           </div>
 
-          <div class="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2 text-[10px] text-slate-400 border-t border-slate-800">
-            <div><span class="text-sky-400 font-bold">Bytes 0–8:</span> Header ('P') + Float32 Latitude + Float32 Longitude</div>
-            <div><span class="text-sky-400 font-bold">Bytes 9–12:</span> Int16 Altitude (decimeters) + Bit-Packed Triage + Battery%</div>
-            <div><span class="text-sky-400 font-bold">Bytes 13–16:</span> Uint16 Heading (centidegrees) + HMAC-SHA256 Checksum</div>
+          <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-3 text-xs text-slate-300 border-t border-slate-800 leading-relaxed font-sans">
+            <div><span class="text-sky-400 font-bold font-mono">Bytes 0–8:</span> Header ('P') + Float32 Latitude + Float32 Longitude</div>
+            <div><span class="text-sky-400 font-bold font-mono">Bytes 9–12:</span> Int16 Altitude (decimeters) + Bit-Packed Triage + Battery%</div>
+            <div><span class="text-sky-400 font-bold font-mono">Bytes 13–16:</span> Uint16 Heading (centidegrees) + HMAC-SHA256 Checksum</div>
           </div>
         </div>
 
@@ -751,69 +751,71 @@
     <!-- ================================================================= -->
     <!-- SECTION G: TACTICAL COMMAND & DIJKSTRA INGRESS ROUTING            -->
     <!-- ================================================================= -->
-    <section id="tactical-routing" class="max-w-7xl mx-auto px-4 space-y-4">
+    <section id="tactical-routing" class="max-w-7xl mx-auto px-4 space-y-6">
       
-      <div class="mission-panel p-5 space-y-4">
+      <div class="mission-panel p-6 space-y-5">
         
-        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#283544]">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#283544]">
           <div>
-            <div class="flex items-center space-x-2">
-              <span class="tech-chip tech-chip-green text-[10px]">MODULE 05</span>
-              <h2 class="text-base font-bold uppercase tracking-wider text-white font-mono">Tactical GCS & Dijkstra Ingress Routing</h2>
+            <div class="flex items-center space-x-2.5">
+              <span class="tech-chip tech-chip-green text-xs">MODULE 05</span>
+              <h2 class="text-lg font-bold uppercase tracking-wider text-white font-mono">Tactical GCS & Dijkstra Ingress Routing</h2>
             </div>
-            <p class="text-xs text-slate-400 mt-0.5">Offline ground terminal evaluating classified hazard perimeters to generate safe ingress paths for NDRF responders.</p>
+            <p class="text-sm text-slate-400 mt-1">Offline ground terminal evaluating classified hazard perimeters to generate safe ingress paths for NDRF responders.</p>
           </div>
 
-          <button onclick="TechShowcase.runDijkstra(); TechShowcase.drawGCS();" class="tech-chip tech-chip-green cursor-pointer text-xs font-mono">
+          <button onclick="TechShowcase.runDijkstra(); TechShowcase.drawGCS();" class="tech-chip tech-chip-green cursor-pointer text-xs font-mono font-semibold px-3.5 py-1.5 shadow-sm">
             RECALCULATE DIJKSTRA PATH ➔
           </button>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-5">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
           
           <!-- Tactical Map (7 Cols) -->
-          <div class="lg:col-span-7 p-3 rounded bg-[#090D12] border border-[#283544] flex flex-col items-center justify-center">
-            <canvas id="canvas-gcs" width="400" height="400" class="rounded border border-slate-800"></canvas>
-            <div class="flex flex-wrap items-center justify-center gap-3 mt-3 text-[10px] font-mono text-slate-400">
-              <span class="flex items-center space-x-1"><span class="w-2 h-2 rounded-full bg-[#4DA3FF]"></span><span>Base Camp (Start)</span></span>
-              <span class="flex items-center space-x-1"><span class="w-2 h-2 rounded-full bg-[#FF4D4F]"></span><span>Survivor Location</span></span>
-              <span class="flex items-center space-x-1"><span class="w-2 h-2 bg-amber-500"></span><span>11kV Wire</span></span>
-              <span class="flex items-center space-x-1"><span class="w-2 h-2 bg-rose-500"></span><span>Fire Zone</span></span>
-              <span class="flex items-center space-x-1"><span class="w-2 h-2 bg-sky-400"></span><span>Deep Flood</span></span>
-              <span class="flex items-center space-x-1"><span class="w-3 h-0.5 bg-[#6BCB9A]"></span><span>Dijkstra Path</span></span>
+          <div class="lg:col-span-7 p-4 rounded-lg bg-[#090D12] border border-[#283544] flex flex-col items-center justify-center">
+            <canvas id="canvas-gcs" width="400" height="400" class="rounded-md border border-slate-800"></canvas>
+            <div class="flex flex-wrap items-center justify-center gap-3.5 mt-3.5 text-xs font-mono text-slate-400 font-medium">
+              <span class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#4DA3FF]"></span><span>Base Camp (Start)</span></span>
+              <span class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 rounded-full bg-[#FF4D4F]"></span><span>Survivor Location</span></span>
+              <span class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 bg-amber-500 rounded-sm"></span><span>11kV Wire</span></span>
+              <span class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 bg-rose-500 rounded-sm"></span><span>Fire Zone</span></span>
+              <span class="flex items-center space-x-1.5"><span class="w-2.5 h-2.5 bg-sky-400 rounded-sm"></span><span>Deep Flood</span></span>
+              <span class="flex items-center space-x-1.5"><span class="w-3.5 h-1 bg-[#6BCB9A] rounded-full"></span><span>Dijkstra Path</span></span>
             </div>
           </div>
 
           <!-- Route Stats & Triage Card (5 Cols) -->
-          <div class="lg:col-span-5 space-y-3">
+          <div class="lg:col-span-5 space-y-4">
             
-            <div class="p-3.5 rounded bg-[#101720] border border-rose-900/40 space-y-1.5 font-mono text-xs">
-              <div class="flex justify-between items-center pb-1 border-b border-slate-800">
-                <span class="font-bold text-white">PRIORITY CASUALTY RECORD</span>
-                <span class="tech-chip text-rose-400 border-rose-800 text-[10px]">CODE RED</span>
+            <div class="p-4 rounded-lg bg-[#101720] border border-rose-900/40 space-y-2 font-mono text-xs">
+              <div class="flex justify-between items-center pb-2 border-b border-slate-800">
+                <span class="font-bold text-white text-sm">PRIORITY CASUALTY RECORD</span>
+                <span class="tech-chip text-rose-400 border-rose-800 text-xs font-bold">CODE RED</span>
               </div>
-              <div><span class="text-slate-400">TARGET:</span> <span class="text-white font-bold">Trapped in collapsed void</span></div>
-              <div><span class="text-slate-400">WGS-84 COORDS:</span> <span class="text-emerald-400 font-bold">11.581240° N, 76.128450° E</span></div>
-              <div><span class="text-slate-400">THERMAL READING:</span> <span class="text-amber-400 font-bold">37.0°C (Confirmed Biological Lock)</span></div>
+              <div class="space-y-1">
+                <div><span class="text-slate-400">TARGET:</span> <span class="text-white font-bold ml-1">Trapped in collapsed void</span></div>
+                <div><span class="text-slate-400">WGS-84 COORDS:</span> <span class="text-emerald-400 font-bold ml-1">11.581240° N, 76.128450° E</span></div>
+                <div><span class="text-slate-400">THERMAL READING:</span> <span class="text-amber-400 font-bold ml-1">37.0°C (Biological Lock)</span></div>
+              </div>
             </div>
 
-            <div class="p-3.5 rounded bg-[#101720] border border-[#283544] space-y-2 font-mono text-xs">
-              <span class="font-bold text-slate-200 block">ROUTING COMPUTATION SUMMARY</span>
-              <div class="space-y-1 text-[11px]">
+            <div class="p-4 rounded-lg bg-[#101720] border border-[#283544] space-y-3 font-mono text-xs">
+              <span class="font-bold text-slate-200 block text-xs tracking-wider">ROUTING COMPUTATION SUMMARY</span>
+              <div class="space-y-2 text-xs">
                 <div class="flex justify-between">
                   <span class="text-slate-400">DIRECT DISTANCE (LOS):</span>
-                  <span id="route-direct-dist" class="text-slate-300">320 m</span>
+                  <span id="route-direct-dist" class="text-slate-200 font-semibold text-sm">320 m</span>
                 </div>
                 <div class="flex justify-between">
                   <span class="text-slate-400">HAZARD-FREE ROUTED DISTANCE:</span>
-                  <span id="route-path-dist" class="text-emerald-400 font-bold">480 m</span>
+                  <span id="route-path-dist" class="text-emerald-400 font-bold text-sm">480 m</span>
                 </div>
                 <div class="flex justify-between">
                   <span class="text-slate-400">ESTIMATED EVACUATION TIME:</span>
-                  <span id="route-est-time" class="text-sky-300 font-bold">~6.5 min</span>
+                  <span id="route-est-time" class="text-sky-300 font-bold text-sm">~6.5 min</span>
                 </div>
               </div>
-              <p class="text-[10px] text-slate-400 leading-relaxed pt-1 border-t border-slate-800">
+              <p class="text-xs text-slate-400 leading-relaxed pt-2 border-t border-slate-800 font-sans">
                 Algorithm evaluates real-time hazard polygons and routes ground rescue squads safely around live power lines and smoldering collapse zones.
               </p>
             </div>
@@ -830,20 +832,20 @@
     <!-- ================================================================= -->
     <!-- SECTION H: MISSION EVENT TIMELINE & REPLAY                        -->
     <!-- ================================================================= -->
-    <section id="timeline" class="max-w-7xl mx-auto px-4 space-y-4">
+    <section id="timeline" class="max-w-7xl mx-auto px-4 space-y-6">
       
-      <div class="mission-panel p-5 space-y-3">
-        <div class="flex justify-between items-center pb-2 border-b border-[#283544]">
-          <div class="flex items-center space-x-2 font-mono text-xs">
-            <span class="tech-chip text-[10px]">CHRONOLOGY</span>
-            <h2 class="text-sm font-bold uppercase tracking-wider text-white">Mission Operational Event Log</h2>
+      <div class="mission-panel p-6 space-y-4">
+        <div class="flex justify-between items-center pb-3 border-b border-[#283544]">
+          <div class="flex items-center space-x-2.5 font-mono text-xs">
+            <span class="tech-chip text-xs">CHRONOLOGY</span>
+            <h2 class="text-base font-bold uppercase tracking-wider text-white">Mission Operational Event Log</h2>
           </div>
-          <button onclick="MissionController.replayMission()" class="tech-chip tech-chip-blue text-xs cursor-pointer">
+          <button onclick="MissionController.replayMission()" class="tech-chip tech-chip-blue text-xs cursor-pointer font-semibold px-3 py-1.5">
             RUN FULL REPLAY
           </button>
         </div>
 
-        <div id="mission-timeline-container" class="max-h-60 overflow-y-auto space-y-1 pr-2">
+        <div id="mission-timeline-container" class="max-h-64 overflow-y-auto space-y-1.5 pr-2">
           <!-- Populated dynamically by MissionController.renderTimeline() -->
         </div>
       </div>
@@ -854,25 +856,25 @@
     <!-- ================================================================= -->
     <!-- SECTION I: NETWORK-DENIAL RESILIENCE SIMULATOR                    -->
     <!-- ================================================================= -->
-    <section id="network-denial" class="max-w-7xl mx-auto px-4 space-y-4">
+    <section id="network-denial" class="max-w-7xl mx-auto px-4 space-y-6">
       
-      <div class="mission-panel p-5 space-y-4">
+      <div class="mission-panel p-6 space-y-5">
         
-        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#283544]">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#283544]">
           <div>
-            <div class="flex items-center space-x-2">
-              <span class="tech-chip tech-chip-green text-[10px]">ZERO-INFRASTRUCTURE</span>
-              <h2 class="text-base font-bold uppercase tracking-wider text-white font-mono">Communication Resilience & Network-Denial Simulator</h2>
+            <div class="flex items-center space-x-2.5">
+              <span class="tech-chip tech-chip-green text-xs">ZERO-INFRASTRUCTURE</span>
+              <h2 class="text-lg font-bold uppercase tracking-wider text-white font-mono">Communication Resilience & Network-Denial Simulator</h2>
             </div>
-            <p class="text-xs text-slate-400 mt-0.5">Toggle network availability to observe how Project Phoenix X maintains full operational capability during complete grid blackout.</p>
+            <p class="text-sm text-slate-400 mt-1">Toggle network availability to observe how Project Phoenix X maintains full operational capability during complete grid blackout.</p>
           </div>
         </div>
 
         <!-- Network Toggle Buttons -->
         <div class="flex flex-wrap gap-3 font-mono text-xs">
-          <button id="net-toggle-internet" onclick="NetworkSimulator.toggleNetwork('internet')" class="tech-chip cursor-pointer"></button>
-          <button id="net-toggle-cellular" onclick="NetworkSimulator.toggleNetwork('cellular')" class="tech-chip cursor-pointer"></button>
-          <button id="net-toggle-lora" onclick="NetworkSimulator.toggleNetwork('lora')" class="tech-chip cursor-pointer"></button>
+          <button id="net-toggle-internet" onclick="NetworkSimulator.toggleNetwork('internet')" class="tech-chip cursor-pointer px-3.5 py-1.5"></button>
+          <button id="net-toggle-cellular" onclick="NetworkSimulator.toggleNetwork('cellular')" class="tech-chip cursor-pointer px-3.5 py-1.5"></button>
+          <button id="net-toggle-lora" onclick="NetworkSimulator.toggleNetwork('lora')" class="tech-chip cursor-pointer px-3.5 py-1.5"></button>
         </div>
 
         <!-- Dynamic Network Status Box -->
@@ -888,99 +890,99 @@
     <!-- ================================================================= -->
     <!-- SECTION J: ENGINEERING VALIDATION CENTER & DRONE ANATOMY         -->
     <!-- ================================================================= -->
-    <section id="validation" class="max-w-7xl mx-auto px-4 space-y-4">
+    <section id="validation" class="max-w-7xl mx-auto px-4 space-y-6">
       
-      <div class="mission-panel p-5 space-y-4">
+      <div class="mission-panel p-6 space-y-5">
         
-        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-[#283544]">
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#283544]">
           <div>
-            <div class="flex items-center space-x-2">
-              <span class="tech-chip text-sky-400 text-[10px]">SPECIFICATIONS</span>
-              <h2 class="text-base font-bold uppercase tracking-wider text-white font-mono">Engineering Validation Center & Hardware Anatomy</h2>
+            <div class="flex items-center space-x-2.5">
+              <span class="tech-chip text-sky-400 text-xs">SPECIFICATIONS</span>
+              <h2 class="text-lg font-bold uppercase tracking-wider text-white font-mono">Engineering Validation Center & Hardware Anatomy</h2>
             </div>
-            <p class="text-xs text-slate-400 mt-0.5">Transparent engineering accountability distinguishing targets, simulation estimates, and literature claims.</p>
+            <p class="text-sm text-slate-400 mt-1">Transparent engineering accountability distinguishing targets, simulation estimates, and literature claims.</p>
           </div>
         </div>
 
         <!-- Specifications Table -->
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto rounded-lg border border-[#283544]">
           <table class="w-full text-left font-mono text-xs border-collapse">
             <thead>
               <tr class="border-b border-[#283544] text-slate-400 bg-[#101720]">
-                <th class="p-2.5">SUBSYSTEM / METRIC</th>
-                <th class="p-2.5">TARGET / VALUE</th>
-                <th class="p-2.5">STATUS CLASSIFICATION</th>
-                <th class="p-2.5">SOURCE / METHODOLOGY</th>
+                <th class="px-4 py-3 font-bold">SUBSYSTEM / METRIC</th>
+                <th class="px-4 py-3 font-bold">TARGET / VALUE</th>
+                <th class="px-4 py-3 font-bold">STATUS CLASSIFICATION</th>
+                <th class="px-4 py-3 font-bold">SOURCE / METHODOLOGY</th>
               </tr>
             </thead>
-            <tbody class="divide-y divide-slate-800 text-slate-300 text-[11px]">
+            <tbody class="divide-y divide-slate-800 text-slate-300 text-xs sm:text-sm">
               <tr>
-                <td class="p-2.5 font-bold text-white">Edge AI Inference Power Draw</td>
-                <td class="p-2.5 text-emerald-400">&lt; 5.0 W (Active NPU)</td>
-                <td class="p-2.5"><span class="tech-chip tech-chip-blue text-[10px]">SPECIFICATION TARGET</span></td>
-                <td class="p-2.5 text-slate-400">Qualcomm Flight QRB2210 Thermal & Power Envelope</td>
+                <td class="px-4 py-3.5 font-bold text-white">Edge AI Inference Power Draw</td>
+                <td class="px-4 py-3.5 text-emerald-400 font-semibold">&lt; 5.0 W (Active NPU)</td>
+                <td class="px-4 py-3.5"><span class="tech-chip tech-chip-blue text-xs">SPECIFICATION TARGET</span></td>
+                <td class="px-4 py-3.5 text-slate-400">Qualcomm Flight QRB2210 Thermal & Power Envelope</td>
               </tr>
               <tr>
-                <td class="p-2.5 font-bold text-white">Flight Control Loop Rate</td>
-                <td class="p-2.5 text-sky-400">250 Hz (4ms period)</td>
-                <td class="p-2.5"><span class="tech-chip tech-chip-green text-[10px]">SIMULATED IN CODE</span></td>
-                <td class="p-2.5 text-slate-400">STM32U585 Hardware PWM Timers via Zephyr RTOS</td>
+                <td class="px-4 py-3.5 font-bold text-white">Flight Control Loop Rate</td>
+                <td class="px-4 py-3.5 text-sky-400 font-semibold">250 Hz (4ms period)</td>
+                <td class="px-4 py-3.5"><span class="tech-chip tech-chip-green text-xs">SIMULATED IN CODE</span></td>
+                <td class="px-4 py-3.5 text-slate-400">STM32U585 Hardware PWM Timers via Zephyr RTOS</td>
               </tr>
               <tr>
-                <td class="p-2.5 font-bold text-white">LoRa Application Payload</td>
-                <td class="p-2.5 text-amber-300">Exactly 17 Bytes</td>
-                <td class="p-2.5"><span class="tech-chip tech-chip-green text-[10px]">IMPLEMENTED IN CODE</span></td>
-                <td class="p-2.5 text-slate-400">Souli et al. (Elsevier, 2024) Binary Bit-Packing Schema</td>
+                <td class="px-4 py-3.5 font-bold text-white">LoRa Application Payload</td>
+                <td class="px-4 py-3.5 text-amber-300 font-bold">Exactly 17 Bytes</td>
+                <td class="px-4 py-3.5"><span class="tech-chip tech-chip-green text-xs">IMPLEMENTED IN CODE</span></td>
+                <td class="px-4 py-3.5 text-slate-400">Souli et al. (Elsevier, 2024) Binary Bit-Packing Schema</td>
               </tr>
               <tr>
-                <td class="p-2.5 font-bold text-white">Search Polygon Coverage</td>
-                <td class="p-2.5 text-slate-200">2.0 km² Sector</td>
-                <td class="p-2.5"><span class="tech-chip tech-chip-blue text-[10px]">MISSION SPECIFICATION</span></td>
-                <td class="p-2.5 text-slate-400">Boustrophedon Sweep at 28.4m AGL / 12 m/s Cruise</td>
+                <td class="px-4 py-3.5 font-bold text-white">Search Polygon Coverage</td>
+                <td class="px-4 py-3.5 text-slate-200 font-semibold">2.0 km² Sector</td>
+                <td class="px-4 py-3.5"><span class="tech-chip tech-chip-blue text-xs">MISSION SPECIFICATION</span></td>
+                <td class="px-4 py-3.5 text-slate-400">Boustrophedon Sweep at 28.4m AGL / 12 m/s Cruise</td>
               </tr>
               <tr>
-                <td class="p-2.5 font-bold text-white">Geolocation Accuracy</td>
-                <td class="p-2.5 text-slate-200">± 2.1 m (SEP 95%)</td>
-                <td class="p-2.5"><span class="tech-chip tech-chip-amber text-[10px]">SIMULATION ESTIMATE</span></td>
-                <td class="p-2.5 text-slate-400">Tait-Bryan Pinhole Ray-Casting Projection (Unvalidated in field)</td>
+                <td class="px-4 py-3.5 font-bold text-white">Geolocation Accuracy</td>
+                <td class="px-4 py-3.5 text-slate-200 font-semibold">± 2.1 m (SEP 95%)</td>
+                <td class="px-4 py-3.5"><span class="tech-chip tech-chip-amber text-xs">SIMULATION ESTIMATE</span></td>
+                <td class="px-4 py-3.5 text-slate-400">Tait-Bryan Pinhole Ray-Casting Projection (Unvalidated in field)</td>
               </tr>
               <tr>
-                <td class="p-2.5 font-bold text-white">Total All-Up Weight (AUW)</td>
-                <td class="p-2.5 text-slate-200">1.58 kg</td>
-                <td class="p-2.5"><span class="tech-chip tech-chip-blue text-[10px]">WEIGHT TARGET</span></td>
-                <td class="p-2.5 text-slate-400">Complies with DGCA &lt;2.0 kg Micro-UAV Category</td>
+                <td class="px-4 py-3.5 font-bold text-white">Total All-Up Weight (AUW)</td>
+                <td class="px-4 py-3.5 text-slate-200 font-semibold">1.58 kg</td>
+                <td class="px-4 py-3.5"><span class="tech-chip tech-chip-blue text-xs">WEIGHT TARGET</span></td>
+                <td class="px-4 py-3.5 text-slate-400">Complies with DGCA &lt;2.0 kg Micro-UAV Category</td>
               </tr>
             </tbody>
           </table>
         </div>
 
         <!-- Hardware Anatomy Breakdown -->
-        <div class="p-4 rounded bg-[#101720] border border-[#283544] space-y-3 font-mono text-xs">
-          <span class="font-bold text-slate-200 block">KEY DRONE SUBSYSTEMS (BOM OVERVIEW)</span>
-          <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-[11px]">
-            <div class="p-2 rounded bg-slate-900 border border-slate-800">
+        <div class="p-5 rounded-lg bg-[#101720] border border-[#283544] space-y-3 font-mono text-xs">
+          <span class="font-bold text-slate-200 block text-xs tracking-wider">KEY DRONE SUBSYSTEMS (BOM OVERVIEW)</span>
+          <div class="grid grid-cols-1 md:grid-cols-4 gap-3.5 text-xs">
+            <div class="p-3 rounded-md bg-slate-900 border border-slate-800 space-y-1">
               <span class="text-sky-400 font-bold block">1. COMPUTE:</span>
-              Arduino UNO Q (Qualcomm QRB2210 + STM32U585) in 40g module.
+              <p class="text-slate-300 font-sans leading-relaxed">Arduino UNO Q (Qualcomm QRB2210 + STM32U585) in 40g module.</p>
             </div>
-            <div class="p-2 rounded bg-slate-900 border border-slate-800">
+            <div class="p-3 rounded-md bg-slate-900 border border-slate-800 space-y-1">
               <span class="text-orange-400 font-bold block">2. PERCEPTION:</span>
-              Dual-gimbal 4K visible EO + Radiometric LWIR (8–14μm) thermal sensor.
+              <p class="text-slate-300 font-sans leading-relaxed">Dual-gimbal 4K visible EO + Radiometric LWIR (8–14μm) thermal sensor.</p>
             </div>
-            <div class="p-2 rounded bg-slate-900 border border-slate-800">
+            <div class="p-3 rounded-md bg-slate-900 border border-slate-800 space-y-1">
               <span class="text-emerald-400 font-bold block">3. AVIONICS:</span>
-              MPU6050 IMU, MS5611 Baro, Downward ToF LiDAR for ground altitude.
+              <p class="text-slate-300 font-sans leading-relaxed">MPU6050 IMU, MS5611 Baro, Downward ToF LiDAR for ground altitude.</p>
             </div>
-            <div class="p-2 rounded bg-slate-900 border border-slate-800">
+            <div class="p-3 rounded-md bg-slate-900 border border-slate-800 space-y-1">
               <span class="text-amber-400 font-bold block">4. DATALINK:</span>
-              Semtech SX1262 LoRa 868MHz transceiver for 3–5 km P2P mesh.
+              <p class="text-slate-300 font-sans leading-relaxed">Semtech SX1262 LoRa 868MHz transceiver for 3–5 km P2P mesh.</p>
             </div>
           </div>
         </div>
 
         <!-- Explicit Limitations Statement -->
-        <div class="p-3 rounded bg-slate-900 border border-slate-800 text-xs font-mono space-y-1">
-          <span class="text-amber-400 font-bold block">ENGINEERING LIMITATIONS & FIELD CONSTRAINTS:</span>
-          <p class="text-slate-400 text-[11px] leading-relaxed">
+        <div class="p-4 rounded-lg bg-slate-900 border border-slate-800 text-xs font-mono space-y-2">
+          <span class="text-amber-400 font-bold block text-xs tracking-wider">ENGINEERING LIMITATIONS & FIELD CONSTRAINTS:</span>
+          <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans">
             • Thermal detection performance degrades if ambient temperature approaches human core temperature (thermal inversion at &gt;36°C).<br>
             • The Tait-Bryan ray-casting calculation assumes locally flat ground elevation; severe irregular vertical cliff terrain requires DEM terrain fusion.<br>
             • LoRa P2P range is subject to Fresnel zone clearance and dense concrete obstruction attenuation in deep urban gorges.
@@ -998,49 +1000,49 @@
     <section id="references" class="max-w-7xl mx-auto px-4 space-y-6">
       
       <!-- Stakeholder Impact -->
-      <div class="mission-panel p-5 space-y-3">
-        <h2 class="text-base font-bold uppercase tracking-wider text-white font-mono">Stakeholder Impact & Operational Value</h2>
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-3 text-xs font-mono">
-          <div class="p-3 rounded bg-[#101720] border border-[#283544] space-y-1">
-            <span class="text-rose-400 font-bold block">TRAPPED VICTIMS</span>
-            <p class="text-slate-400 text-[11px]">Rapid discovery within Golden 72 Hours; location transmitted to first responders before manual scouts arrive.</p>
+      <div class="mission-panel p-6 space-y-4">
+        <h2 class="text-lg font-bold uppercase tracking-wider text-white font-mono">Stakeholder Impact & Operational Value</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 text-xs font-mono">
+          <div class="p-4 rounded-lg bg-[#101720] border border-[#283544] space-y-1.5">
+            <span class="text-rose-400 font-bold block text-xs tracking-wider">TRAPPED VICTIMS</span>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans">Rapid discovery within Golden 72 Hours; location transmitted to first responders before manual scouts arrive.</p>
           </div>
-          <div class="p-3 rounded bg-[#101720] border border-[#283544] space-y-1">
-            <span class="text-amber-400 font-bold block">NDRF / SDRF TEAMS</span>
-            <p class="text-slate-400 text-[11px]">Advance hazard mapping prevents secondary entrapment from live cables, gas leaks, and unstable voids.</p>
+          <div class="p-4 rounded-lg bg-[#101720] border border-[#283544] space-y-1.5">
+            <span class="text-amber-400 font-bold block text-xs tracking-wider">NDRF / SDRF TEAMS</span>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans">Advance hazard mapping prevents secondary entrapment from live cables, gas leaks, and unstable voids.</p>
           </div>
-          <div class="p-3 rounded bg-[#101720] border border-[#283544] space-y-1">
-            <span class="text-sky-400 font-bold block">DISASTER AUTHORITIES</span>
-            <p class="text-slate-400 text-[11px]">Offline unified GIS tactical map delivers real-time survivor count and coordinates with zero cellular infrastructure.</p>
+          <div class="p-4 rounded-lg bg-[#101720] border border-[#283544] space-y-1.5">
+            <span class="text-sky-400 font-bold block text-xs tracking-wider">DISASTER AUTHORITIES</span>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans">Offline unified GIS tactical map delivers real-time survivor count and coordinates with zero cellular infrastructure.</p>
           </div>
-          <div class="p-3 rounded bg-[#101720] border border-[#283544] space-y-1">
-            <span class="text-emerald-400 font-bold block">DISTRICT GOVERNANCE</span>
-            <p class="text-slate-400 text-[11px]">Cost-effective local deployment at ~₹1.2–1.4L BOM compared to ₹12–14L imported enterprise platforms.</p>
+          <div class="p-4 rounded-lg bg-[#101720] border border-[#283544] space-y-1.5">
+            <span class="text-emerald-400 font-bold block text-xs tracking-wider">DISTRICT GOVERNANCE</span>
+            <p class="text-slate-300 text-xs sm:text-sm leading-relaxed font-sans">Cost-effective local deployment at ~₹1.2–1.4L BOM compared to ₹12–14L imported enterprise platforms.</p>
           </div>
         </div>
       </div>
 
       <!-- Formal Academic Citations -->
-      <div class="mission-panel p-5 space-y-3 font-mono text-xs">
-        <div class="flex justify-between items-center pb-2 border-b border-[#283544]">
-          <h2 class="text-sm font-bold uppercase tracking-wider text-white">Academic Research Foundations</h2>
-          <a href="https://github.com/jvstin47/Phoenix-SIH26177-SAR-UAV" target="_blank" class="text-sky-400 hover:text-white underline">
+      <div class="mission-panel p-6 space-y-4 font-mono text-xs">
+        <div class="flex justify-between items-center pb-3 border-b border-[#283544]">
+          <h2 class="text-base font-bold uppercase tracking-wider text-white">Academic Research Foundations</h2>
+          <a href="https://github.com/jvstin47/Phoenix-SIH26177-SAR-UAV" target="_blank" class="text-sky-400 hover:text-white underline font-semibold">
             GITHUB REPOSITORY ➔
           </a>
         </div>
 
-        <ul class="space-y-2 text-[11px] text-slate-300">
-          <li class="p-2 rounded bg-[#101720] border border-[#283544]">
-            <span class="text-white font-bold">[1] Bouabdallah, S. (2007).</span> <em>"Design and Control of Quadrotors with Application to Autonomous Flying."</em> EPFL Thesis 3727. Sourced 12-state rigid-body dynamics, 90/10 electrical power rule, and anti-compass drift VIO heading override in steel rubble.
+        <ul class="space-y-3 text-xs sm:text-sm text-slate-300 font-sans">
+          <li class="p-3.5 rounded-lg bg-[#101720] border border-[#283544] leading-relaxed">
+            <span class="text-white font-bold font-mono">[1] Bouabdallah, S. (2007).</span> <em>"Design and Control of Quadrotors with Application to Autonomous Flying."</em> EPFL Thesis 3727. Sourced 12-state rigid-body dynamics, 90/10 electrical power rule, and anti-compass drift VIO heading override in steel rubble.
           </li>
-          <li class="p-2 rounded bg-[#101720] border border-[#283544]">
-            <span class="text-white font-bold">[2] Souli, N., Karatzia, P., Kolios, P., &amp; Ellinas, G. (2024).</span> <em>"Mission-critical UAV swarm coordination using integrated ROS-LoRa architecture."</em> <em>Computer Communications</em>, Elsevier, Vol. 225. Sourced 17-byte binary bit-packing serialization schema.
+          <li class="p-3.5 rounded-lg bg-[#101720] border border-[#283544] leading-relaxed">
+            <span class="text-white font-bold font-mono">[2] Souli, N., Karatzia, P., Kolios, P., &amp; Ellinas, G. (2024).</span> <em>"Mission-critical UAV swarm coordination using integrated ROS-LoRa architecture."</em> <em>Computer Communications</em>, Elsevier, Vol. 225. Sourced 17-byte binary bit-packing serialization schema.
           </li>
-          <li class="p-2 rounded bg-[#101720] border border-[#283544]">
-            <span class="text-white font-bold">[3] NASA Technical Memorandum 4741 (1996).</span> <em>"Computer Program To Obtain Ordinates for NACA Airfoils."</em> Sourced reflexed airfoil zero-pitching-moment theory for motor vibration mitigation.
+          <li class="p-3.5 rounded-lg bg-[#101720] border border-[#283544] leading-relaxed">
+            <span class="text-white font-bold font-mono">[3] NASA Technical Memorandum 4741 (1996).</span> <em>"Computer Program To Obtain Ordinates for NACA Airfoils."</em> Sourced reflexed airfoil zero-pitching-moment theory for motor vibration mitigation.
           </li>
-          <li class="p-2 rounded bg-[#101720] border border-[#283544]">
-            <span class="text-white font-bold">[4] Butani, R. (2024).</span> <em>"Dual-Brain Physical AI Flight Controller on Arduino UNO Q."</em> Established Zephyr RTOS + Debian Linux partition on Qualcomm QRB2210.
+          <li class="p-3.5 rounded-lg bg-[#101720] border border-[#283544] leading-relaxed">
+            <span class="text-white font-bold font-mono">[4] Butani, R. (2024).</span> <em>"Dual-Brain Physical AI Flight Controller on Arduino UNO Q."</em> Established Zephyr RTOS + Debian Linux partition on Qualcomm QRB2210.
           </li>
         </ul>
       </div>

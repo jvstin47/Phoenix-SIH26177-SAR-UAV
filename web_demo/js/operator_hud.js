@@ -157,7 +157,7 @@ const OperatorHUD = {
     const mathBox = document.getElementById('math-step-breakdown');
     if (mathBox) {
       mathBox.innerHTML = `
-        <div class="space-y-1.5 font-mono text-[10px] text-slate-300">
+        <div class="space-y-2 font-mono text-xs text-slate-300 leading-relaxed">
           <div><span class="text-sky-400 font-bold">1. Camera Ray Vector r_C:</span> [${r.unitRayC.join(', ')}] (fx=fy=${this.focalLength}px)</div>
           <div><span class="text-sky-400 font-bold">2. Tait-Bryan Rotation (DCM):</span> Pitch θ=${r.pitchDeg}°, Roll φ=${r.rollDeg}°, Yaw ψ=${r.yawDeg}°</div>
           <div><span class="text-sky-400 font-bold">3. Ground Intersection Offset:</span> ΔX=${r.offsetX}m, ΔY=${r.offsetY}m at Altitude H_AGL=${r.altitudeAGL}m</div>

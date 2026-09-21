@@ -72,25 +72,25 @@ const TechShowcase = {
     const panel = document.getElementById('chip-inspector-content');
     if (panel) {
       panel.innerHTML = `
-        <div class="space-y-3 font-mono text-xs">
-          <div class="flex justify-between items-center pb-2 border-b border-slate-800">
-            <span class="text-sm font-bold text-white">${info.name}</span>
-            <span class="text-[10px] px-2 py-0.5 rounded bg-sky-950 text-sky-300 border border-sky-800">${info.role}</span>
+        <div class="space-y-4 font-mono text-xs">
+          <div class="flex justify-between items-center pb-2.5 border-b border-slate-800">
+            <span class="text-base font-bold text-white">${info.name}</span>
+            <span class="text-xs px-2.5 py-1 rounded-md bg-sky-950 text-sky-300 border border-sky-800 font-bold">${info.role}</span>
           </div>
-          <div class="grid grid-cols-2 gap-2 text-[11px]">
-            <div><span class="text-slate-500">ENVIRONMENT:</span> <span class="text-slate-200">${info.os}</span></div>
-            <div><span class="text-slate-500">POWER DRAW:</span> <span class="text-emerald-400 font-bold">${info.power}</span></div>
-            <div><span class="text-slate-500">ARCHITECTURE:</span> <span class="text-slate-200">${info.clock}</span></div>
-            <div><span class="text-slate-500">INTERFACES:</span> <span class="text-slate-200">${info.interfaces}</span></div>
+          <div class="grid grid-cols-2 gap-3 text-xs">
+            <div><span class="text-slate-500 font-medium">ENVIRONMENT:</span> <span class="text-slate-200 font-semibold ml-1">${info.os}</span></div>
+            <div><span class="text-slate-500 font-medium">POWER DRAW:</span> <span class="text-emerald-400 font-bold ml-1">${info.power}</span></div>
+            <div><span class="text-slate-500 font-medium">ARCHITECTURE:</span> <span class="text-slate-200 font-semibold ml-1">${info.clock}</span></div>
+            <div><span class="text-slate-500 font-medium">INTERFACES:</span> <span class="text-slate-200 font-semibold ml-1">${info.interfaces}</span></div>
           </div>
-          <div>
-            <span class="text-slate-500 text-[10px] block mb-1">CORE RESPONSIBILITIES:</span>
-            <ul class="space-y-1 text-[11px] text-slate-300">
-              ${info.tasks.map(t => `<li class="flex items-start"><span class="text-sky-400 mr-1.5">•</span>${t}</li>`).join('')}
+          <div class="space-y-2">
+            <span class="text-slate-400 text-xs font-bold block tracking-wider">CORE RESPONSIBILITIES:</span>
+            <ul class="space-y-1.5 text-xs text-slate-300 font-sans leading-relaxed">
+              ${info.tasks.map(t => `<li class="flex items-start"><span class="text-sky-400 font-mono mr-2">•</span>${t}</li>`).join('')}
             </ul>
           </div>
-          <div class="p-2 rounded bg-slate-900 border border-slate-800 text-[10px] text-slate-400">
-            <span class="text-amber-400 font-bold">TIMING CONSTRAINT:</span> ${info.timing}
+          <div class="p-3 rounded-md bg-slate-900 border border-slate-800 text-xs text-slate-300 font-sans leading-relaxed">
+            <span class="text-amber-400 font-bold font-mono text-xs tracking-wider">TIMING CONSTRAINT:</span> ${info.timing}
           </div>
         </div>
       `;
@@ -130,10 +130,10 @@ const TechShowcase = {
         const hex = b.toString(16).padStart(2, '0').toUpperCase();
         const bin = b.toString(2).padStart(8, '0');
         html += `
-          <div class="inline-block p-1.5 m-0.5 bg-[#101720] border border-slate-800 rounded text-center text-xs font-mono">
-            <div class="text-[9px] text-sky-400 font-bold">${byteLabels[i]}</div>
-            <div class="text-amber-300 font-bold my-0.5">${hex}</div>
-            <div class="text-[8px] text-slate-500">${bin}</div>
+          <div class="inline-block p-2 m-0.5 bg-[#101720] border border-slate-800 rounded-md text-center text-xs font-mono">
+            <div class="text-[10px] text-sky-400 font-bold tracking-wide">${byteLabels[i]}</div>
+            <div class="text-amber-300 font-bold text-sm my-0.5">${hex}</div>
+            <div class="text-[10px] text-slate-400">${bin}</div>
           </div>
         `;
       });

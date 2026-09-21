@@ -1,5 +1,5 @@
 /* PROJECT PHOENIX X — AEROSPACE MISSION CONTROL DESIGN SYSTEM (DARK & LIGHT THEMES) */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
 :root {
   --bg-primary: #090D12;
@@ -50,10 +50,11 @@ html.light {
 
 html {
   scroll-behavior: smooth;
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: var(--bg-primary);
   color: var(--text-primary);
   transition: background-color 0.2s ease, color 0.2s ease;
+  font-size: 15px; /* Boost root scale slightly for comfortable reading */
 }
 
 body {
@@ -62,43 +63,62 @@ body {
   min-height: 100vh;
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  letter-spacing: -0.011em;
+  letter-spacing: 0.005em;
+  line-height: 1.6;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Headings & Readability */
+h1, h2, h3, h4, h5, h6 {
+  letter-spacing: 0.015em;
+  line-height: 1.35;
+}
+
+p {
+  line-height: 1.65;
+}
+
+/* Open, legible uppercase tracking */
+.uppercase {
+  letter-spacing: 0.045em !important;
 }
 
 /* Monospace Utility */
 .font-mono {
   font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  letter-spacing: 0.02em;
 }
 
 /* Technical Panels */
 .mission-panel {
   background-color: var(--bg-panel);
   border: 1px solid var(--border-strong);
-  border-radius: 6px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  border-radius: 8px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
   transition: background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .mission-panel-header {
   background-color: var(--bg-secondary);
   border-bottom: 1px solid var(--border-strong);
-  padding: 10px 16px;
+  padding: 12px 20px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-/* Badges & Chips */
+/* Badges & Chips with comfortable padding & tracking */
 .tech-chip {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  padding: 3px 8px;
-  border-radius: 4px;
+  padding: 4px 10px;
+  border-radius: 5px;
   font-family: 'JetBrains Mono', monospace;
-  font-size: 11px;
-  font-weight: 500;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   border: 1px solid var(--border-strong);
   background-color: var(--bg-secondary);
   color: var(--text-secondary);
@@ -333,19 +353,29 @@ html.light footer {
   color: #64748B !important;
 }
 
-/* Table Light Mode */
-html.light thead tr {
-  background-color: #F1F5F9 !important;
-  color: #475569 !important;
-  border-color: #CBD5E1 !important;
+/* Table Spacing & Legibility */
+table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
 }
 
-html.light tbody tr {
-  border-color: #E2E8F0 !important;
+th {
+  padding: 12px 18px !important;
+  font-size: 12.5px !important;
+  letter-spacing: 0.05em !important;
+  font-weight: 700 !important;
 }
 
-html.light tbody td {
-  color: #1E293B !important;
+td {
+  padding: 13px 18px !important;
+  font-size: 13.5px !important;
+  line-height: 1.6 !important;
+}
+
+button {
+  font-family: inherit;
+  letter-spacing: 0.02em;
 }
 
 /* Scrollbars */
