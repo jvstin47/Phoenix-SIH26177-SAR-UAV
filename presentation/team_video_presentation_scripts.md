@@ -6,120 +6,129 @@
 
 ---
 
-## 1. Alignment Matrix: Video Script vs. Official SIH PPT
+## 1. Alignment Matrix: Video Script vs. Official SIH Presentation Deck
 
-Each speaker's script is mapped 1:1 with the verified presentation deck (`Team_Phoenix_SIH26177_Deck_v2.pptx`):
+Each team member's script maps directly to specific slides in [`Team_Phoenix_SIH26177_Deck_v2.pptx`](Team_Phoenix_SIH26177_Deck_v2.pptx):
 
-| Speaker | Role | Corresponding PPT Slide & Focus | Core Engineering Specs Mentioned |
+| Speaker | Specialization Role | PPT Slide Mapping | Key Technical Focus & Expanded Acronyms |
 | :--- | :--- | :--- | :--- |
-| **Speaker 1** | **Mission Architect & Systems Lead** | **Slide 1 & Slide 2:** Title, Problem Statement & The Golden 72h | SIH26177, Qualcomm Inc., Zero-connectivity disaster reconnaissance, Golden 72h window. |
-| **Speaker 2** | **Computer Vision & Edge AI Lead** | **Slide 2 & Slide 3:** Multi-Spectral Sensor Fusion & Perception | Dual-spectral EO + Radiometric LWIR 8–14μm, NETD <50mK, 37.0°C biological emissivity lock. |
-| **Speaker 3** | **Navigation, Avionics & Geolocation Lead** | **Slide 2 & Slide 3:** Oblique Ray-Casting & Coordinate Projection | Oblique standoff angle, 6-DOF Tait-Bryan intrinsic rotation matrix, DEM projection, WGS-84 ±2.1m SEP. |
-| **Speaker 4** | **Embedded Systems & Flight Dynamics Lead** | **Slide 3 & Slide 4:** Dual-Brain Compute Partition & Sizing Laws | Arduino UNO Q, Qualcomm QRB2210 Linux MPU (<5W) + STM32U585 Zephyr RTOS @ 250Hz, non-blocking RPC. |
-| **Speaker 5** | **RF Communications & Cyber Security Lead** | **Slide 3, 4 & 6:** Off-Grid Comms & Telemetry Serialization | Elsevier 2024 Souli et al., 17-byte binary bit-packing, HMAC-SHA256 anti-spoof, Semtech SX1262 LoRa 868MHz. |
-| **Speaker 6** | **Incident Command, GIS & Operations Lead** | **Slide 5 & Slide 6:** Tactical Triage, Safe Routing & Impact Closing | Offline React/Leaflet GCS, Dijkstra hazard-aware rescue routing (11kV lines, mudslides), sub-5 min triage. |
+| **Speaker 1** | **Mission Architect & Systems Engineering Lead** | **Slide 1 & Slide 2:** Title, Problem Statement, The Golden 72 Hours | Smart India Hackathon (SIH), Unmanned Aerial Vehicle (UAV), Qualcomm Inc., zero-infrastructure reconnaissance. |
+| **Speaker 2** | **Computer Vision & Edge AI Lead** | **Slide 2 & Slide 3:** Multi-Spectral Fusion & Radiometric Perception | Electro-Optical (EO), Long-Wave Infrared (LWIR), Noise Equivalent Temperature Difference (NETD), 37°C biological verification. |
+| **Speaker 3** | **Navigation, Avionics & Geolocation Lead** | **Slide 2 & Slide 3:** Oblique Ray-Casting & Photogrammetric Geodetics | Real-Time Kinematic Global Positioning System (RTK-GPS), Inertial Measurement Unit (IMU), Tait-Bryan 6-DOF, Digital Elevation Model (DEM), World Geodetic System 1984 (WGS-84). |
+| **Speaker 4** | **Embedded Systems & Flight Dynamics Lead** | **Slide 3 & Slide 4:** Dual-Brain Compute Partitioning & Flight Control | Microprocessor Unit (MPU), Microcontroller Unit (MCU), Real-Time Operating System (RTOS), Remote Procedure Call (RPC), Neural Processing Unit (NPU). |
+| **Speaker 5** | **RF Communications & Cyber Security Lead** | **Slide 3, 4 & 6:** Off-Grid Telemetry, Bit-Packing & Cryptography | Long Range radio (LoRa), Peer-to-Peer (P2P), Hash-based Message Authentication Code (HMAC-SHA256), Souli et al. (Elsevier 2024). |
+| **Speaker 6** | **Incident Command, GIS & Operations Lead** | **Slide 5 & Slide 6:** Ground Station Triage, Safe Routing & Impact | Ground Control Station (GCS), Geographic Information System (GIS), Dijkstra algorithm, National Disaster Response Force (NDRF). |
 
 ---
 
-## 2. Recording Guidelines for the 6 Speakers
+## 2. Audio & Video Recording Instructions for the 6 Speakers
 
-To ensure seamless editing and a broadcast-quality submission:
-1. **Audio Recording:** 
-   - Use a smartphone voice recorder or lapel mic held **6–8 inches** from your mouth.
-   - Keep the mic at a **45-degree angle** to your mouth to eliminate plosive "pops" on words starting with P, T, and B.
-   - Record in a quiet room with minimal echo (carpets, curtains, or sofas help absorb reverb).
-2. **Tempo & Pacing:** 
-   - Read at an authoritative, steady pace (~**130 words per minute**).
-   - Do **not** rush technical terms or model numbers.
-3. **Pronunciation Guide:**
-   - **QRB2210:** *"Q-R-B twenty-two ten"*
+1. **How the Extended Overlap System Works:**
+   - Every transition between speakers features **two full shared sentences** (~35 to 45 words).
+   - **Speaker A reads the shared lines at the end of their recording.**
+   - **Speaker B reads the exact same shared lines at the beginning of their recording.**
+   - *Why this is critical:* The video editor has complete editorial freedom to make J-cuts, L-cuts, or choose the cleanest vocal delivery without abrupt audio jumps.
+2. **Read Continuously:**
+   - Read the entire script block in one uninterrupted take.
+   - Do **not** pause or stop when you reach the shared bridge sentences—deliver them with natural energy as part of your paragraph.
+3. **Pacing and Tempo:**
+   - Maintain a deliberate, authoritative pace of **125 to 135 words per minute**.
+   - Speak technical acronyms and full forms crisply.
+4. **Microphone Setup:**
+   - Position your microphone or smartphone **6 to 8 inches** from your mouth, angled at **45 degrees** to avoid plosive breath pops on letters P, T, and B.
+5. **Full-Form Spoken Reference Guide:**
+   - **UAV:** *"Unmanned Aerial Vehicle, or UAV"*
+   - **LWIR:** *"Long-Wave Infrared, or LWIR"*
+   - **NETD:** *"Noise Equivalent Temperature Difference, or NETD"*
+   - **RTK-GPS:** *"Real-Time Kinematic Global Positioning System"*
+   - **IMU:** *"Inertial Measurement Unit"*
+   - **Tait-Bryan:** *"Tate-Bryan intrinsic rotation"*
+   - **WGS-84:** *"World Geodetic System 1984"*
+   - **QRB2210:** *"Qualcomm Dragonwing Q-R-B twenty-two ten"*
    - **STM32U585:** *"S-T-M thirty-two U five-eighty-five"*
-   - **Tait-Bryan:** *"Tate Bryan"*
-   - **SX1262:** *"S-X twelve sixty-two"*
-   - **WGS-84:** *"W-G-S eighty-four"*
-   - **LoRa:** *"Low-Rah"*
-   - **Zephyr RTOS:** *"Zeff-er R-TOSS"*
-   - **Dijkstra:** *"Dike-stra"*
-4. **The Overlap System (In-Handle & Out-Handle):**
-   - Each script starts with an **[In-Handle]** that repeats the exact ending idea of the previous speaker, and ends with an **[Out-Handle]** that sets up the next speaker.
-   - **Read the entire block continuously without stopping.**
-   - The video editor will choose the cleanest take and cut between speakers smoothly (using audio crossfades / J-cuts / L-cuts).
+   - **RTOS:** *"Real-Time Operating System"*
+   - **RPC:** *"Remote Procedure Call"*
+   - **LoRa:** *"Low-Rah point-to-point radio"*
+   - **HMAC-SHA256:** *"Hash-based Message Authentication Code using SHA-256"*
+   - **GCS:** *"Ground Control Station"*
+   - **GIS:** *"Geographic Information System"*
+   - **NDRF:** *"National Disaster Response Force"*
 
 ---
 
-## 3. Individual Copyable Scripts for Team Distribution
+## 3. The 6 Master Script Blocks (Copy & Paste Ready)
 
 ---
 
-### 👤 SPEAKER 1: Mission Architect & Systems Lead
-* **Visual Cue:** On-camera medium close-up, cutting to drone 3D model and disaster footage.
-* **Duration:** ~40 seconds (~110 words)
+### 👤 SPEAKER 1: Mission Architect & Systems Engineering Lead
+* **Visual Track:** On-camera intro, transition to UAV 3D structural model, then disaster zone footage.  
+* **Estimated Spoken Runtime:** ~45 seconds (~130 words)  
 
 ```text
-In the golden seventy-two hours following an earthquake, landslide, or flash flood, the single biggest killer isn't just the disaster—it's the complete breakdown of situational awareness. Cellular towers collapse, roads are wiped out, and ground rescue teams are forced to search blind across square kilometers of treacherous debris. That is the challenge we solved with Project Phoenix X for Qualcomm Smart India Hackathon problem statement SIH26177. Instead of relying on vulnerable cloud infrastructure, we engineered an autonomous tactical UAV designed to deploy instantly into total blackouts, detect human life through smoke and rubble, and relay actionable casualty locations back to incident command without needing cell service or internet. But finding human beings trapped under debris begins with solving the perception barrier in zero-visibility environments.
+In the critical golden seventy-two hours following an earthquake, landslide, or flash flood, the single greatest operational barrier is the catastrophic breakdown of situational awareness. Commercial cellular towers collapse, access roads are severed by debris, and first responders are forced to conduct slow, blind foot searches across square kilometers of treacherous rubble. That is the urgent challenge we solved with Project Phoenix X for Qualcomm Incorporated in Smart India Hackathon problem statement SIH26177. Rather than depending on vulnerable cloud networks, we engineered an autonomous Unmanned Aerial Vehicle, or UAV, purpose-built to deploy in under three minutes into zero-connectivity disaster zones, detect human survivors through smoke and rubble, and broadcast verified coordinates back to command teams. Finding human beings trapped under collapsed debris begins with solving the perception barrier in zero-visibility environments. When conventional optical sensors fail, multi-spectral intelligence is our first line of detection.
 ```
 
 ---
 
 ### 👤 SPEAKER 2: Computer Vision & Edge AI Lead
-* **Visual Cue:** Screen recording of Dual-Stream EO/IR toggle, Ironbow colormap, and 37°C bounding box lock.
-* **Duration:** ~45 seconds (~130 words)
+* **Visual Track:** Screen capture of Dual-Spectral EO/LWIR live feed, Ironbow thermal palette, 37.0°C bounding box lock.  
+* **Estimated Spoken Runtime:** ~48 seconds (~145 words)  
 
 ```text
-Finding human beings trapped under debris begins with solving the perception barrier in zero-visibility environments. Standard RGB cameras are completely blinded by nightfall, dust, and heavy smoke plumes. To overcome this, Phoenix X utilizes a dual-spectral optical and long-wave infrared payload operating across the eight to fourteen micrometer band with thermal sensitivity under fifty millikelvins. We don't just run raw object detection—we fuse visual edge features with radiometric temperature analysis. When solar reflection creates false positives on hot tin roofs or rocks, our edge-AI model cross-verifies against human biological emissivity around thirty-seven degrees Celsius. The moment a viable heat plume is isolated through a crevice, the model locks a high-confidence bounding box. But an image on a screen is useless to rescue teams unless we convert that 2D camera pixel into an exact GPS coordinate on the earth's surface.
+Finding human beings trapped under collapsed debris begins with solving the perception barrier in zero-visibility environments. When conventional optical sensors fail, multi-spectral intelligence is our first line of detection. Standard Red-Green-Blue visual cameras are completely blinded by nightfall, thick dust, and smoke plumes. To break this barrier, Phoenix X integrates a dual-spectral payload combining high-resolution Electro-Optical imaging with an uncooled Long-Wave Infrared, or LWIR, thermal sensor operating across the eight to fourteen micrometer spectrum with a Noise Equivalent Temperature Difference under fifty millikelvins. Our edge-AI detection model does not rely on simple color thresholds; it cross-references visual contour geometry against radiometric human biological core emissivity between thirty-six point five and thirty-seven point five degrees Celsius, eliminating false positives caused by solar-heated tin roofs or rocks. An image on a screen is completely useless to ground rescue teams unless we convert that two-dimensional camera pixel into an exact geographic coordinate on the earth's surface. Without millimeter-precise mathematical projection, responders are left searching blind in three dimensions.
 ```
 
 ---
 
 ### 👤 SPEAKER 3: Navigation, Avionics & Geolocation Lead
-* **Visual Cue:** Primary Flight Display (PFD) HUD with attitude ladder, DEM elevation grid, and ±2.1m SEP target crosshair.
-* **Duration:** ~45 seconds (~130 words)
+* **Visual Track:** Primary Flight Display HUD, pitch/roll attitude ladder, DEM terrain intersection, ±2.1m SEP target crosshair.  
+* **Estimated Spoken Runtime:** ~48 seconds (~145 words)  
 
 ```text
-An image on a screen is useless to rescue teams unless we convert that 2D camera pixel into an exact GPS coordinate on the earth's surface. Hovering directly above a disaster site puts the drone at risk and destabilizes debris piles. Instead, Phoenix X operates in an oblique standoff mode. Our avionics software ingests real-time telemetry from the onboard dual-antenna RTK-GPS, barometric altimeter, and three-axis IMU. By applying a full six-degree-of-freedom Tait-Bryan intrinsic rotation matrix, the drone projects an optical line-of-sight vector from the camera's optical center straight down to a local Digital Elevation Model. Within sixty milliseconds, that pixel is translated into a WGS-84 coordinate with a spherical error probable under two point one meters. But executing heavy neural networks alongside millisecond-level flight dynamics requires an uncompromising embedded architecture.
+An image on a screen is completely useless to ground rescue teams unless we convert that two-dimensional camera pixel into an exact geographic coordinate on the earth's surface. Without millimeter-precise mathematical projection, responders are left searching blind in three dimensions. Hovering directly overhead destabilizes unstable debris with dangerous rotor downwash. Phoenix X avoids this by operating in an oblique standoff trajectory. Our avionics pipeline ingests real-time telemetry from an onboard Real-Time Kinematic Global Positioning System, barometric altimeter, and three-axis Inertial Measurement Unit. Applying an intrinsic camera calibration matrix alongside a six-degree-of-freedom Tait-Bryan intrinsic Euler rotation matrix, the drone casts an optical ray from the camera center straight down to intersect a local Digital Elevation Model. In under sixty milliseconds, target pixels are resolved into World Geodetic System 1984 coordinates with a Spherical Error Probable under two point one meters. Projecting millimeter-accurate coordinates while executing high-speed neural networks alongside sub-millisecond flight dynamics demands an uncompromising embedded hardware architecture. Traditional single-board flight controllers crash under heavy computational load, making a dedicated dual-brain partition an absolute operational necessity.
 ```
 
 ---
 
 ### 👤 SPEAKER 4: Embedded Systems & Flight Dynamics Lead
-* **Visual Cue:** Close-up of Arduino UNO Q / flight controller PCB hardware diagram showing dual-brain split.
-* **Duration:** ~40 seconds (~120 words)
+* **Visual Track:** Arduino UNO Q PCB schematic, Qualcomm QRB2210 MPU vs. STM32U585 MCU block diagram, 5W thermal badge.  
+* **Estimated Spoken Runtime:** ~45 seconds (~135 words)  
 
 ```text
-Executing heavy neural networks alongside millisecond-level flight dynamics requires an uncompromising embedded architecture. Running vision pipelines on a traditional flight controller causes latency spikes that can crash the drone. To guarantee deterministic stability, Phoenix X uses a dual-brain hardware partition. High-level compute is handled by a Qualcomm QRB2210 quad-core Linux MPU running lightweight neural inference within a strict five-watt thermal envelope. Simultaneously, mission-critical flight stabilization, motor mixing, and fail-safe return-to-home are isolated on a dedicated STM32U585 microcontroller running Zephyr RTOS at two hundred and fifty hertz. The two chips communicate over a non-blocking inter-process bridge. If Linux ever restarts or hits peak load, flight safety is never compromised. But all this onboard intelligence means nothing if the target coordinates cannot escape the communication blackout.
+Projecting millimeter-accurate coordinates while executing high-speed neural networks alongside sub-millisecond flight dynamics demands an uncompromising embedded hardware architecture. Traditional single-board flight controllers crash under heavy computational load, making a dedicated dual-brain partition an absolute operational necessity. Phoenix X implements a dual-brain compute partition on the compact Arduino UNO Q. Mission compute runs on the Qualcomm Dragonwing QRB2210 quad-core Microprocessor Unit running Debian Linux, executing quantized INT8 neural inference on its dedicated Neural Processing Unit under a strict five-watt power envelope. Simultaneously, mission-critical flight stabilization and motor mixing are isolated on an STMicroelectronics STM32U585 Microcontroller Unit executing the Zephyr Real-Time Operating System at a deterministic two hundred and fifty hertz. Both brains communicate over an asynchronous, non-blocking Remote Procedure Call bridge, ensuring that peak AI computational load never causes flight controller jitter. All of this onboard compute and flight stability means nothing if critical target coordinates cannot escape the disaster zone communication blackout. When commercial telecommunication towers collapse and local Wi-Fi networks go dark, standard high-bandwidth video downlinks fail completely.
 ```
 
 ---
 
 ### 👤 SPEAKER 5: RF Communications & Cyber Security Lead
-* **Visual Cue:** Semtech SX1262 LoRa module, spectrum waterfall, and 17-byte hex packet breakdown graphic.
-* **Duration:** ~45 seconds (~135 words)
+* **Visual Track:** Semtech SX1262 LoRa module close-up, RF waterfall spectrogram, 17-byte binary bit-packing visualization.  
+* **Estimated Spoken Runtime:** ~48 seconds (~145 words)  
 
 ```text
-All this onboard intelligence means nothing if the target coordinates cannot escape the communication blackout. When 4G towers and Wi-Fi networks go dark, standard video downlinks fail completely. Inspired by the twenty-twenty-four Souli et al. disaster networking framework, Phoenix X abandons heavy video streaming and condenses the entire detection payload into an ultra-compact seventeen-byte binary packet. In just seventeen bytes, we bit-pack latitude, longitude, elevation, thermal confidence, victim status, and timestamp. This packet is encrypted with HMAC-SHA256 to prevent spoofing and transmitted over an eighty-six-eight megahertz SX1262 LoRa point-to-point link. With extreme sub-gigahertz penetration, the signal punches through collapsed concrete and dense foliage over a five-kilometer radius, instantly hitting our portable ground command terminal.
+All of this onboard compute and flight stability means nothing if critical target coordinates cannot escape the disaster zone communication blackout. When commercial telecommunication towers collapse and local Wi-Fi networks go dark, standard high-bandwidth video downlinks fail completely. Grounded in the twenty-twenty-four Elsevier disaster networking research by Souli and colleagues, Phoenix X abandons vulnerable video streaming in favor of an ultra-compact seventeen-byte binary bit-packed telemetry payload. In just seventeen bytes, we bit-pack latitude, longitude, elevation, thermal confidence, victim triage severity, and timestamp. To guarantee operational integrity in hostile disaster zones, every packet is cryptographically authenticated using a Hash-based Message Authentication Code with SHA-256 to prevent spoofing. Transmitted via a Semtech SX1262 Long Range, or LoRa, point-to-point radio link on eighty-six-eight megahertz, the sub-gigahertz signal penetrates collapsed reinforced concrete and dense foliage over a five-kilometer radius. With extreme sub-gigahertz penetration, our encrypted telemetry signal punches through reinforced concrete rubble and dense forest foliage over a five-kilometer radius, instantly hitting our portable ground command terminal. Once received at the incident command post, raw telemetry is instantly converted into actionable ground triage.
 ```
 
 ---
 
 ### 👤 SPEAKER 6: Incident Command, GIS & Operations Lead
-* **Visual Cue:** Ground Station Web UI live map, Dijkstra safe corridor avoiding hazard zones, and closing team slide.
-* **Duration:** ~45 seconds (~130 words)
+* **Visual Track:** Web Demo Ground Control Station map, dynamic Dijkstra safe path bypassing severed 11kV lines, team summary card.  
+* **Estimated Spoken Runtime:** ~45 seconds (~135 words)  
 
 ```text
-With extreme sub-gigahertz penetration, the signal punches through collapsed concrete and dense foliage over a five-kilometer radius, instantly hitting our portable ground command terminal. On our lightweight web dashboard, the seventeen-byte packet immediately instantiates a live tactical pin. Rather than sending NDRF rescue teams blindly across dangerous terrain, our GIS engine runs a hazard-aware Dijkstra routing algorithm—automatically charting the safest walking path around severed eleven-kilovolt power lines, active fire zones, and secondary landslide hazards. What used to take hours of manual scouting is compressed into under five minutes from drone launch to boots on the ground. Project Phoenix X isn't just another drone prototype—it is an end-to-end, resilient lifesaver engineered for the harshest disaster zones in India. Thank you.
+With extreme sub-gigahertz penetration, our encrypted telemetry signal punches through reinforced concrete rubble and dense forest foliage over a five-kilometer radius, instantly hitting our portable ground command terminal. Once received at the incident command post, raw telemetry is instantly converted into actionable ground triage. On our offline tactical Ground Control Station, incoming packets populate a live Geographic Information System map. Rather than allowing rescue teams to enter hazardous zones blind, our system executes a hazard-weighted Dijkstra pathfinding algorithm—automatically computing the safest pedestrian extraction corridor around severed eleven-kilovolt power lines, active fire zones, and unstable mudslides. What once required hours of agonizing, hazardous foot searches is compressed into under five minutes from drone launch to casualty extraction. Project Phoenix X delivers an end-to-end, resilient lifesaver engineered for India's most demanding disaster environments. Thank you.
 ```
 
 ---
 
-## 4. Video Editor Cut & B-Roll Master Sheet
+## 4. Video Editor Master Assembly Timeline & Cut Sheet
 
-| Sequence | Speaker | On-Screen Video Track (B-Roll) | Audio Crossfade In | Audio Crossfade Out |
+| Scene & Timecode | Active Speaker | Visual B-Roll Track | Shared Audio Bridge (Cut Flexibility Window) | Audio & Visual Transition Style |
 | :--- | :--- | :--- | :--- | :--- |
-| **01 (0:00–0:40)** | Speaker 1 | Medium close-up ➔ Drone 3D render ➔ Disaster zone title slide. | Fade from black / Title sting. | J-Cut: Speaker 2 audio starts over Speaker 1's final drone shot. |
-| **02 (0:40–1:25)** | Speaker 2 | Speaker 2 webcam in corner ➔ Screen capture of Web Demo RGB vs. Thermal Ironbow toggle ➔ 37°C box lock. | L-Cut from Speaker 1. | J-Cut into Speaker 3's geolocation HUD. |
-| **03 (1:25–2:10)** | Speaker 3 | Speaker 3 webcam ➔ Synthetic HUD overlay with pitch/roll ladder and ground ray intersection onto elevation map. | Cut on "ground coordinates". | J-Cut into hardware compute PCB. |
-| **04 (2:10–2:50)** | Speaker 4 | Speaker 4 webcam ➔ Architectural diagram of Qualcomm QRB2210 + STM32U585 Zephyr bridge ➔ Sub-5W callout. | Smooth crossfade. | Cut on "communication blackout". |
-| **05 (2:50–3:35)** | Speaker 5 | Speaker 5 webcam ➔ SX1262 LoRa module photo ➔ 17-byte bit-packing breakdown graphic. | Cut on "escape blackout". | J-Cut into GCS tactical dashboard. |
-| **06 (3:35–4:20)** | Speaker 6 | Fullscreen Web Demo Ground Station ➔ Dijkstra route recalculation around 11kV wire ➔ Closing team card with SIH logo. | Cut on "ground terminal". | Fade to black / Outro music swell. |
+| **Scene 1**<br>`0:00 – 0:45` | **Speaker 1**<br>(Systems Lead) | • On-camera presenter<br>• Drone 3D render<br>• SIH26177 title overlay | *"Finding human beings trapped under collapsed debris begins with solving the perception barrier in zero-visibility environments. When conventional optical sensors fail, multi-spectral intelligence is our first line of detection."* | Fade in from black with subtle low-frequency audio bed. Transition using J-Cut into Speaker 2. |
+| **Scene 2**<br>`0:42 – 1:28` | **Speaker 2**<br>(Vision Lead) | • Web Demo EO/LWIR toggle<br>• FLIR Ironbow palette<br>• 37°C bounding box lock | *"An image on a screen is completely useless to ground rescue teams unless we convert that two-dimensional camera pixel into an exact geographic coordinate on the earth's surface. Without millimeter-precise mathematical projection, responders are left searching blind in three dimensions."* | Speaker 2 voice enters underneath Speaker 1's final B-roll shot. Cut to Speaker 3 on "geographic coordinate". |
+| **Scene 3**<br>`1:25 – 2:10` | **Speaker 3**<br>(Avionics Lead) | • Primary Flight Display HUD<br>• 6-DOF Tait-Bryan vector<br>• DEM surface ray-cast | *"Projecting millimeter-accurate coordinates while executing high-speed neural networks alongside sub-millisecond flight dynamics demands an uncompromising embedded hardware architecture. Traditional single-board flight controllers crash under heavy computational load, making a dedicated dual-brain partition an absolute operational necessity."* | L-Cut audio overlap. Visual cuts directly from ray-casting crosshair to the physical Arduino UNO Q board. |
+| **Scene 4**<br>`2:07 – 2:50` | **Speaker 4**<br>(Embedded Lead) | • Arduino UNO Q PCB diagram<br>• QRB2210 MPU + STM32U5 split<br>• Zephyr RTOS 250 Hz badge | *"All of this onboard compute and flight stability means nothing if critical target coordinates cannot escape the disaster zone communication blackout. When commercial telecommunication towers collapse and local Wi-Fi networks go dark, standard high-bandwidth video downlinks fail completely."* | Direct cut on "blackout". Transition from hardware schematic to radio frequency antenna / LoRa hardware. |
+| **Scene 5**<br>`2:47 – 3:32` | **Speaker 5**<br>(Comms Lead) | • SX1262 LoRa module<br>• RF spectrum waterfall<br>• 17-byte bit-pack diagram | *"With extreme sub-gigahertz penetration, our encrypted telemetry signal punches through reinforced concrete rubble and dense forest foliage over a five-kilometer radius, instantly hitting our portable ground command terminal. Once received at the incident command post, raw telemetry is instantly converted into actionable ground triage."* | J-Cut: Speaker 6's voice leads into the full-screen tactical map display while Speaker 5's packet animation resolves. |
+| **Scene 6**<br>`3:29 – 4:15` | **Speaker 6**<br>(Command Lead) | • Offline Web GCS dashboard<br>• Dijkstra route recalculation<br>• 11kV wire hazard avoidance<br>• Closing team card & SIH logo | Final punchy delivery directly on camera, cross-cutting with the active rescue corridor visualization. | Outro music swell, fade to black on the official Smart India Hackathon and Qualcomm acknowledgment slide. |
 
-Total Estimated Video Runtime: **4 minutes 15 seconds** to **4 minutes 30 seconds** (comfortably within the 5-minute SIH video presentation limit).
+**Total Video Duration:** **4 minutes 15 seconds** (comfortably underneath the strict 5-minute SIH submission cap, leaving generous headroom).
