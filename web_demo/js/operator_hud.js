@@ -1,48 +1,60 @@
-// Project Phoenix X - Drone Operator FPV HUD & Tait-Bryan Ray-Caster Engine (Clean Defense OSD)
+// Project Phoenix X — Operator Tactical Cockpit & Tait-Bryan Ray-Caster Engine
 
 const OperatorHUD = {
   pitch: -2.5, // degrees
   roll: 1.8,   // degrees
   yaw: 124.0,  // degrees heading
-  altitudeAGL: 28.4, // meters from Downward LiDAR (MS5611 + ToF)
-  uavLat: 11.58124, // Wayanad reference coords
-  uavLon: 76.12845,
+  altitudeAGL: 28.4, // meters AGL from Downward LiDAR
   focalLength: 520, // camera intrinsic fx, fy (pixels)
-  
-  lockedTarget: null,
+
   bgImage: null,
+  isRecording: false,
 
   init() {
     this.canvas = document.getElementById('canvas-hud');
-    this.ctx = this.canvas.getContext('2d');
-    
-    // Load real disaster camera feed for FPV cockpit background
+    this.ctx = this.canvas ? this.canvas.getContext('2d') : null;
+
     this.bgImage = new Image();
     this.bgImage.src = 'images/earthquake_rgb.jpg';
     this.bgImage.onload = () => {
       this.drawHUD();
     };
 
-    this.setupListeners();
+    this.setupEventListeners();
     this.startLoop();
+
+    // Subscribe to MissionState
+    if (window.MissionState) {
+      MissionState.subscribe((state) => {
+        // Adapt background to match current scenario if available
+        const sc = MissionState.scenarios[state.scenario];
+        if (sc && sc.rgbSrc && (!this.bgImage || !this.bgImage.src.includes(sc.rgbSrc))) {
+          this.bgImage = new Image();
+          this.bgImage.src = sc.rgbSrc;
+        }
+      });
+    }
   },
 
-  setupListeners() {
-    this.canvas.addEventListener('click', (e) => {
-      const rect = this.canvas.getBoundingClientRect();
-      const scaleX = this.canvas.width / rect.width;
-      const scaleY = this.canvas.height / rect.height;
-      const clickX = (e.clientX - rect.left) * scaleX;
-      const clickY = (e.clientY - rect.top) * scaleY;
+  setupEventListeners() {
+    if (this.canvas) {
+      this.canvas.addEventListener('click', (e) => {
+        const rect = this.canvas.getBoundingClientRect();
+        const scaleX = this.canvas.width / rect.width;
+        const scaleY = this.canvas.height / rect.height;
+        const clickX = (e.clientX - rect.left) * scaleX;
+        const clickY = (e.clientY - rect.top) * scaleY;
 
-      this.executeRayCast(clickX, clickY);
-    });
+        this.executeRayCast(clickX, clickY);
+      });
+    }
 
     const pitchSlider = document.getElementById('hud-pitch-slider');
     if (pitchSlider) {
       pitchSlider.addEventListener('input', (e) => {
         this.pitch = parseFloat(e.target.value);
-        document.getElementById('hud-pitch-val').textContent = `${this.pitch.toFixed(1)}°`;
+        const el = document.getElementById('hud-pitch-val');
+        if (el) el.textContent = `${this.pitch.toFixed(1)}°`;
       });
     }
 
@@ -50,7 +62,8 @@ const OperatorHUD = {
     if (rollSlider) {
       rollSlider.addEventListener('input', (e) => {
         this.roll = parseFloat(e.target.value);
-        document.getElementById('hud-roll-val').textContent = `${this.roll.toFixed(1)}°`;
+        const el = document.getElementById('hud-roll-val');
+        if (el) el.textContent = `${this.roll.toFixed(1)}°`;
       });
     }
 
@@ -58,7 +71,8 @@ const OperatorHUD = {
     if (altSlider) {
       altSlider.addEventListener('input', (e) => {
         this.altitudeAGL = parseFloat(e.target.value);
-        document.getElementById('hud-alt-val').textContent = `${this.altitudeAGL.toFixed(1)}m`;
+        const el = document.getElementById('hud-alt-val');
+        if (el) el.textContent = `${this.altitudeAGL.toFixed(1)}m`;
       });
     }
   },
@@ -69,50 +83,92 @@ const OperatorHUD = {
     const cx = w / 2;
     const cy = h / 2;
 
-    // Step 1: Pinhole Ray Unprojection
+    // STEP 1: Pinhole Ray Unprojection in Camera Coordinate Frame {C}
     const fx = this.focalLength;
     const fy = this.focalLength;
     const rCx = (u - cx) / fx;
     const rCy = (v - cy) / fy;
     const rCz = 1.0;
+    const magC = Math.sqrt(rCx * rCx + rCy * rCy + rCz * rCz);
+    const unitRC = [rCx / magC, rCy / magC, rCz / magC];
 
-    // Step 2: Tait-Bryan Rotation Transformation (Pitch theta, Yaw psi)
+    // STEP 2: Tait-Bryan Rotation (Body to World NED Frame)
+    const phi = (this.roll * Math.PI) / 180;
     const theta = (this.pitch * Math.PI) / 180;
     const psi = (this.yaw * Math.PI) / 180;
 
-    const groundDistanceZ = this.altitudeAGL;
-    const offsetX = (rCx / rCz) * groundDistanceZ + (Math.tan(theta) * groundDistanceZ);
-    const offsetY = (rCy / rCz) * groundDistanceZ;
+    const groundZ = this.altitudeAGL;
+    // Ray projection forward intersection
+    const offsetX = (rCx / rCz) * groundZ + (Math.tan(theta) * groundZ);
+    const offsetY = (rCy / rCz) * groundZ;
 
-    // Step 3: WGS-84 Geodetic Coordinate Conversion
+    // STEP 3: Geodetic Coordinate Conversion to WGS-84
+    const baseLat = (MissionState && MissionState.activeTarget) ? MissionState.activeTarget.lat : 11.581240;
+    const baseLon = (MissionState && MissionState.activeTarget) ? MissionState.activeTarget.lon : 76.128450;
+
     const deltaLat = (offsetX * Math.cos(psi) - offsetY * Math.sin(psi)) / 111320;
-    const deltaLon = (offsetX * Math.sin(psi) + offsetY * Math.cos(psi)) / (111320 * Math.cos((this.uavLat * Math.PI) / 180));
+    const deltaLon = (offsetX * Math.sin(psi) + offsetY * Math.cos(psi)) / (111320 * Math.cos((baseLat * Math.PI) / 180));
 
-    const targetLat = this.uavLat + deltaLat;
-    const targetLon = this.uavLon + deltaLon;
+    const targetLat = baseLat + deltaLat;
+    const targetLon = baseLon + deltaLon;
+    const distance = Math.sqrt(offsetX * offsetX + offsetY * offsetY + groundZ * groundZ);
+    const sepError = (0.075 * groundZ).toFixed(1); // Theoretical simulation estimate
 
-    this.lockedTarget = {
-      u, v,
-      lat: targetLat,
-      lon: targetLon,
-      distance: Math.sqrt(offsetX * offsetX + offsetY * offsetY + groundDistanceZ * groundDistanceZ),
-      errorMargin: (0.075 * groundDistanceZ).toFixed(1)
+    const result = {
+      pixelU: Math.round(u),
+      pixelV: Math.round(v),
+      unitRayC: unitRC.map(n => n.toFixed(3)),
+      pitchDeg: this.pitch.toFixed(1),
+      rollDeg: this.roll.toFixed(1),
+      yawDeg: this.yaw.toFixed(1),
+      altitudeAGL: this.altitudeAGL,
+      offsetX: offsetX.toFixed(2),
+      offsetY: offsetY.toFixed(2),
+      targetLat: targetLat,
+      targetLon: targetLon,
+      distanceM: distance.toFixed(1),
+      sepErrorMargin: sepError
     };
 
-    document.getElementById('raycast-pixel').textContent = `[u: ${Math.round(u)}, v: ${Math.round(v)}]`;
-    document.getElementById('raycast-coords').textContent = `${targetLat.toFixed(6)}° N, ${targetLon.toFixed(6)}° E`;
-    document.getElementById('raycast-dist').textContent = `${this.lockedTarget.distance.toFixed(1)} m`;
-    document.getElementById('raycast-err').textContent = `± ${this.lockedTarget.errorMargin} m (SEP 95%)`;
+    // Update MissionState
+    if (window.MissionState) {
+      MissionState.setRaycastResult(result);
+    }
 
+    // Audio cue
     if (typeof playRaycastLaser === 'function') playRaycastLaser();
-    if (typeof playLoraBurst === 'function') setTimeout(playLoraBurst, 250);
 
-    if (typeof LoRaPacker !== 'undefined' && LoRaPacker.updateFromRayCast) {
-      LoRaPacker.updateFromRayCast(targetLat, targetLon, 1);
+    // Update UI
+    this.updateCalculationDetails(result);
+  },
+
+  updateCalculationDetails(r) {
+    const elCoords = document.getElementById('raycast-coords');
+    const elPixel = document.getElementById('raycast-pixel');
+    const elDist = document.getElementById('raycast-dist');
+    const elErr = document.getElementById('raycast-err');
+
+    if (elCoords) elCoords.textContent = `${r.targetLat.toFixed(6)}° N, ${r.targetLon.toFixed(6)}° E`;
+    if (elPixel) elPixel.textContent = `[u: ${r.pixelU}, v: ${r.pixelV}]`;
+    if (elDist) elDist.textContent = `${r.distanceM} m`;
+    if (elErr) elErr.textContent = `± ${r.sepErrorMargin} m (Simulation Estimate)`;
+
+    // Update step-by-step breakdown
+    const mathBox = document.getElementById('math-step-breakdown');
+    if (mathBox) {
+      mathBox.innerHTML = `
+        <div class="space-y-1.5 font-mono text-[10px] text-slate-300">
+          <div><span class="text-sky-400 font-bold">1. Camera Ray Vector r_C:</span> [${r.unitRayC.join(', ')}] (fx=fy=${this.focalLength}px)</div>
+          <div><span class="text-sky-400 font-bold">2. Tait-Bryan Rotation (DCM):</span> Pitch θ=${r.pitchDeg}°, Roll φ=${r.rollDeg}°, Yaw ψ=${r.yawDeg}°</div>
+          <div><span class="text-sky-400 font-bold">3. Ground Intersection Offset:</span> ΔX=${r.offsetX}m, ΔY=${r.offsetY}m at Altitude H_AGL=${r.altitudeAGL}m</div>
+          <div><span class="text-emerald-400 font-bold">4. Resolved WGS-84 Geodetic:</span> Lat ${r.targetLat.toFixed(6)}° N, Lon ${r.targetLon.toFixed(6)}° E</div>
+        </div>
+      `;
     }
   },
 
   drawHUD() {
+    if (!this.canvas || !this.ctx) return;
     const ctx = this.ctx;
     const w = this.canvas.width;
     const h = this.canvas.height;
@@ -121,24 +177,23 @@ const OperatorHUD = {
 
     ctx.clearRect(0, 0, w, h);
 
-    // 1. Draw Real Drone Camera Background
+    // 1. Drone Camera Feed Background
     if (this.bgImage && this.bgImage.complete) {
       ctx.drawImage(this.bgImage, 0, 0, w, h);
-      ctx.fillStyle = 'rgba(10, 14, 20, 0.25)';
+      ctx.fillStyle = 'rgba(9, 13, 18, 0.25)';
       ctx.fillRect(0, 0, w, h);
     } else {
-      ctx.fillStyle = '#0a0e14';
+      ctx.fillStyle = '#090D12';
       ctx.fillRect(0, 0, w, h);
     }
 
-    // 2. Artificial Horizon Ladder (Clean White/Muted Cyan Aviation Standard)
+    // 2. Artificial Horizon Ladder
     ctx.save();
     ctx.translate(cx, cy);
     ctx.rotate((-this.roll * Math.PI) / 180);
 
     const pitchOffset = this.pitch * 3.5;
-
-    ctx.strokeStyle = 'rgba(241, 245, 249, 0.75)';
+    ctx.strokeStyle = 'rgba(234, 240, 246, 0.75)';
     ctx.lineWidth = 1.2;
 
     // Horizon line with central gap
@@ -164,7 +219,7 @@ const OperatorHUD = {
       ctx.stroke();
       ctx.setLineDash([]);
 
-      ctx.fillStyle = 'rgba(241, 245, 249, 0.75)';
+      ctx.fillStyle = 'rgba(234, 240, 246, 0.75)';
       ctx.font = '8px monospace';
       ctx.textAlign = 'right';
       ctx.fillText(`${deg}°`, -40, yPos + 3);
@@ -174,8 +229,8 @@ const OperatorHUD = {
 
     ctx.restore();
 
-    // 3. Center Aircraft Reticle (Clean Military Gun Crosshair)
-    ctx.strokeStyle = '#38bdf8';
+    // 3. Center Aircraft Reticle
+    ctx.strokeStyle = '#38BDF8';
     ctx.lineWidth = 1.2;
     ctx.beginPath();
     ctx.arc(cx, cy, 5, 0, Math.PI * 2);
@@ -189,57 +244,57 @@ const OperatorHUD = {
     ctx.stroke();
 
     // 4. Heading Tape (Top Bar)
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+    ctx.fillStyle = 'rgba(16, 23, 32, 0.9)';
     ctx.fillRect(cx - 140, 8, 280, 24);
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+    ctx.strokeStyle = '#283544';
     ctx.strokeRect(cx - 140, 8, 280, 24);
 
-    ctx.fillStyle = '#f8fafc';
+    ctx.fillStyle = '#EAF0F6';
     ctx.font = '10px monospace';
     ctx.textAlign = 'center';
-    ctx.fillText(`HDG: ${Math.round(this.yaw)}°  |  VIO-HEADING: STABLE`, cx, 24);
+    ctx.fillText(`HDG: ${Math.round(this.yaw)}°  |  VIO HEADING: LOCKED`, cx, 24);
 
-    // 5. Left Tape: Ground Speed (12.4 m/s)
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
-    ctx.fillRect(12, cy - 65, 45, 130);
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
-    ctx.strokeRect(12, cy - 65, 45, 130);
+    // 5. Left Tape: Ground Speed
+    ctx.fillStyle = 'rgba(16, 23, 32, 0.9)';
+    ctx.fillRect(12, cy - 65, 48, 130);
+    ctx.strokeStyle = '#283544';
+    ctx.strokeRect(12, cy - 65, 48, 130);
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#9AA9B8';
     ctx.font = '9px monospace';
     ctx.textAlign = 'center';
-    ctx.fillText("GND SPD", 34, cy - 45);
-    ctx.fillStyle = '#f8fafc';
+    ctx.fillText("GND SPD", 36, cy - 45);
+    ctx.fillStyle = '#EAF0F6';
     ctx.font = 'bold 12px monospace';
-    ctx.fillText("12.4", 34, cy);
+    ctx.fillText("12.4", 36, cy);
     ctx.font = '8px monospace';
-    ctx.fillStyle = '#94a3b8';
-    ctx.fillText("m/s", 34, cy + 14);
+    ctx.fillStyle = '#9AA9B8';
+    ctx.fillText("m/s", 36, cy + 14);
 
-    // Right Tape: LiDAR Altitude AGL
-    ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
-    ctx.fillRect(w - 57, cy - 65, 45, 130);
-    ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
-    ctx.strokeRect(w - 57, cy - 65, 45, 130);
+    // Right Tape: Altitude AGL from LiDAR
+    ctx.fillStyle = 'rgba(16, 23, 32, 0.9)';
+    ctx.fillRect(w - 60, cy - 65, 48, 130);
+    ctx.strokeStyle = '#283544';
+    ctx.strokeRect(w - 60, cy - 65, 48, 130);
 
-    ctx.fillStyle = '#94a3b8';
+    ctx.fillStyle = '#9AA9B8';
     ctx.font = '9px monospace';
     ctx.textAlign = 'center';
-    ctx.fillText("ALT AGL", w - 34, cy - 45);
-    ctx.fillStyle = '#f8fafc';
+    ctx.fillText("ALT AGL", w - 36, cy - 45);
+    ctx.fillStyle = '#FF6B35';
     ctx.font = 'bold 12px monospace';
-    ctx.fillText(`${this.altitudeAGL.toFixed(1)}`, w - 34, cy);
+    ctx.fillText(`${this.altitudeAGL.toFixed(1)}`, w - 36, cy);
     ctx.font = '8px monospace';
-    ctx.fillStyle = '#94a3b8';
-    ctx.fillText("m", w - 34, cy + 14);
+    ctx.fillStyle = '#9AA9B8';
+    ctx.fillText("m", w - 36, cy + 14);
 
-    // 6. Draw Target Lock Reticle if Selected
-    if (this.lockedTarget) {
-      const tx = this.lockedTarget.u;
-      const ty = this.lockedTarget.v;
+    // 6. Draw Locked Target Reticle
+    const res = MissionState ? MissionState.raycastResult : null;
+    if (res) {
+      const tx = res.pixelU;
+      const ty = res.pixelV;
 
-      // Clean military target box
-      ctx.strokeStyle = '#10b981';
+      ctx.strokeStyle = '#6BCB9A';
       ctx.lineWidth = 1.2;
       ctx.beginPath();
       ctx.arc(tx, ty, 14, 0, Math.PI * 2);
@@ -250,8 +305,7 @@ const OperatorHUD = {
       ctx.moveTo(tx, ty - 20); ctx.lineTo(tx, ty + 20);
       ctx.stroke();
 
-      // Slant line
-      ctx.strokeStyle = 'rgba(16, 185, 129, 0.6)';
+      ctx.strokeStyle = 'rgba(107, 203, 154, 0.6)';
       ctx.lineWidth = 1;
       ctx.setLineDash([3, 3]);
       ctx.beginPath();
@@ -261,29 +315,31 @@ const OperatorHUD = {
       ctx.setLineDash([]);
 
       // Coordinate Tag
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
-      ctx.strokeStyle = '#10b981';
-      ctx.fillRect(tx + 18, ty - 20, 165, 42);
-      ctx.strokeRect(tx + 18, ty - 20, 165, 42);
+      ctx.fillStyle = 'rgba(16, 23, 32, 0.92)';
+      ctx.strokeStyle = '#6BCB9A';
+      ctx.fillRect(tx + 18, ty - 20, 175, 42);
+      ctx.strokeRect(tx + 18, ty - 20, 175, 42);
 
-      ctx.fillStyle = '#f8fafc';
+      ctx.fillStyle = '#EAF0F6';
       ctx.font = '9px monospace';
       ctx.textAlign = 'left';
       ctx.fillText(`GEO-LOCK: WGS-84`, tx + 24, ty - 8);
-      ctx.fillStyle = '#34d399';
-      ctx.fillText(`${this.lockedTarget.lat.toFixed(6)}° N, ${this.lockedTarget.lon.toFixed(6)}° E`, tx + 24, ty + 6);
-      ctx.fillStyle = '#94a3b8';
-      ctx.fillText(`SEP (95%): ±${this.lockedTarget.errorMargin}m`, tx + 24, ty + 18);
+      ctx.fillStyle = '#6BCB9A';
+      ctx.fillText(`${res.targetLat.toFixed(6)}° N, ${res.targetLon.toFixed(6)}° E`, tx + 24, ty + 6);
+      ctx.fillStyle = '#9AA9B8';
+      ctx.fillText(`SEP (95%): ±${res.sepErrorMargin}m (EST)`, tx + 24, ty + 18);
     }
   },
 
   startLoop() {
     const loop = () => {
-      this.pitch += Math.sin(Date.now() / 700) * 0.015;
-      this.roll += Math.cos(Date.now() / 900) * 0.01;
+      this.pitch += Math.sin(Date.now() / 700) * 0.012;
+      this.roll += Math.cos(Date.now() / 900) * 0.008;
       this.drawHUD();
       requestAnimationFrame(loop);
     };
     loop();
   }
 };
+
+window.OperatorHUD = OperatorHUD;

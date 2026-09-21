@@ -1,87 +1,190 @@
-/* Project Phoenix X - Clean Enterprise Aerospace & Defense GCS Theme */
+/* PROJECT PHOENIX X — AEROSPACE MISSION CONTROL DESIGN SYSTEM */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
 :root {
-  --bg-primary: #0a0e14;
-  --bg-secondary: #111822;
-  --bg-card: #151f2e;
-  --border-muted: #1e293b;
-  --border-focus: #334155;
-  --accent-blue: #2563eb;
-  --accent-cyan: #0ea5e9;
-  --status-emerald: #10b981;
-  --status-amber: #f59e0b;
-  --status-rose: #f43f5e;
-  --text-main: #f1f5f9;
-  --text-muted: #94a3b8;
-  --text-dim: #64748b;
+  --bg-primary: #090D12;
+  --bg-secondary: #101720;
+  --bg-panel: #141E29;
+  --bg-surface: #1B2836;
+  --border-subtle: #202D3B;
+  --border-strong: #283544;
+  --border-accent: #3A4C60;
+
+  --text-primary: #EAF0F6;
+  --text-secondary: #9AA9B8;
+  --text-tertiary: #627282;
+
+  --accent-blue: #4DA3FF;
+  --accent-cyan: #38BDF8;
+  --thermal-orange: #FF6B35;
+  --status-green: #6BCB9A;
+  --status-amber: #F2B84B;
+  --status-red: #FF4D4F;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
   background-color: var(--bg-primary);
-  color: var(--text-main);
-  letter-spacing: -0.01em;
+  color: var(--text-primary);
+  letter-spacing: -0.011em;
   -webkit-font-smoothing: antialiased;
 }
 
-/* Professional Enterprise Workstation Panel */
-.panel {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border-muted);
+/* Monospace Utility */
+.font-mono {
+  font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+}
+
+/* Technical Panels */
+.mission-panel {
+  background-color: var(--bg-panel);
+  border: 1px solid var(--border-strong);
   border-radius: 6px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
 }
 
-.panel-header {
-  background-color: rgba(15, 23, 42, 0.6);
-  border-bottom: 1px solid var(--border-muted);
-  padding: 8px 14px;
+.mission-panel-header {
+  background-color: rgba(16, 23, 32, 0.95);
+  border-bottom: 1px solid var(--border-strong);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
-/* FLIR Ironbow Calibration Scale */
-.ironbow-scale {
+/* Badges & Chips */
+.tech-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 500;
+  border: 1px solid var(--border-strong);
+  background-color: var(--bg-secondary);
+  color: var(--text-secondary);
+}
+
+.tech-chip-blue {
+  border-color: rgba(77, 163, 255, 0.35);
+  background-color: rgba(77, 163, 255, 0.08);
+  color: var(--accent-blue);
+}
+
+.tech-chip-orange {
+  border-color: rgba(255, 107, 53, 0.35);
+  background-color: rgba(255, 107, 53, 0.08);
+  color: var(--thermal-orange);
+}
+
+.tech-chip-green {
+  border-color: rgba(107, 203, 154, 0.35);
+  background-color: rgba(107, 203, 154, 0.08);
+  color: var(--status-green);
+}
+
+.tech-chip-amber {
+  border-color: rgba(242, 184, 75, 0.35);
+  background-color: rgba(242, 184, 75, 0.08);
+  color: var(--status-amber);
+}
+
+/* FLIR Thermal Palettes */
+.palette-ironbow {
   background: linear-gradient(to right, #000004, #1e1b4b, #6b21a8, #c026d3, #ea580c, #facc15, #ffffff);
 }
 
-/* Clean Professional Split Slider */
-.clean-slider {
+.palette-whitehot {
+  background: linear-gradient(to right, #000000, #333333, #777777, #bbbbbb, #ffffff);
+}
+
+.palette-blackhot {
+  background: linear-gradient(to right, #ffffff, #bbbbbb, #777777, #333333, #000000);
+}
+
+/* Custom Split-Screen Slider */
+.mission-slider {
   -webkit-appearance: none;
   appearance: none;
-  background: #1e293b;
+  background: var(--border-strong);
   height: 4px;
   border-radius: 2px;
   outline: none;
 }
 
-.clean-slider::-webkit-slider-thumb {
+.mission-slider::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
-  width: 18px;
-  height: 18px;
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: #f8fafc;
-  border: 2px solid #0284c7;
+  background: #EAF0F6;
+  border: 2px solid var(--thermal-orange);
   cursor: ew-resize;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.6);
   transition: transform 0.1s ease;
 }
 
-.clean-slider::-webkit-slider-thumb:hover {
+.mission-slider::-webkit-slider-thumb:hover {
   transform: scale(1.15);
 }
 
-.clean-slider::-moz-range-thumb {
-  width: 18px;
-  height: 18px;
+.mission-slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
   border-radius: 50%;
-  background: #f8fafc;
-  border: 2px solid #0284c7;
+  background: #EAF0F6;
+  border: 2px solid var(--thermal-orange);
   cursor: ew-resize;
 }
 
-/* Subtle OSD reticle crosshairs */
-.osd-crosshair {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  pointer-events: none;
+/* Subtle OSD Scanlines */
+.osd-grid-overlay {
+  background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                    linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Interactive Timeline Nodes */
+.timeline-step.active {
+  border-color: var(--accent-blue);
+  background-color: rgba(77, 163, 255, 0.1);
+}
+
+.timeline-step.completed {
+  border-color: var(--status-green);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--border-accent);
 }
