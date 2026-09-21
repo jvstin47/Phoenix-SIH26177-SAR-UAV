@@ -3,229 +3,219 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>PROJECT PHOENIX X // Multi-Spectral Perception & Tactical Operator Demo</title>
+  <title>PHOENIX-X // Dual-Spectrum Tactical SAR Workstation</title>
   <script src="https://www.gstatic.com/antigravity/web/dev/tailwindcss.min.js"></script>
   <link rel="stylesheet" href="css/styles.css">
 </head>
-<body class="bg-slate-950 text-slate-100 min-h-screen flex flex-col antialiased">
+<body class="bg-[#0a0e14] text-slate-200 min-h-screen flex flex-col font-sans antialiased selection:bg-sky-900 selection:text-white">
 
-  <!-- Top Aerospace Command Bar -->
-  <header class="border-b border-cyan-500/20 bg-slate-900/80 backdrop-blur-md sticky top-0 z-50">
-    <div class="max-w-7xl mx-auto px-4 py-3 flex flex-wrap items-center justify-between gap-3">
+  <!-- Enterprise Mission Command Header -->
+  <header class="border-b border-slate-800 bg-[#0d131c]/95 sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 py-2.5 flex flex-wrap items-center justify-between gap-3">
       
-      <!-- Brand & SIH Info -->
+      <!-- System Identification -->
       <div class="flex items-center space-x-3">
-        <div class="w-9 h-9 rounded-lg bg-gradient-to-br from-cyan-500 to-blue-700 flex items-center justify-center font-black text-white text-lg shadow-lg shadow-cyan-500/30">
-          PX
-        </div>
-        <div>
+        <div class="border-l-2 border-sky-500 pl-3">
           <div class="flex items-center space-x-2">
-            <h1 class="font-extrabold text-sm tracking-wider uppercase text-cyan-400">PROJECT PHOENIX X</h1>
-            <span class="text-[10px] px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800 font-mono">SIH26177</span>
-            <span class="text-[10px] px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 border border-amber-800 font-mono">TEAM 141943</span>
+            <span class="font-bold text-sm tracking-wider uppercase text-slate-100 font-mono">PHOENIX-X</span>
+            <span class="text-[10px] text-slate-400 font-mono">| SIH26177 (QUALCOMM INC.)</span>
+            <span class="text-[10px] px-1.5 py-0.2 rounded bg-slate-800 text-slate-300 font-mono border border-slate-700">TEAM 141943</span>
           </div>
-          <p class="text-xs text-slate-400">Dual-Brain Edge-AI Scout // Qualcomm Inc. Hardware Edition</p>
+          <p class="text-[11px] text-slate-400 font-normal">Autonomous Dual-Spectrum Search & Rescue Reconnaissance Workstation</p>
         </div>
       </div>
 
-      <!-- Live Hardware Status Pills -->
+      <!-- Real-Time Avionics Telemetry Status Bar -->
       <div class="flex flex-wrap items-center gap-2 text-xs font-mono">
-        <div class="bg-slate-900 px-2.5 py-1 rounded border border-slate-700 flex items-center space-x-1.5">
-          <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+        <div class="bg-[#131b26] px-2.5 py-1 rounded border border-slate-800 flex items-center space-x-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
           <span class="text-slate-400">MPU:</span>
-          <span class="text-emerald-400 font-bold">QRB2210 &lt;5W</span>
+          <span class="text-slate-200 font-medium">QRB2210 &lt;5W</span>
         </div>
-        <div class="bg-slate-900 px-2.5 py-1 rounded border border-slate-700 flex items-center space-x-1.5">
-          <span class="text-slate-400">RTOS:</span>
-          <span class="text-cyan-300 font-bold">STM32U5 @ 250Hz</span>
+        <div class="bg-[#131b26] px-2.5 py-1 rounded border border-slate-800 flex items-center space-x-2">
+          <span class="text-slate-400">FMU:</span>
+          <span class="text-slate-200 font-medium">STM32U5 @ 250Hz</span>
         </div>
-        <div class="bg-slate-900 px-2.5 py-1 rounded border border-slate-700 flex items-center space-x-1.5">
-          <span class="text-slate-400">LORA:</span>
-          <span class="text-amber-400 font-bold">868MHz 17-Byte</span>
+        <div class="bg-[#131b26] px-2.5 py-1 rounded border border-slate-800 flex items-center space-x-2">
+          <span class="text-slate-400">DATALINK:</span>
+          <span class="text-sky-400 font-medium">LoRa 868MHz (17-Byte)</span>
         </div>
 
-        <!-- Audio Toggle Button -->
-        <button id="audio-toggle-btn" onclick="toggleAudio()" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 border border-slate-700 flex items-center space-x-1 transition">
+        <!-- Audio Alert Toggle -->
+        <button id="audio-toggle-btn" onclick="toggleAudio()" class="px-2.5 py-1 rounded bg-[#131b26] hover:bg-slate-800 text-slate-400 border border-slate-800 flex items-center space-x-1.5 transition text-xs">
           <svg id="audio-icon" class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2"></path></svg>
-          <span id="audio-label" class="text-[10px] font-bold">AUDIO: MUTED</span>
+          <span id="audio-label" class="text-[10px] font-mono">AUDIO: OFF</span>
         </button>
       </div>
 
     </div>
 
-    <!-- Navigation Tabs -->
+    <!-- Navigation Bar -->
     <div class="max-w-7xl mx-auto px-4 flex space-x-1 overflow-x-auto border-t border-slate-800/80">
-      <button onclick="switchTab('tab-perception')" id="nav-tab-perception" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider border-b-2 border-cyan-400 text-cyan-400 transition">
-        1. Multi-Spectral Perception Lab
+      <button onclick="switchTab('tab-perception')" id="nav-tab-perception" class="tab-btn px-4 py-2 text-xs font-medium uppercase tracking-wider border-b-2 border-sky-500 text-sky-400 transition font-mono">
+        1. Sensor Fusion & Perception Lab
       </button>
-      <button onclick="switchTab('tab-operator')" id="nav-tab-operator" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition">
-        2. Drone Operator FPV Cockpit
+      <button onclick="switchTab('tab-operator')" id="nav-tab-operator" class="tab-btn px-4 py-2 text-xs font-medium uppercase tracking-wider border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition font-mono">
+        2. Operator Tactical Cockpit (FPV)
       </button>
-      <button onclick="switchTab('tab-dualbrain')" id="nav-tab-dualbrain" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition">
-        3. Dual-Brain & 17-Byte LoRa
+      <button onclick="switchTab('tab-dualbrain')" id="nav-tab-dualbrain" class="tab-btn px-4 py-2 text-xs font-medium uppercase tracking-wider border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition font-mono">
+        3. Avionics Architecture & Telemetry
       </button>
-      <button onclick="switchTab('tab-gcs')" id="nav-tab-gcs" class="tab-btn px-4 py-2 text-xs font-bold uppercase tracking-wider border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition">
-        4. Tactical GCS & Dijkstra
+      <button onclick="switchTab('tab-gcs')" id="nav-tab-gcs" class="tab-btn px-4 py-2 text-xs font-medium uppercase tracking-wider border-b-2 border-transparent text-slate-400 hover:text-slate-200 transition font-mono">
+        4. Tactical GCS & Ingress Routing
       </button>
     </div>
   </header>
 
-  <!-- Main Content Body -->
-  <main class="flex-1 max-w-7xl w-full mx-auto p-4 space-y-6">
+  <!-- Main Workstation Viewport -->
+  <main class="flex-1 max-w-7xl w-full mx-auto p-4 space-y-5">
 
-    <!-- ========================================== -->
-    <!-- TAB 1: MULTI-SPECTRAL PERCEPTION STUDIO    -->
-    <!-- ========================================== -->
-    <section id="tab-perception" class="space-y-6">
+    <!-- ======================================================== -->
+    <!-- TAB 1: SENSOR FUSION & MULTI-SPECTRAL PERCEPTION LAB    -->
+    <!-- ======================================================== -->
+    <section id="tab-perception" class="space-y-4">
 
-      <!-- Scenario Selector & Intro -->
-      <div class="tactical-card p-4 flex flex-wrap items-center justify-between gap-4">
-        <div>
-          <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center space-x-2">
-            <span class="w-2 h-2 rounded-full bg-orange-500"></span>
-            <span>Disaster Scenario Selection</span>
-          </h2>
-          <p class="text-xs text-slate-400 mt-0.5">Simulate real-world conditions where optical vision fails but LWIR thermal (8–14μm) penetrates.</p>
+      <!-- Operational Context & Scenario Selection -->
+      <div class="panel p-3 flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center space-x-3">
+          <span class="text-xs font-mono text-slate-400 uppercase">Operational Environment:</span>
+          <div class="flex flex-wrap gap-1.5">
+            <button id="btn-scen-wayanad" onclick="PerceptionLab.setScenario('wayanad')" class="scenario-btn px-3 py-1 rounded text-xs font-medium border transition bg-sky-900/60 text-sky-200 border-sky-600">
+              Tropical Mudflow (Wayanad)
+            </button>
+            <button id="btn-scen-earthquake" onclick="PerceptionLab.setScenario('earthquake')" class="scenario-btn px-3 py-1 rounded text-xs font-medium border border-slate-700 bg-slate-800/80 text-slate-300 hover:bg-slate-700 transition">
+              Structural Concrete Collapse
+            </button>
+            <button id="btn-scen-night_smoke" onclick="PerceptionLab.setScenario('night_smoke')" class="scenario-btn px-3 py-1 rounded text-xs font-medium border border-slate-700 bg-slate-800/80 text-slate-300 hover:bg-slate-700 transition">
+              Zero-Lux Smoke & 11kV Hazard
+            </button>
+          </div>
         </div>
 
-        <div class="flex flex-wrap gap-2">
-          <button id="btn-scen-wayanad" onclick="PerceptionLab.setScenario('wayanad')" class="scenario-btn px-3 py-1.5 rounded-lg text-xs font-bold border transition bg-cyan-600 text-white border-cyan-400">
-            Wayanad Mudslide
-          </button>
-          <button id="btn-scen-earthquake" onclick="PerceptionLab.setScenario('earthquake')" class="scenario-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
-            Earthquake Slab Void
-          </button>
-          <button id="btn-scen-night_smoke" onclick="PerceptionLab.setScenario('night_smoke')" class="scenario-btn px-3 py-1.5 rounded-lg text-xs font-bold border border-slate-700 bg-slate-800 text-slate-300 hover:bg-slate-700 transition">
-            Night Smoke & 11kV Wire
+        <div class="text-[11px] font-mono text-slate-400 flex items-center space-x-2">
+          <span>TARGET TRACKING:</span>
+          <button id="toggle-bbox-btn" onclick="PerceptionLab.toggleBoundingBoxes()" class="px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px] font-bold">
+            ACTIVE
           </button>
         </div>
       </div>
 
-      <!-- Active Scenario Description Banner -->
-      <div class="p-3.5 rounded-lg bg-cyan-950/40 border border-cyan-500/30 text-xs flex items-start space-x-3">
-        <div class="p-1 rounded bg-cyan-900/80 text-cyan-300 font-bold font-mono text-[10px] mt-0.5">CONTEXT</div>
-        <div class="space-y-1">
-          <div id="scenario-desc-title" class="font-bold text-cyan-300">Wayanad Landslide & Mud Slush</div>
-          <p id="scenario-desc-text" class="text-slate-300 leading-relaxed">
-            Severe mud deposits and torrential rain. In RGB, the trapped survivor is camouflaged by brown clay and debris (visibility ~15%). LWIR Thermal (8–14μm) instantly isolates the 36.8°C living body heat.
+      <!-- Tactical Scenario Briefing Bar -->
+      <div class="p-3 rounded bg-[#0f1724] border border-slate-800 text-xs flex items-start space-x-3">
+        <span class="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">BRIEFING</span>
+        <div class="space-y-0.5">
+          <span id="scenario-desc-title" class="font-bold text-slate-200">Wayanad Landslide & Mud Slush (Western Ghats, India)</span>
+          <p id="scenario-desc-text" class="text-slate-400 text-[11px] leading-relaxed">
+            Severe torrential mudflow and clay deposits. In 4K Optical RGB, the mud-soaked survivor is virtually camouflaged in the reddish-brown clay. Radiometric LWIR Thermal (8–14μm) penetrates the moisture layer and isolates the living 37.0°C body heat.
           </p>
         </div>
       </div>
 
-      <!-- Main Interactive Multi-Spectral Canvas Deck -->
-      <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+      <!-- Main Perception Viewport Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-4">
 
-        <!-- Left Column: The Interactive Fused Overlay Viewport (7 Cols) -->
+        <!-- Left: Interactive Fused Viewport (8 Cols) -->
         <div class="lg:col-span-8 space-y-3">
-          <div class="tactical-card p-3 overflow-hidden">
-            <div class="flex items-center justify-between pb-2 border-b border-slate-800 mb-2">
-              <div class="flex items-center space-x-2">
-                <span class="px-2 py-0.5 rounded bg-orange-950 text-orange-400 font-mono text-[10px] font-bold border border-orange-800">
-                  FUSED PERCEPTION OVERLAY
-                </span>
-                <span class="text-xs text-slate-400 font-mono">RGB + LWIR Synchronized</span>
+          <div class="panel p-3">
+            
+            <div class="flex items-center justify-between pb-2 mb-2 border-b border-slate-800">
+              <div class="flex items-center space-x-2 text-xs font-mono">
+                <span class="text-slate-200 font-semibold">DUAL-SPECTRUM CO-REGISTERED STREAM</span>
+                <span class="text-slate-500 text-[10px]">| 30 FPS @ 4K/LWIR</span>
               </div>
-              
-              <!-- Mode Toggles (Split Slider vs Alpha Blend vs Edge Fusion) -->
-              <div class="flex items-center space-x-1.5 text-xs font-mono">
-                <button id="btn-mode-split" onclick="PerceptionLab.setOverlayMode('split')" class="mode-btn px-2.5 py-1 rounded bg-orange-600 text-white font-bold border border-orange-400">
-                  Split Slider
+
+              <!-- Fusion Blend Mode Selector -->
+              <div class="flex items-center space-x-1 text-xs font-mono">
+                <button id="btn-mode-split" onclick="PerceptionLab.setOverlayMode('split')" class="mode-btn px-2.5 py-1 rounded bg-sky-700 text-white border border-sky-500 text-[11px]">
+                  Side Wipe
                 </button>
-                <button id="btn-mode-blend" onclick="PerceptionLab.setOverlayMode('blend')" class="mode-btn px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700">
-                  Alpha Blend
+                <button id="btn-mode-blend" onclick="PerceptionLab.setOverlayMode('blend')" class="mode-btn px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 text-[11px] hover:bg-slate-700">
+                  Continuous Alpha
                 </button>
-                <button id="btn-mode-edge" onclick="PerceptionLab.setOverlayMode('edge')" class="mode-btn px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 hover:bg-slate-700">
-                  Edge Fusion
+                <button id="btn-mode-edge" onclick="PerceptionLab.setOverlayMode('edge')" class="mode-btn px-2.5 py-1 rounded bg-slate-800 text-slate-300 border border-slate-700 text-[11px] hover:bg-slate-700">
+                  Edge-Fused
                 </button>
               </div>
             </div>
 
-            <!-- Fused Canvas Element -->
-            <div class="relative rounded-lg overflow-hidden bg-black aspect-[7/4.2] flex items-center justify-center">
+            <!-- Canvas Display Frame -->
+            <div class="relative rounded overflow-hidden bg-black aspect-[7/4.2] border border-slate-800 flex items-center justify-center">
               <canvas id="canvas-fused" width="700" height="420" class="w-full h-full cursor-crosshair"></canvas>
 
-              <!-- Pixel Temperature Inspection HUD Overlay (Bottom-Left) -->
-              <div class="absolute bottom-2 left-2 bg-slate-950/85 backdrop-blur-md px-3 py-1.5 rounded border border-slate-800 font-mono text-xs flex items-center space-x-3 pointer-events-none">
+              <!-- Calibrated Radiometric Readout (Bottom-Left) -->
+              <div class="absolute bottom-2 left-2 bg-[#0a0e14]/90 backdrop-blur-sm px-2.5 py-1 rounded border border-slate-800 font-mono text-xs flex items-center space-x-3 pointer-events-none">
                 <div>
-                  <span class="text-slate-500 text-[10px]">INSPECTED TEMP:</span>
-                  <span id="hover-temp-val" class="font-bold text-slate-300 ml-1">--.- °C</span>
+                  <span class="text-slate-500 text-[9px]">SPOT TEMP:</span>
+                  <span id="hover-temp-val" class="font-bold text-slate-200 ml-1">--.- °C</span>
                 </div>
                 <div>
-                  <span class="text-slate-500 text-[10px]">CLASS:</span>
-                  <span id="hover-class-val" class="font-bold text-cyan-400 ml-1">STANDBY</span>
+                  <span class="text-slate-500 text-[9px]">CLASSIFICATION:</span>
+                  <span id="hover-class-val" class="font-semibold text-sky-400 ml-1">STANDBY</span>
                 </div>
               </div>
 
-              <!-- FLIR Ironbow Scale (Bottom-Right) -->
-              <div class="absolute bottom-2 right-2 bg-slate-950/85 backdrop-blur-md px-2.5 py-1.5 rounded border border-slate-800 font-mono text-[10px] flex items-center space-x-2 pointer-events-none">
+              <!-- FLIR Ironbow Thermal Calibration Bar (Bottom-Right) -->
+              <div class="absolute bottom-2 right-2 bg-[#0a0e14]/90 backdrop-blur-sm px-2 py-1 rounded border border-slate-800 font-mono text-[9px] flex items-center space-x-2 pointer-events-none">
                 <span class="text-slate-400">14°C</span>
-                <div class="w-20 h-2 rounded-sm ironbow-gradient"></div>
-                <span class="text-white font-bold">42°C+</span>
+                <div class="w-24 h-1.5 rounded-sm ironbow-scale"></div>
+                <span class="text-slate-100 font-bold">40°C+</span>
               </div>
             </div>
 
-            <!-- Interactive Slider Controls -->
+            <!-- Clean Slider Control -->
             <div class="mt-3 pt-2 border-t border-slate-800">
               <!-- Split Slider Control -->
               <div id="split-control-panel" class="space-y-1">
-                <div class="flex justify-between text-xs font-mono text-slate-400">
-                  <span class="text-cyan-400 font-bold">◄ 4K OPTICAL RGB CAMERA</span>
-                  <span class="text-orange-400 font-bold">LWIR THERMAL FLIR (8–14μm) ►</span>
+                <div class="flex justify-between text-[11px] font-mono text-slate-400">
+                  <span class="text-slate-300">◄ DAYLIGHT OPTICAL (EO)</span>
+                  <span class="text-slate-500">DRAG HORIZONTAL SLIDER TO REVEAL THERMAL HEAT SIGNATURES</span>
+                  <span class="text-amber-400">LONG-WAVE INFRARED (LWIR) ►</span>
                 </div>
-                <input id="split-slider" type="range" min="0" max="100" value="50" class="w-full split-slider h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer">
-                <p class="text-[10px] text-slate-500 text-center font-mono">Drag slider horizontally to peel optical layer and reveal trapped thermal signatures</p>
+                <input id="split-slider" type="range" min="0" max="100" value="50" class="w-full clean-slider cursor-pointer">
               </div>
 
-              <!-- Blend Slider Control -->
+              <!-- Continuous Blend Control -->
               <div id="blend-control-panel" class="space-y-1 hidden">
-                <div class="flex justify-between text-xs font-mono text-slate-400">
-                  <span>0% (PURE RGB)</span>
-                  <span class="text-orange-400 font-bold">THERMAL OPACITY</span>
-                  <span>100% (PURE THERMAL)</span>
+                <div class="flex justify-between text-[11px] font-mono text-slate-400">
+                  <span>0% (PURE EO)</span>
+                  <span class="text-amber-400 font-semibold">THERMAL RADIATION LAYER OPACITY</span>
+                  <span>100% (PURE IR)</span>
                 </div>
-                <input id="blend-slider" type="range" min="0" max="100" value="70" class="w-full split-slider h-2 bg-slate-800 rounded-lg appearance-none cursor-pointer">
+                <input id="blend-slider" type="range" min="0" max="100" value="70" class="w-full clean-slider cursor-pointer">
               </div>
             </div>
 
-          </div>
-
-          <!-- Bounding Box & Annotation Control -->
-          <div class="flex items-center justify-between text-xs">
-            <button id="toggle-bbox-btn" onclick="PerceptionLab.toggleBoundingBoxes()" class="px-3 py-1.5 rounded bg-slate-900 hover:bg-slate-800 border border-emerald-500 text-emerald-400 font-mono font-bold transition">
-              AI BOUNDING BOXES: ON
-            </button>
-            <span class="text-slate-400 font-mono text-[11px]">Hover over victims or hazards to inspect radiometric calibrated temperatures</span>
           </div>
         </div>
 
-        <!-- Right Column: Raw Feeds Side-by-Side (4 Cols) -->
-        <div class="lg:col-span-4 space-y-4">
+        <!-- Right: Raw Channel Feeds Side-by-Side (4 Cols) -->
+        <div class="lg:col-span-4 space-y-3">
           
-          <!-- Stream 1: 4K Optical RGB Feed -->
-          <div class="tactical-card p-3 space-y-2">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-1.5 text-xs font-mono">
-              <span class="font-bold text-cyan-400">SENSOR 1: 4K OPTICAL RGB</span>
-              <span class="text-[10px] px-1.5 py-0.5 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">SONY IMX586</span>
+          <!-- Channel 1: Electro-Optical (EO) -->
+          <div class="panel p-2.5 space-y-1.5">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-1 text-xs font-mono">
+              <span class="text-slate-300 font-semibold">PAYLOAD 1: DAYLIGHT EO</span>
+              <span class="text-[10px] text-slate-400">4K VISIBLE (400–700nm)</span>
             </div>
-            <div class="rounded-lg overflow-hidden bg-black aspect-[7/4.2] border border-slate-800">
+            <div class="rounded overflow-hidden bg-black aspect-[7/4.2] border border-slate-800">
               <canvas id="canvas-rgb" width="350" height="210" class="w-full h-full"></canvas>
             </div>
-            <p class="text-[11px] text-slate-400">
-              High resolution for spatial contours and clothing contrast, but completely obstructed by smoke, fog, and debris shadows.
+            <p class="text-[10px] text-slate-400 leading-tight">
+              Captures high-resolution morphological details. Severely compromised in low-contrast mud, shadow voids, and dense smoke.
             </p>
           </div>
 
-          <!-- Stream 2: Radiometric LWIR Thermal Feed -->
-          <div class="tactical-card p-3 space-y-2">
-            <div class="flex items-center justify-between border-b border-slate-800 pb-1.5 text-xs font-mono">
-              <span class="font-bold text-orange-400">SENSOR 2: LWIR RADIOMETRIC</span>
-              <span class="text-[10px] px-1.5 py-0.5 rounded bg-orange-950 text-orange-300 border border-orange-800">8–14μm &lt;50mK</span>
+          <!-- Channel 2: Long-Wave Infrared (LWIR) -->
+          <div class="panel p-2.5 space-y-1.5">
+            <div class="flex items-center justify-between border-b border-slate-800 pb-1 text-xs font-mono">
+              <span class="text-amber-400 font-semibold">PAYLOAD 2: RADIOMETRIC LWIR</span>
+              <span class="text-[10px] text-slate-400">8–14μm &lt;50mK NETD</span>
             </div>
-            <div class="rounded-lg overflow-hidden bg-black aspect-[7/4.2] border border-slate-800">
+            <div class="rounded overflow-hidden bg-black aspect-[7/4.2] border border-slate-800">
               <canvas id="canvas-thermal" width="350" height="210" class="w-full h-full"></canvas>
             </div>
-            <p class="text-[11px] text-slate-400">
-              Captures emitted long-wave infrared blackbody radiation. Living body heat (37°C) glows through mud, dark crevices, and smoke.
+            <p class="text-[10px] text-slate-400 leading-tight">
+              Measures blackbody surface radiation. Isolates living human body heat (37°C) through camouflage, darkness, and smoke particles.
             </p>
           </div>
 
@@ -236,103 +226,93 @@
     </section>
 
 
-    <!-- ========================================== -->
-    <!-- TAB 2: DRONE OPERATOR FPV COCKPIT          -->
-    <!-- ========================================== -->
-    <section id="tab-operator" class="space-y-6 hidden">
+    <!-- ======================================================== -->
+    <!-- TAB 2: OPERATOR TACTICAL COCKPIT (FPV)                   -->
+    <!-- ======================================================== -->
+    <section id="tab-operator" class="space-y-4 hidden">
       
-      <div class="tactical-card p-4">
-        <div class="flex flex-wrap items-center justify-between gap-3 pb-3 border-b border-slate-800">
+      <div class="panel p-3">
+        <div class="flex flex-wrap items-center justify-between gap-3 pb-2.5 border-b border-slate-800">
           <div>
-            <h2 class="text-sm font-bold text-white uppercase tracking-wider flex items-center space-x-2">
-              <span class="w-2 h-2 rounded-full bg-cyan-400 animate-ping"></span>
-              <span>Tactical Drone Operator FPV Heads-Up Display (HUD)</span>
-            </h2>
-            <p class="text-xs text-slate-400">Simulates the pilot/operator screen during autonomous reconnaissance over disaster sectors.</p>
+            <h2 class="text-xs font-bold uppercase tracking-wider text-slate-200 font-mono">Operator Primary Flight Display (PFD) & Target Ray-Caster</h2>
+            <p class="text-[11px] text-slate-400">First-person tactical HUD feed with Tait-Bryan ground geolocation projection.</p>
           </div>
-          <div class="text-xs font-mono text-emerald-400 bg-emerald-950/60 px-3 py-1 rounded border border-emerald-800">
-            CLICK ANYWHERE ON VIEWPORT TO RAY-CAST GROUND GPS
-          </div>
+          <span class="text-[10px] font-mono text-emerald-400 bg-emerald-950/60 px-2.5 py-0.5 rounded border border-emerald-800">
+            CLICK ON VIEWPORT TO EXECUTE RAY-CASTING
+          </span>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 mt-4">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 mt-3">
           
-          <!-- FPV HUD Canvas (8 Cols) -->
-          <div class="lg:col-span-8 relative rounded-xl overflow-hidden bg-black aspect-[7/4.2] border border-cyan-500/30 shadow-2xl">
+          <!-- Cockpit HUD Canvas (8 Cols) -->
+          <div class="lg:col-span-8 relative rounded overflow-hidden bg-black aspect-[7/4.2] border border-slate-800">
             <canvas id="canvas-hud" width="700" height="420" class="w-full h-full cursor-crosshair"></canvas>
-            <div class="hud-scanlines absolute inset-0"></div>
-
-            <!-- Floating FPV Operator Prompt -->
-            <div class="absolute bottom-3 left-3 bg-slate-950/80 backdrop-blur-md px-3 py-1 rounded border border-slate-700 text-[10px] font-mono text-cyan-300 pointer-events-none">
-              TAIT-BRYAN RAY-CASTER: CLICK A POINT TO LOCK GROUND GPS
+            <div class="absolute bottom-2 left-2 bg-[#0a0e14]/85 px-2 py-0.5 rounded border border-slate-800 text-[9px] font-mono text-slate-400 pointer-events-none">
+              TAIT-BRYAN RAY-CASTER: CLICK OBJECT TO DERIVE GPS
             </div>
           </div>
 
-          <!-- Ray-Casting & Flight Control Telemetry Panel (4 Cols) -->
-          <div class="lg:col-span-4 space-y-4">
+          <!-- Ray-Casting Output & Gimbal Controls (4 Cols) -->
+          <div class="lg:col-span-4 space-y-3">
             
-            <!-- Real-Time Ray-Casting Output Card -->
-            <div class="tactical-card p-3.5 space-y-2.5 border-emerald-500/40">
-              <div class="flex items-center justify-between border-b border-slate-800 pb-1.5">
-                <span class="text-xs font-bold text-emerald-400 font-mono">TAIT-BRYAN RAY-CASTING</span>
-                <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-emerald-950 text-emerald-300">WGS-84 LOCK</span>
+            <!-- Ray-Casting Geolocation Box -->
+            <div class="panel p-3 space-y-2 border-slate-700">
+              <div class="flex items-center justify-between border-b border-slate-800 pb-1">
+                <span class="text-xs font-bold text-slate-200 font-mono">TARGET GEOLOCATION (WGS-84)</span>
+                <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">TAIT-BRYAN DCM</span>
               </div>
 
-              <div class="space-y-1.5 text-xs font-mono">
+              <div class="space-y-1 text-xs font-mono">
                 <div class="flex justify-between">
                   <span class="text-slate-400">CAMERA PIXEL (u, v):</span>
-                  <span id="raycast-pixel" class="text-cyan-300 font-bold">[u: 350, v: 210]</span>
+                  <span id="raycast-pixel" class="text-slate-200 font-medium">[u: 350, v: 210]</span>
                 </div>
                 <div class="flex justify-between">
-                  <span class="text-slate-400">GROUND TARGET COORDS:</span>
+                  <span class="text-slate-400">GROUND COORDINATES:</span>
                   <span id="raycast-coords" class="text-emerald-400 font-bold">11.581240° N, 76.128450° E</span>
                 </div>
                 <div class="flex justify-between">
                   <span class="text-slate-400">SLANT RANGE:</span>
-                  <span id="raycast-dist" class="text-slate-200">28.4 m</span>
+                  <span id="raycast-dist" class="text-slate-300">28.4 m</span>
                 </div>
                 <div class="flex justify-between">
-                  <span class="text-slate-400">SPHERICAL ERROR:</span>
-                  <span id="raycast-err" class="text-amber-400 font-bold">± 2.1 m (SEP 95%)</span>
+                  <span class="text-slate-400">UNCERTAINTY:</span>
+                  <span id="raycast-err" class="text-amber-400 font-semibold">± 2.1 m (SEP 95%)</span>
                 </div>
               </div>
 
-              <div class="p-2 bg-slate-900 rounded text-[10px] text-slate-400 font-mono leading-tight border border-slate-800">
-                <span class="text-cyan-400 font-bold">MATH:</span> P_target = P_uav + (H_agl / r_W,z) * (R_body^world * R_gimbal^body * K⁻¹[u, v, 1]ᵀ)
+              <div class="p-2 bg-slate-900/90 rounded text-[9px] text-slate-400 font-mono border border-slate-800 leading-normal">
+                P_target = P_uav + (H_agl / r_W,z) * (R_body^world * R_gimbal^body * K⁻¹[u, v, 1]ᵀ)
               </div>
             </div>
 
-            <!-- Operator Attitude Controls -->
-            <div class="tactical-card p-3.5 space-y-3">
-              <span class="text-xs font-bold text-slate-300 uppercase tracking-wider block">Gimbal & Altitude Adjust</span>
+            <!-- Attitude & Sensor Parameters -->
+            <div class="panel p-3 space-y-2.5">
+              <span class="text-xs font-bold text-slate-300 uppercase tracking-wider block font-mono">Gimbal & Altitude Adjust</span>
 
-              <!-- Pitch Slider -->
               <div class="space-y-1">
                 <div class="flex justify-between text-xs font-mono">
                   <span class="text-slate-400">Gimbal Pitch (θ):</span>
-                  <span id="hud-pitch-val" class="text-cyan-300">-2.5°</span>
+                  <span id="hud-pitch-val" class="text-slate-200">-2.5°</span>
                 </div>
-                <input id="hud-pitch-slider" type="range" min="-45" max="15" value="-2.5" step="0.5" class="w-full h-1.5 bg-slate-800 rounded appearance-none cursor-pointer">
+                <input id="hud-pitch-slider" type="range" min="-45" max="15" value="-2.5" step="0.5" class="w-full clean-slider cursor-pointer">
               </div>
 
-              <!-- Roll Slider -->
               <div class="space-y-1">
                 <div class="flex justify-between text-xs font-mono">
                   <span class="text-slate-400">UAV Roll (φ):</span>
-                  <span id="hud-roll-val" class="text-cyan-300">1.8°</span>
+                  <span id="hud-roll-val" class="text-slate-200">1.8°</span>
                 </div>
-                <input id="hud-roll-slider" type="range" min="-30" max="30" value="1.8" step="0.5" class="w-full h-1.5 bg-slate-800 rounded appearance-none cursor-pointer">
+                <input id="hud-roll-slider" type="range" min="-30" max="30" value="1.8" step="0.5" class="w-full clean-slider cursor-pointer">
               </div>
 
-              <!-- Altitude Slider -->
               <div class="space-y-1">
                 <div class="flex justify-between text-xs font-mono">
-                  <span class="text-slate-400">LiDAR Altitude (H_AGL):</span>
+                  <span class="text-slate-400">LiDAR Altitude (AGL):</span>
                   <span id="hud-alt-val" class="text-amber-400 font-bold">28.4m</span>
                 </div>
-                <input id="hud-alt-slider" type="range" min="10" max="80" value="28.4" step="1" class="w-full h-1.5 bg-slate-800 rounded appearance-none cursor-pointer">
+                <input id="hud-alt-slider" type="range" min="10" max="80" value="28.4" step="1" class="w-full clean-slider cursor-pointer">
               </div>
-
             </div>
 
           </div>
@@ -343,186 +323,180 @@
     </section>
 
 
-    <!-- ========================================== -->
-    <!-- TAB 3: DUAL-BRAIN & 17-BYTE LORA PACKER    -->
-    <!-- ========================================== -->
-    <section id="tab-dualbrain" class="space-y-6 hidden">
+    <!-- ======================================================== -->
+    <!-- TAB 3: AVIONICS ARCHITECTURE & TELEMETRY                -->
+    <!-- ======================================================== -->
+    <section id="tab-dualbrain" class="space-y-4 hidden">
       
-      <!-- Dual-Brain Architecture Interactive Diagram -->
-      <div class="tactical-card p-5 space-y-4">
-        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+      <!-- Dual-Brain Architecture -->
+      <div class="panel p-4 space-y-3">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-800">
           <div>
-            <h2 class="text-sm font-bold text-white uppercase tracking-wider">Dual-Brain Hardware Split (Arduino UNO Q)</h2>
-            <p class="text-xs text-slate-400">Physical AI flight controller combining Qualcomm QRB2210 Linux MPU + STM32U585 MCU in 40g weight budget.</p>
+            <h2 class="text-xs font-bold text-slate-200 uppercase tracking-wider font-mono">Dual-Brain Hardware Architecture (Arduino UNO Q)</h2>
+            <p class="text-[11px] text-slate-400">Physical AI flight computer separating real-time deterministic flight stabilization from Linux edge AI in a 40g envelope.</p>
           </div>
-          <span class="text-xs font-mono px-2.5 py-1 rounded bg-cyan-950 text-cyan-300 border border-cyan-800">40 GRAM TOTAL</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">40g AUW ALLOCATION</span>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-11 gap-4 items-center">
+        <div class="grid grid-cols-1 md:grid-cols-11 gap-3 items-center pt-2">
           
-          <!-- Brain 1: Qualcomm QRB2210 MPU (5 Cols) -->
-          <div class="md:col-span-5 tactical-card p-4 border-cyan-500/40 space-y-2.5 bg-cyan-950/20">
-            <div class="flex items-center justify-between">
-              <span class="font-bold text-cyan-400 text-xs font-mono">BRAIN 1: MISSION COMPUTER</span>
-              <span class="text-[10px] px-1.5 py-0.5 rounded bg-cyan-900 text-cyan-200 font-mono">&lt; 5W COMPUTE</span>
+          <!-- Brain 1: Mission Computer -->
+          <div class="md:col-span-5 panel p-3 space-y-2 border-slate-700 bg-slate-900/50">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="text-sky-400 font-bold">MISSION COMPUTER</span>
+              <span class="text-[9px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">&lt; 5W ACTIVE POWER</span>
             </div>
-            <h3 class="font-bold text-sm text-white">Qualcomm Dragonwing QRB2210</h3>
-            <ul class="text-xs space-y-1 text-slate-300 font-mono">
-              <li>• OS: Debian Linux Core</li>
-              <li>• INT8 YOLO Edge AI on Qualcomm NPU (35 FPS)</li>
-              <li>• Optical-to-Ground Tait-Bryan Ray-Caster</li>
-              <li>• Semtech SX1262 LoRa Telemetry Driver (868 MHz)</li>
-              <li>• Preserves 90% power budget for flight rotors</li>
+            <h3 class="font-bold text-xs text-white">Qualcomm Dragonwing QRB2210</h3>
+            <ul class="text-[11px] space-y-1 text-slate-300 font-mono">
+              <li>• OS: Debian Linux Real-Time Kernel</li>
+              <li>• INT8 Quantized YOLO on Qualcomm NPU (35 FPS)</li>
+              <li>• Tait-Bryan Optical-to-Ground Ray-Caster</li>
+              <li>• SX1262 LoRa Telemetry Driver (868 MHz)</li>
+              <li>• Preserves 90% battery power for rotor propulsion</li>
             </ul>
           </div>
 
-          <!-- Inter-Brain Non-Blocking RPC Bridge (1 Col) -->
-          <div class="md:col-span-1 text-center font-mono text-xs text-amber-400 py-2">
+          <!-- RPC Bridge -->
+          <div class="md:col-span-1 text-center font-mono text-xs text-slate-400 py-2">
             <div class="hidden md:block">
-              <div class="text-lg">⇄</div>
-              <div class="text-[9px] font-bold">NON-BLOCKING RPC</div>
+              <div class="text-base text-sky-400">⇄</div>
+              <div class="text-[8px] font-bold text-slate-500">RPC BRIDGE</div>
             </div>
-            <div class="md:hidden text-center">⇅ NON-BLOCKING RPC BRIDGE</div>
+            <div class="md:hidden text-center text-xs">⇅ ASYNC NON-BLOCKING RPC</div>
           </div>
 
-          <!-- Brain 2: STM32U585 Real-Time Flight MCU (5 Cols) -->
-          <div class="md:col-span-5 tactical-card p-4 border-emerald-500/40 space-y-2.5 bg-emerald-950/20">
-            <div class="flex items-center justify-between">
-              <span class="font-bold text-emerald-400 text-xs font-mono">BRAIN 2: REAL-TIME FLIGHT MCU</span>
-              <span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-900 text-emerald-200 font-mono">ZERO JITTER</span>
+          <!-- Brain 2: Flight Management Unit -->
+          <div class="md:col-span-5 panel p-3 space-y-2 border-slate-700 bg-slate-900/50">
+            <div class="flex items-center justify-between text-xs font-mono">
+              <span class="text-emerald-400 font-bold">FLIGHT MANAGEMENT UNIT</span>
+              <span class="text-[9px] px-1.5 py-0.5 rounded bg-slate-800 text-slate-300">DETERMINISTIC 4ms</span>
             </div>
-            <h3 class="font-bold text-sm text-white">STM32U585 MCU (Zephyr RTOS)</h3>
-            <ul class="text-xs space-y-1 text-slate-300 font-mono">
+            <h3 class="font-bold text-xs text-white">STM32U585 MCU (Zephyr RTOS)</h3>
+            <ul class="text-[11px] space-y-1 text-slate-300 font-mono">
               <li>• 250 Hz (4ms) deterministic flight stabilization loop</li>
-              <li>• 350 Hz PWM direct brushless motor ESC control</li>
+              <li>• 350 Hz PWM direct brushless motor control</li>
               <li>• MPU6050 IMU + MS5611 Barometer + Downward LiDAR</li>
               <li>• Anti-compass drift Visual Odometry (Bouabdallah 2007)</li>
-              <li>• 100% immune to high-level Linux OS kernel hangs</li>
+              <li>• Immune to high-level Linux OS kernel hangs</li>
             </ul>
           </div>
 
         </div>
       </div>
 
-      <!-- 17-Byte Binary LoRa Bit-Packer Inspector -->
-      <div class="tactical-card p-5 space-y-4">
-        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+      <!-- 17-Byte Binary LoRa Frame Inspector -->
+      <div class="panel p-4 space-y-3">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-800">
           <div>
-            <h2 class="text-sm font-bold text-white uppercase tracking-wider">17-Byte Binary LoRa Telemetry Inspector (Souli et al., Elsevier 2024)</h2>
-            <p class="text-xs text-slate-400">Demonstrates zero-drop P2P telemetry broadcasting over 3–5 km without reliance on cellular towers.</p>
+            <h2 class="text-xs font-bold text-slate-200 uppercase tracking-wider font-mono">17-Byte Binary LoRa Telemetry Protocol (Souli et al., Elsevier 2024)</h2>
+            <p class="text-[11px] text-slate-400">Zero-drop P2P telemetry serialization broadcasting over 3–5 km without cellular or satellite networks.</p>
           </div>
-          <span class="text-xs font-mono px-2.5 py-1 rounded bg-amber-950 text-amber-300 border border-amber-800">17 BYTES TOTAL</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">17 BYTES TOTAL</span>
         </div>
 
-        <!-- Raw Hex String Display -->
-        <div class="p-3 rounded-lg bg-slate-900 border border-slate-800 font-mono text-xs flex flex-wrap items-center justify-between gap-2">
+        <!-- Raw Hex String -->
+        <div class="p-2.5 rounded bg-slate-900 border border-slate-800 font-mono text-xs flex flex-wrap items-center justify-between gap-2">
           <div class="flex items-center space-x-2">
-            <span class="text-slate-400">RAW TRANSMITTED HEX:</span>
-            <span id="lora-hex-string" class="text-amber-400 font-bold tracking-widest text-sm">50 41 39 4C CD 42 98 41 89 01 1C 4F 4E 30 70 A4 12</span>
+            <span class="text-slate-500 text-[10px]">RAW TRANSMITTED FRAME:</span>
+            <span id="lora-hex-string" class="text-slate-100 font-bold tracking-widest text-xs">50 41 39 4C CD 42 98 41 89 01 1C 4F 4E 30 70 A4 12</span>
           </div>
-          <button onclick="playLoraBurst()" class="px-3 py-1 rounded bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs transition">
-            Test LoRa Chirp 🔊
+          <button onclick="playLoraBurst()" class="px-2.5 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 text-[10px] font-mono transition border border-slate-700">
+            TRANSMIT TEST BURST
           </button>
         </div>
 
-        <!-- Bit-Level Breakdown Visualizer -->
+        <!-- Byte-by-Byte Visualizer -->
         <div class="space-y-1">
-          <span class="text-xs font-bold text-slate-300 font-mono">BYTE-BY-BYTE SERIALIZATION BREAKDOWN:</span>
-          <div id="lora-bytes-container" class="flex flex-wrap gap-1">
-            <!-- Dynamically populated by LoRaPacker.updateDisplay() -->
-          </div>
+          <span class="text-[10px] font-bold text-slate-400 font-mono">FRAME BYTE LAYOUT:</span>
+          <div id="lora-bytes-container" class="flex flex-wrap gap-1"></div>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 text-xs text-slate-400 font-mono pt-2 border-t border-slate-800">
-          <div><span class="text-cyan-400 font-bold">Bytes 0-8:</span> Header ('P') + Float32 Latitude + Float32 Longitude</div>
-          <div><span class="text-cyan-400 font-bold">Bytes 9-12:</span> Int16 Alt (decimeters) + Bit-packed Triage/Conf + Battery%</div>
-          <div><span class="text-cyan-400 font-bold">Bytes 13-16:</span> Uint16 Heading (centidegrees) + 16-bit HMAC Checksum</div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-2 text-[10px] text-slate-400 font-mono pt-2 border-t border-slate-800">
+          <div><span class="text-slate-300 font-semibold">Bytes 0–8:</span> Frame Header ('P') + Float32 Latitude + Float32 Longitude</div>
+          <div><span class="text-slate-300 font-semibold">Bytes 9–12:</span> Int16 Altitude (decimeters) + Bit-Packed Triage + Battery%</div>
+          <div><span class="text-slate-300 font-semibold">Bytes 13–16:</span> Uint16 Heading (centidegrees) + HMAC-SHA256 Checksum</div>
         </div>
       </div>
 
     </section>
 
 
-    <!-- ========================================== -->
-    <!-- TAB 4: TACTICAL GCS & DIJKSTRA ROUTE       -->
-    <!-- ========================================== -->
-    <section id="tab-gcs" class="space-y-6 hidden">
+    <!-- ======================================================== -->
+    <!-- TAB 4: TACTICAL GCS & INGRESS ROUTING                    -->
+    <!-- ======================================================== -->
+    <section id="tab-gcs" class="space-y-4 hidden">
       
-      <div class="tactical-card p-5 space-y-4">
-        <div class="flex items-center justify-between pb-3 border-b border-slate-800">
+      <div class="panel p-4 space-y-3">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-800">
           <div>
-            <h2 class="text-sm font-bold text-white uppercase tracking-wider">Tactical GCS & Dijkstra Safe Responder Routing</h2>
-            <p class="text-xs text-slate-400">Ground station ranks victims by accessibility and calculates hazard-free ingress paths for NDRF crews.</p>
+            <h2 class="text-xs font-bold text-slate-200 uppercase tracking-wider font-mono">Tactical Incident Command Map & Safe Ingress Routing</h2>
+            <p class="text-[11px] text-slate-400">Offline GIS ground terminal evaluating classified hazards to generate safe responder corridors.</p>
           </div>
-          <span class="text-xs font-mono px-2.5 py-1 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">OFFLINE GCS</span>
+          <span class="text-[10px] font-mono px-2 py-0.5 rounded bg-slate-800 text-slate-300 border border-slate-700">OFFLINE GCS</span>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-4 pt-1">
           
-          <!-- Tactical Map Canvas (7 Cols) -->
-          <div class="lg:col-span-7 tactical-card p-3 flex flex-col items-center justify-center bg-slate-950">
+          <!-- Tactical Map (7 Cols) -->
+          <div class="lg:col-span-7 panel p-3 flex flex-col items-center justify-center bg-[#070b10]">
             <canvas id="canvas-gcs" width="400" height="400" class="rounded border border-slate-800"></canvas>
-            <div class="flex items-center justify-center space-x-4 mt-3 text-[11px] font-mono">
-              <span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span><span>Base Camp</span></span>
-              <span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 rounded-full bg-red-500"></span><span>Victim (Red)</span></span>
-              <span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 bg-orange-600"></span><span>Live Wire</span></span>
-              <span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 bg-red-600"></span><span>Fire Zone</span></span>
-              <span class="flex items-center space-x-1"><span class="w-2.5 h-2.5 bg-blue-600"></span><span>Deep Flood</span></span>
-              <span class="flex items-center space-x-1"><span class="w-3 h-0.5 bg-emerald-400"></span><span>Dijkstra Path</span></span>
+            <div class="flex items-center justify-center space-x-3 mt-2.5 text-[10px] font-mono text-slate-400">
+              <span class="flex items-center space-x-1"><span class="w-2 h-2 rounded-full bg-sky-400"></span><span>Base Camp</span></span>
+              <span class="flex items-center space-x-1"><span class="w-2 h-2 rounded-full bg-rose-500"></span><span>Survivor</span></span>
+              <span class="flex items-center space-x-1"><span class="w-2 h-2 bg-amber-600"></span><span>Live Wire</span></span>
+              <span class="flex items-center space-x-1"><span class="w-2 h-2 bg-red-600"></span><span>Fire Zone</span></span>
+              <span class="flex items-center space-x-1"><span class="w-2 h-2 bg-blue-600"></span><span>Deep Flood</span></span>
+              <span class="flex items-center space-x-1"><span class="w-3 h-0.5 bg-emerald-500"></span><span>Safe Path</span></span>
             </div>
           </div>
 
-          <!-- Triage Queue & Route Stats (5 Cols) -->
-          <div class="lg:col-span-5 space-y-3">
+          <!-- Triage Queue & Guidance (5 Cols) -->
+          <div class="lg:col-span-5 space-y-2.5">
             
-            <!-- Priority Triage Queue Card -->
-            <div class="tactical-card p-3.5 space-y-2 border-red-500/40 bg-red-950/10">
-              <div class="flex items-center justify-between">
-                <span class="text-xs font-bold text-red-400 font-mono">PRIORITY RESCUE TARGET</span>
-                <span class="text-[9px] px-1.5 py-0.5 rounded bg-red-950 text-red-300 font-bold">CODE RED</span>
+            <div class="panel p-3 space-y-1.5 border-slate-700 bg-slate-900/40">
+              <div class="flex items-center justify-between text-xs font-mono pb-1 border-b border-slate-800">
+                <span class="font-bold text-slate-200">PRIORITY CASUALTY RECORD</span>
+                <span class="text-[9px] px-1.5 py-0.5 rounded bg-rose-950 text-rose-300 font-bold">CODE RED</span>
               </div>
-              <div class="text-xs font-mono space-y-1">
-                <div><span class="text-slate-400">CASUALTY:</span> <span class="text-white font-bold">Trapped under concrete void</span></div>
-                <div><span class="text-slate-400">COORDINATES:</span> <span class="text-emerald-400">11.581240° N, 76.128450° E</span></div>
-                <div><span class="text-slate-400">RADIOMETRIC TEMP:</span> <span class="text-orange-400 font-bold">36.8°C (Biological Lock)</span></div>
-                <div><span class="text-slate-400">ACCESSIBILITY:</span> <span class="text-cyan-300">Optimal via Northern Corridor</span></div>
+              <div class="text-xs font-mono space-y-1 pt-1">
+                <div><span class="text-slate-400">SITUATION:</span> <span class="text-slate-200">Trapped under collapsed void</span></div>
+                <div><span class="text-slate-400">COORDINATES:</span> <span class="text-emerald-400 font-semibold">11.581240° N, 76.128450° E</span></div>
+                <div><span class="text-slate-400">SPOT TEMP:</span> <span class="text-amber-400 font-semibold">36.8°C (Biological Lock)</span></div>
+                <div><span class="text-slate-400">ROUTING:</span> <span class="text-sky-300">Northern Perimeter Clearance</span></div>
               </div>
             </div>
 
-            <!-- Dijkstra Route Guidance -->
-            <div class="tactical-card p-3.5 space-y-2">
-              <span class="text-xs font-bold text-slate-300 uppercase tracking-wider block">Computed Ground Route</span>
-              <p class="text-xs text-slate-400 leading-relaxed">
-                The Dijkstra routing engine evaluates real-time hazard classification layers, routing responders safely around active arcing 11kV lines and high-temperature fire polygons.
+            <div class="panel p-3 space-y-1.5">
+              <span class="text-xs font-bold text-slate-300 uppercase tracking-wider block font-mono">Dijkstra Hazard-Free Ingress</span>
+              <p class="text-[11px] text-slate-400 leading-relaxed">
+                Graph-search routing algorithm automatically computes the minimum-risk pedestrian corridor avoiding high-voltage arcing zones, unstable rubble escarpments, and fire perimeters.
               </p>
-              <div class="p-2 rounded bg-slate-900 border border-slate-800 text-[11px] font-mono text-emerald-400">
-                ✓ ZERO-HAZARD INGRESS CORRIDOR CONFIRMED: 480m traverse time ~6.5 mins.
+              <div class="p-2 rounded bg-slate-900 border border-slate-800 text-[10px] font-mono text-emerald-400">
+                PATH CLEAR: Estimated ground team traverse time ~6.5 minutes (480m).
               </div>
             </div>
 
           </div>
 
         </div>
-
       </div>
 
     </section>
 
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-slate-800/80 bg-slate-950 py-3 text-center text-xs text-slate-500 font-mono">
-    PROJECT PHOENIX X (SIH26177 / Qualcomm Inc.) // Team ID: 141943 // 2nd-Year Undergraduates
+  <!-- Clean Enterprise Footer -->
+  <footer class="border-t border-slate-800/80 bg-[#0a0e14] py-2.5 text-center text-[11px] text-slate-500 font-mono">
+    PHOENIX-X // SIH26177 (Qualcomm Inc.) // Team ID: 141943 // Autonomous Multi-Spectral SAR Platform
   </footer>
 
-  <!-- Module Scripts -->
+  <!-- Scripts -->
   <script src="js/audio.js"></script>
   <script src="js/perception.js"></script>
   <script src="js/operator_hud.js"></script>
   <script src="js/tech_showcase.js"></script>
 
   <script>
-    // Tab Switching Logic
     function switchTab(tabId) {
       ['tab-perception', 'tab-operator', 'tab-dualbrain', 'tab-gcs'].forEach(id => {
         document.getElementById(id).classList.add('hidden');
@@ -530,17 +504,16 @@
       document.getElementById(tabId).classList.remove('hidden');
 
       document.querySelectorAll('.tab-btn').forEach(btn => {
-        btn.classList.remove('border-cyan-400', 'text-cyan-400');
+        btn.classList.remove('border-sky-500', 'text-sky-400');
         btn.classList.add('border-transparent', 'text-slate-400');
       });
 
       const activeNav = document.getElementById(`nav-${tabId}`);
       if (activeNav) {
-        activeNav.classList.add('border-cyan-400', 'text-cyan-400');
+        activeNav.classList.add('border-sky-500', 'text-sky-400');
         activeNav.classList.remove('border-transparent', 'text-slate-400');
       }
 
-      // Trigger redraws for canvases when tabs become visible
       if (tabId === 'tab-perception' && PerceptionLab.render) {
         setTimeout(() => PerceptionLab.render(), 50);
       } else if (tabId === 'tab-operator' && OperatorHUD.drawHUD) {
@@ -550,7 +523,6 @@
       }
     }
 
-    // Initialize all modules on load
     window.addEventListener('DOMContentLoaded', () => {
       PerceptionLab.init();
       OperatorHUD.init();

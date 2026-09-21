@@ -1,4 +1,4 @@
-// Project Phoenix X - Multi-Spectral Perception & Thermal Fusion Engine (REAL IMAGERY)
+// Project Phoenix X - Multi-Spectral Perception & Thermal Fusion Engine (Clean Enterprise GCS)
 
 const PerceptionLab = {
   currentScenario: 'wayanad', // 'wayanad', 'earthquake', 'night_smoke'
@@ -20,8 +20,8 @@ const PerceptionLab = {
       rgbSrc: "images/wayanad_rgb.jpg",
       thermalSrc: "images/wayanad_thermal.jpg",
       targets: [
-        { id: 1, type: 'human', label: 'MUD-COVERED CASUALTY', x: 0.45, y: 0.50, w: 0.22, h: 0.35, temp: 37.0, confidence: 96, status: 'SURVIVOR ALIVE' },
-        { id: 2, type: 'hazard', label: 'UNSTABLE MUD ESCARPMENT', x: 0.15, y: 0.20, w: 0.35, h: 0.30, temp: 14.8, confidence: 89, status: 'SLIP RISK' }
+        { id: 1, type: 'human', label: 'TARGET-01 [SURVIVOR]', x: 0.45, y: 0.50, w: 0.22, h: 0.35, temp: 37.0, confidence: 96, status: 'ALIVE / TRAPPED' },
+        { id: 2, type: 'hazard', label: 'HAZARD-01 [ESCARPMENT]', x: 0.15, y: 0.20, w: 0.35, h: 0.30, temp: 14.8, confidence: 89, status: 'SLIP PERIMETER' }
       ]
     },
     earthquake: {
@@ -31,7 +31,7 @@ const PerceptionLab = {
       rgbSrc: "images/earthquake_rgb.jpg",
       thermalSrc: "images/earthquake_thermal.jpg",
       targets: [
-        { id: 1, type: 'human', label: 'TRAPPED SURVIVOR', x: 0.28, y: 0.52, w: 0.28, h: 0.28, temp: 36.8, confidence: 94, status: 'ALIVE / CONFINED VOID' }
+        { id: 1, type: 'human', label: 'TARGET-01 [SURVIVOR]', x: 0.28, y: 0.52, w: 0.28, h: 0.28, temp: 36.8, confidence: 94, status: 'CONFINED VOID' }
       ]
     },
     night_smoke: {
@@ -41,8 +41,8 @@ const PerceptionLab = {
       rgbSrc: "images/night_smoke_rgb.jpg",
       thermalSrc: "images/night_smoke_thermal.jpg",
       targets: [
-        { id: 1, type: 'hazard', label: 'ARCING 11kV CABLE', x: 0.22, y: 0.22, w: 0.65, h: 0.30, temp: 85.0, confidence: 98, status: 'ELECTROCUTION HAZARD' },
-        { id: 2, type: 'human', label: 'COLLAPSED SURVIVOR', x: 0.35, y: 0.70, w: 0.45, h: 0.22, temp: 36.8, confidence: 92, status: 'CODE RED INJURED' }
+        { id: 1, type: 'hazard', label: 'HAZARD-01 [11kV WIRE]', x: 0.22, y: 0.22, w: 0.65, h: 0.30, temp: 85.0, confidence: 98, status: 'ELECTROCUTION RISK' },
+        { id: 2, type: 'human', label: 'TARGET-01 [CASUALTY]', x: 0.35, y: 0.70, w: 0.45, h: 0.22, temp: 36.8, confidence: 92, status: 'CODE RED INJURED' }
       ]
     }
   },
@@ -101,7 +101,7 @@ const PerceptionLab = {
       });
     }
 
-    // Mouse move for pixel temperature inspection
+    // Mouse move for spot temperature readout
     this.canvasFused.addEventListener('mousemove', (e) => {
       const rect = this.canvasFused.getBoundingClientRect();
       const scaleX = this.canvasFused.width / rect.width;
@@ -125,13 +125,13 @@ const PerceptionLab = {
     this.currentScenario = name;
     
     document.querySelectorAll('.scenario-btn').forEach(b => {
-      b.classList.remove('bg-cyan-600', 'text-white', 'border-cyan-400');
-      b.classList.add('bg-slate-800', 'text-slate-300');
+      b.classList.remove('bg-sky-900/60', 'text-sky-200', 'border-sky-600');
+      b.classList.add('bg-slate-800/80', 'text-slate-300', 'border-slate-700');
     });
     const activeBtn = document.getElementById(`btn-scen-${name}`);
     if (activeBtn) {
-      activeBtn.classList.add('bg-cyan-600', 'text-white', 'border-cyan-400');
-      activeBtn.classList.remove('bg-slate-800', 'text-slate-300');
+      activeBtn.classList.add('bg-sky-900/60', 'text-sky-200', 'border-sky-600');
+      activeBtn.classList.remove('bg-slate-800/80', 'text-slate-300', 'border-slate-700');
     }
 
     const sc = this.scenarios[name];
@@ -145,13 +145,13 @@ const PerceptionLab = {
   setOverlayMode(mode) {
     this.overlayMode = mode;
     document.querySelectorAll('.mode-btn').forEach(b => {
-      b.classList.remove('bg-orange-600', 'text-white', 'border-orange-400');
-      b.classList.add('bg-slate-800', 'text-slate-300');
+      b.classList.remove('bg-sky-700', 'text-white', 'border-sky-500');
+      b.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700');
     });
     const activeBtn = document.getElementById(`btn-mode-${mode}`);
     if (activeBtn) {
-      activeBtn.classList.add('bg-orange-600', 'text-white', 'border-orange-400');
-      activeBtn.classList.remove('bg-slate-800', 'text-slate-300');
+      activeBtn.classList.add('bg-sky-700', 'text-white', 'border-sky-500');
+      activeBtn.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700');
     }
 
     const splitControl = document.getElementById('split-control-panel');
@@ -171,11 +171,11 @@ const PerceptionLab = {
     this.showBoundingBoxes = !this.showBoundingBoxes;
     const btn = document.getElementById('toggle-bbox-btn');
     if (this.showBoundingBoxes) {
-      btn.textContent = "AI BOUNDING BOXES: ON";
-      btn.classList.add('text-emerald-400', 'border-emerald-500');
+      btn.textContent = "ACTIVE";
+      btn.className = "px-2 py-0.5 rounded bg-emerald-950 text-emerald-400 border border-emerald-800 text-[10px] font-bold";
     } else {
-      btn.textContent = "AI BOUNDING BOXES: OFF";
-      btn.classList.remove('text-emerald-400', 'border-emerald-500');
+      btn.textContent = "STANDBY";
+      btn.className = "px-2 py-0.5 rounded bg-slate-800 text-slate-400 border border-slate-700 text-[10px] font-bold";
     }
     this.render();
   },
@@ -208,10 +208,9 @@ const PerceptionLab = {
     if (!imgRGB || !imgThermal) return;
 
     if (this.overlayMode === 'split') {
-      // Split-Screen Interactive Slider
       const splitX = (this.splitPos / 100) * w;
 
-      // Draw RGB on left slice
+      // Draw EO on left slice
       ctx.save();
       ctx.beginPath();
       ctx.rect(0, 0, splitX, h);
@@ -219,7 +218,7 @@ const PerceptionLab = {
       ctx.drawImage(imgRGB, 0, 0, w, h);
       ctx.restore();
 
-      // Draw Thermal on right slice
+      // Draw IR on right slice
       ctx.save();
       ctx.beginPath();
       ctx.rect(splitX, 0, w - splitX, h);
@@ -227,44 +226,44 @@ const PerceptionLab = {
       ctx.drawImage(imgThermal, 0, 0, w, h);
       ctx.restore();
 
-      // Divider Line & Knob
-      ctx.strokeStyle = '#ff6b00';
-      ctx.lineWidth = 3;
+      // Crisp subtle vertical divider
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.7)';
+      ctx.lineWidth = 1.5;
       ctx.beginPath();
       ctx.moveTo(splitX, 0);
       ctx.lineTo(splitX, h);
       ctx.stroke();
 
-      ctx.fillStyle = '#ff6b00';
+      // Clean circular handle
+      ctx.fillStyle = '#0f172a';
       ctx.beginPath();
-      ctx.arc(splitX, h / 2, 16, 0, Math.PI * 2);
+      ctx.arc(splitX, h / 2, 12, 0, Math.PI * 2);
       ctx.fill();
-      ctx.strokeStyle = '#ffffff';
-      ctx.lineWidth = 2;
+      ctx.strokeStyle = '#38bdf8';
+      ctx.lineWidth = 1.5;
       ctx.stroke();
 
-      ctx.fillStyle = '#ffffff';
-      ctx.font = 'bold 11px monospace';
-      ctx.fillText("⮂⮃", splitX - 9, h / 2 + 4);
+      ctx.fillStyle = '#38bdf8';
+      ctx.font = 'bold 9px monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText("⮂⮃", splitX, h / 2 + 3);
 
     } else if (this.overlayMode === 'blend') {
-      // Alpha-Blend Overlay
       ctx.drawImage(imgRGB, 0, 0, w, h);
       ctx.globalAlpha = this.blendOpacity;
       ctx.drawImage(imgThermal, 0, 0, w, h);
       ctx.globalAlpha = 1.0;
 
     } else if (this.overlayMode === 'edge') {
-      // Edge High-Pass Fusion (Contour superimposition)
       ctx.drawImage(imgThermal, 0, 0, w, h);
       ctx.globalCompositeOperation = 'screen';
-      ctx.globalAlpha = 0.55;
+      ctx.globalAlpha = 0.5;
       ctx.drawImage(imgRGB, 0, 0, w, h);
       ctx.globalCompositeOperation = 'source-over';
       ctx.globalAlpha = 1.0;
     }
 
-    // Render Bounding Boxes & Geotags if enabled
+    // Render Professional Target Tracking Reticles if enabled
     if (this.showBoundingBoxes) {
       const sc = this.scenarios[this.currentScenario];
       sc.targets.forEach(t => {
@@ -274,15 +273,13 @@ const PerceptionLab = {
         const th = t.h * h;
 
         const isHuman = t.type === 'human';
-        const color = isHuman ? '#10b981' : '#f59e0b'; // Emerald for survivor, Amber for hazard
+        const color = isHuman ? '#10b981' : '#f59e0b';
 
+        // Precision corner brackets (military OSD style)
+        const bLen = 8;
         ctx.strokeStyle = color;
-        ctx.lineWidth = 2;
-        ctx.strokeRect(tx, ty, tw, th);
+        ctx.lineWidth = 1.5;
 
-        // Corner brackets
-        const bLen = 10;
-        ctx.lineWidth = 3;
         // Top-left
         ctx.beginPath(); ctx.moveTo(tx, ty + bLen); ctx.lineTo(tx, ty); ctx.lineTo(tx + bLen, ty); ctx.stroke();
         // Top-right
@@ -292,21 +289,26 @@ const PerceptionLab = {
         // Bottom-right
         ctx.beginPath(); ctx.moveTo(tx + tw - bLen, ty + th); ctx.lineTo(tx + tw, ty + th); ctx.lineTo(tx + tw, ty + th - bLen); ctx.stroke();
 
-        // Label Tag Box
-        ctx.fillStyle = isHuman ? 'rgba(16, 185, 129, 0.9)' : 'rgba(245, 158, 11, 0.9)';
-        const labelW = Math.max(tw, 160);
-        ctx.fillRect(tx, ty - 22, labelW, 20);
+        // Subtle OSD target label
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+        ctx.fillRect(tx, ty - 16, Math.max(tw, 140), 15);
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+        ctx.strokeRect(tx, ty - 16, Math.max(tw, 140), 15);
 
-        ctx.fillStyle = '#ffffff';
-        ctx.font = 'bold 10px monospace';
-        ctx.fillText(`${t.label} [${t.confidence}%]`, tx + 4, ty - 8);
+        ctx.fillStyle = '#f8fafc';
+        ctx.font = 'bold 9px monospace';
+        ctx.textAlign = 'left';
+        ctx.fillText(`${t.label} [${t.confidence}%]`, tx + 4, ty - 5);
 
-        // Temperature Badge
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.8)';
-        ctx.fillRect(tx, ty + th + 4, 110, 16);
+        // Temperature & Status Footer Tag
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+        ctx.fillRect(tx, ty + th + 3, 110, 14);
+        ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
+        ctx.strokeRect(tx, ty + th + 3, 110, 14);
+
         ctx.fillStyle = isHuman ? '#34d399' : '#fbbf24';
         ctx.font = '9px monospace';
-        ctx.fillText(`${t.temp}°C | ${t.status.slice(0, 14)}`, tx + 4, ty + th + 15);
+        ctx.fillText(`${t.temp}°C | ${t.status}`, tx + 4, ty + th + 13);
       });
     }
   },
