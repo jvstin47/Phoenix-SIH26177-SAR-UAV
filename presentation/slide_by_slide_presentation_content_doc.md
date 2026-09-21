@@ -281,6 +281,7 @@ RAPID UNBOXING (< 3 min) ➔ AUTONOMOUS THERMAL SWEEP ➔ EXACT GPS RAY-CASTING 
    • Grounded selection of zero-pitching-moment (Cm=0) reflexed airfoils to eliminate blade flutter.
 4. JRFCQAI Platform (Ravi Butani, 2024):
    • "Dual-Brain Physical AI Flight Controller on Arduino UNO Q"
+   • GitHub: https://github.com/butaniravi/JRFCQAI | Hackster: https://www.hackster.io/projects/arduino-uno-q-opensource-dual-brain-ai-autonomous-uav-stack-jrfcqai
    • Validated Zephyr RTOS (STM32U5) + Debian Linux (Qualcomm QRB2210) on Arduino UNO Q for UAV flight.
 
 [Badge: PROTOTYPE PROOF (Right Column)]
