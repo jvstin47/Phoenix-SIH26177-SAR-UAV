@@ -50,8 +50,11 @@ python3 -m http.server 8080 --directory web_demo
 
 * 📄 **[`docs/bouabdallah_quadrotor_research_findings.md`](docs/bouabdallah_quadrotor_research_findings.md)**: Sizing laws, 12-state equations, cascaded dual-loop control, and magnetic compass drift mitigations.
 * 📄 **[`docs/ros_lora_mission_critical_uav_swarm_research.md`](docs/ros_lora_mission_critical_uav_swarm_research.md)**: Elsevier 2024 paper synthesis on ROS-LoRa integration, binary packet serialization, and GPS-denied cooperative positioning.
+* 📄 **[`docs/prototype_bom_and_financial_viability.md`](docs/prototype_bom_and_financial_viability.md)**: Market-calibrated Phase 1 prototype BOM (₹35,800), memory budgets, 868 MHz LoRa compliance, and Phase 2 field scaling.
 * 📄 **[`docs/aerodynamic_airfoil_considerations.md`](docs/aerodynamic_airfoil_considerations.md)**: NASA TM-4741 rotorcraft airfoil dynamics, lift slopes, and blade flutter prevention.
-* 📄 **[`docs/references.bib`](docs/references.bib)**: Complete BibTeX citations for all academic literature.
+* 📄 **[`presentation/team_video_presentation_scripts.md`](presentation/team_video_presentation_scripts.md)**: 6-Speaker video presentation master scripts with shared 2-sentence overlap bridges.
+* 📄 **[`presentation/Phoenix_Drone_Graphic_Variations.pptx`](presentation/Phoenix_Drone_Graphic_Variations.pptx)**: Drone graphic callout asset pack for Technical, Feasibility, and Impact slides.
+* 📄 **[`docs/references.bib`](docs/references.bib)**: Complete BibTeX citations for all academic literature and JRFCQAI platform.
 
 ---
 
