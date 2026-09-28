@@ -234,13 +234,13 @@ def build_bom_pdf():
             Paragraph("• F450 / S500 quadcopter composite frame<br/>• 4× A2212 1000KV BLDC motors<br/>• 4× 30A SimonK / BLHeli electronic speed controllers<br/>• 2 pairs 1045 nylon-carbon composite propellers", table_cell),
             Paragraph("4,800", table_cell_right),
             Paragraph("<b>4,800</b>", table_cell_right),
-            Paragraph("Delivers β ≥ 2.0 thrust-to-weight ratio to lift 1.58 kg AUW platform (DGCA Micro-UAV compliant < 2.0 kg) and resist 12 m/s wind gusts.", table_cell),
+            Paragraph("Delivers β = 2.23 thrust-to-weight ratio to lift 1.58 kg AUW platform (DGCA Micro-UAV compliant < 2.0 kg), providing substantial control headroom for wind disturbance rejection.", table_cell),
         ],
         [
             Paragraph("<b>3</b>", table_cell_center),
             Paragraph("<b>Avionics Sensor<br/>Suite & GNSS</b>", table_cell),
             Paragraph("1 set", table_cell_center),
-            Paragraph("• u-blox NEO-M8N GPS + magnetic compass mast<br/>• MPU6050 6-DOF IMU (accel/gyro)<br/>• MS5611 high-precision barometric altimeter<br/>• ST VL53L1X 1D Time-of-Flight (ToF) downward laser", table_cell),
+            Paragraph("• u-blox NEO-M8N GPS + magnetic compass mast<br/>• MPU6050 6-DOF IMU (I2C addr 0x68)<br/>• MS5611 high-precision barometric altimeter (I2C 0x77)<br/>• ST VL53L1X 1D Time-of-Flight (ToF) downward laser (I2C 0x29)", table_cell),
             Paragraph("4,200", table_cell_right),
             Paragraph("<b>4,200</b>", table_cell_right),
             Paragraph("Multi-sensor fusion for EKF state estimation; downward ToF feeds real-time H_AGL to Tait-Bryan ground ray-casting projection.", table_cell),
@@ -252,7 +252,7 @@ def build_bom_pdf():
             Paragraph("• 3S 11.1V 4500mAh 30C LiPo battery pack<br/>• iMAX B6 80W digital balance charger<br/>• 12V 5A regulated AC/DC power supply", table_cell),
             Paragraph("4,000", table_cell_right),
             Paragraph("<b>4,000</b>", table_cell_right),
-            Paragraph("Provides 25–28 minutes search endurance per sortie; adheres to Bouabdallah 38% battery mass fraction sizing law.", table_cell),
+            Paragraph("49.95 Wh gross / 39.96 Wh usable (80% DoD) powers 10.0 min tactical search sortie with 27.5% reserve margin (13.8 min max hover).", table_cell),
         ],
         [
             Paragraph("<b>5</b>", table_cell_center),
@@ -279,16 +279,16 @@ def build_bom_pdf():
             Paragraph("• Melexis MLX90640 radiometric thermal array<br/>• 32×24 pixels, 8–14 μm LWIR, 55°×35° FOV, I2C", table_cell),
             Paragraph("3,400", table_cell_right),
             Paragraph("<b>3,400</b>", table_cell_right),
-            Paragraph("24/7 night, fog, and smoke penetration; isolates 37°C survivor body heat anomalies at rubble/mud interfaces.", table_cell),
+            Paragraph("24/7 night, fog, and smoke penetration; isolates 37°C survivor body heat signatures and thermal contrast anomalies at debris interfaces.", table_cell),
         ],
         [
             Paragraph("<b>8</b>", table_cell_center),
             Paragraph("<b>Long-Range RF<br/>Telemetry (LoRa)</b>", table_cell),
             Paragraph("2", table_cell_center),
-            Paragraph("• Semtech SX1262 (Ebyte E22-900T22S)<br/>• 868 MHz band (Indian WPC de-licensed), +22 dBm, SPI<br/>(1× on UAV, 1× ground USB station bridge)", table_cell),
+            Paragraph("• Semtech SX1262 (Ebyte E22-900T22S)<br/>• 868 MHz band (Indian WPC de-licensed), +22 dBm, UART/TTL<br/>(1× on UAV, 1× ground USB station bridge)", table_cell),
             Paragraph("850", table_cell_right),
             Paragraph("<b>1,700</b>", table_cell_right),
-            Paragraph("Broadcasts 17-byte binary bit-packed triage telemetry over 3–5+ km NLoS range during complete cellular/Wi-Fi blackouts [2, 3].", table_cell),
+            Paragraph("Broadcasts 17-byte binary bit-packed triage telemetry over 3–5+ km NLoS range during complete cellular/Wi-Fi blackouts [3].", table_cell),
         ],
         [
             Paragraph("<b>9</b>", table_cell_center),
@@ -351,19 +351,19 @@ def build_bom_pdf():
         ],
         [
             Paragraph("<b>Power Budget<br/>(~5.5W Electronics)</b>", table_cell_bold),
-            Paragraph("Propulsion draws ~168W at hover (4× 42W). Onboard electronics draw ~5.5W under peak AI workload (UNO Q ~3.5W, cameras ~0.9W, sensors/GNSS ~0.4W, LoRa burst ~0.5W, regulators ~0.6W).", table_cell),
-            Paragraph("<b>>96% Power for Propulsion:</b> Electronics consume <4% of battery envelope, preserving maximum endurance for search sorties.", table_cell),
+            Paragraph("Propulsion draws ~168W at hover (4× 42W). Onboard electronics draw ~5.5W nominal / ~6.1W peak burst (UNO Q ~3.5W, OV2710 ~0.85W, sensors/GNSS ~0.4W, LoRa burst ~0.4W, buck regulators ~0.6W).", table_cell),
+            Paragraph("<b>10-min Sortie (27.5% Reserve):</b> 39.96 Wh usable energy supports 13.8 min max hover, guaranteeing 3.8 min contingency over 10.0 min mission.", table_cell),
         ],
         [
             Paragraph("<b>Mass Budget<br/>(1.58 kg AUW)</b>", table_cell_bold),
-            Paragraph("Component breakdown: Frame (282g), 4× Motors (208g), ESCs (96g), Props (44g), LiPo (362g), UNO Q (42g), Cameras/Mount (79g), GNSS/ToF/Sensors (48g), LoRa/RC (33g), PDB/Wiring (216g), Reserve (170g).", table_cell),
-            Paragraph("<b>DGCA Micro Compliant:</b> Stays under 2.0 kg threshold with a 170g unallocated payload reserve for droppable beacons.", table_cell),
+            Paragraph("Component breakdown: Frame (282g), 4× Motors (208g), ESCs (96g), Props (44g), LiPo (362g), UNO Q (42g), Cameras/Mount (79g), GNSS/ToF/Sensors (48g), LoRa/RC (33g), PDB/Wiring (216g), Unallocated Design Margin (170g).", table_cell),
+            Paragraph("<b>DGCA Micro Compliant:</b> Stays comfortably under 2.0 kg threshold with a 170g unallocated design margin (1,410g measured empty hardware).", table_cell),
         ],
         [
             Paragraph("<b>RF Telemetry<br/>(Semtech 868 MHz)</b>", table_cell_bold),
             Paragraph("Under Government of India WPC / DoT GSR 564(E), the 865–867 MHz band is officially de-licensed up to 1 Watt (+30 dBm). "
                       "Unlike 433 MHz (congested by remotes) or 2.4 GHz (blocked by concrete/foliage), 868 MHz penetrates deep urban collapse voids.", table_cell),
-            Paragraph("<b>3–5+ km NLoS Link:</b> Sustains resilient 17-byte survivor triage telemetry [2, 3] without cellular infrastructure.", table_cell),
+            Paragraph("<b>3–5+ km NLoS Link:</b> Sustains resilient 17-byte survivor triage telemetry [3] over UART without cellular infrastructure.", table_cell),
         ],
     ]
 

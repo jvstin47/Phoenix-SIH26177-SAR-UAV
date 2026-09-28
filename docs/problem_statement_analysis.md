@@ -27,7 +27,7 @@ The official problem statement mandates 8 explicit technical capabilities. Below
 ├────────────────────────────────────────────────────────────────────────────────────────┤
 │ 1. Autonomous Navigation       │ GPS + VIO SLAM + Forward/Downward ToF Obstacle Avoid  │
 │ 2. On-Device AI Inference      │ Qualcomm Flight™ RB5 (Hexagon 698 NPU, INT8 SNPE)     │
-│ 3. Multi-Sensor Fusion         │ Hardware-Synced 4K RGB + Radiometric LWIR + IMU/LiDAR │
+│ 3. Multi-Sensor Fusion         │ Hardware-Synced 1080p RGB + Radiometric LWIR + IMU/ToF│
 │ 4. Hazard Classification       │ Multi-Head Neural Segmentation (Fires, Floods, Lines) │
 │ 5. Geo-Tagged Mapping          │ 3D Ray-Casting Projection + Safe Responder Corridors  │
 │ 6. Emergency Alerting          │ Dynamic Triage Engine + 64-Byte LoRa Mesh Alerts      │
@@ -47,7 +47,7 @@ The official problem statement mandates 8 explicit technical capabilities. Below
 * **Throughput & Power**: Sustained **35 FPS** across dual video streams at just **8.4W active NPU power**, operating within an ultra-tight total compute budget of $<12\text{W}$ (saving 20W+ compared to NVIDIA Jetson or desktop-class GPU boards).
 
 ### Pillar 3: Multi-Sensor Fusion (RGB + Radiometric LWIR + IMU + GPS)
-* **Hardware Ingestion**: Pixel-synchronized dual-stream ingest (Sony IMX586 4K RGB + InfiRay/FLIR $640 \times 512$ Radiometric LWIR).
+* **Hardware Ingestion**: Pixel-synchronized dual-stream ingest (OmniVision OV2710 1080p RGB + InfiRay/FLIR $640 \times 512$ / MLX90640 Radiometric LWIR).
 * **Spatial Alignment**: Homographic projective warping aligning wide-angle RGB FOV with thermal FOV.
 * **False-Alarm Mitigation**: Fused confidence metric cross-referencing apparent temperature ($32^\circ\text{C} - 38.5^\circ\text{C}$) against optical human limb/contour signatures, preventing false alarms from solar-baked asphalt or hot metal debris.
 

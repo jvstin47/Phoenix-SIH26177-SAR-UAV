@@ -81,7 +81,7 @@ Phoenix X is a **custom carbon-fibre quadcopter** (4-rotor) designed to achieve 
 |:---------|:---------------|:----------------|
 | Compute | Arduino UNO Q (QRB2210 + STM32U585 — 4GB/32GB) | 8,800 |
 | Airframe | Carbon-fibre frame, 4× motors, 4× ESCs, propellers | 9,200 |
-| Sensors | LWIR thermal camera module + 4K RGB camera | 8,400 |
+| Sensors | LWIR thermal camera module + 1080p RGB camera | 8,400 |
 | Communications | Semtech SX1262 LoRa module + 868 MHz antenna | 1,800 |
 | Power | LiPo battery pack + BMS + charger | 4,200 |
 | Miscellaneous | Wiring, connectors, 2-axis gimbal, fasteners, standoffs | 5,000 |

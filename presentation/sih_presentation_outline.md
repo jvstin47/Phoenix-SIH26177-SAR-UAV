@@ -54,7 +54,7 @@
 ## Slide 4: Technical Architecture & Methodology
 * **Title:** Technical Architecture: The Dual-Brain Edge Pipeline
 * **Step 1: Sensing Layer**
-  * Sony 4K RGB Camera + Infiray / FLIR LWIR Thermal Sensor on a stabilized 2-axis gimbal.
+  * OmniVision 1080p RGB Camera + Melexis MLX90640 LWIR Thermal Sensor on a damped mount.
   * Downward LiDAR/Sonar for precision altitude hold and terrain following.
   * Silicone dampening mounts to isolate high-frequency propeller vibrations.
 * **Step 2: Real-Time MCU (STM32U585 @ 250 Hz)**

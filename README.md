@@ -67,7 +67,7 @@ Phoenix X is a **DGCA-compliant Micro-UAV** (<2 kg AUW) powered by a **dual-brai
 │  Regulatory Class      │  DGCA UAS Rule 2021 — Micro Category       │
 │  AI Brain              │  Qualcomm Dragonwing QRB2210 (Linux + NPU) │
 │  Flight Controller     │  STM32U585 / Zephyr RTOS @ 250 Hz          │
-│  Vision                │  RGB 4K + LWIR Thermal 8–14 µm             │
+│  Vision                │  1080p RGB + LWIR Thermal 8–14 µm             │
 │  Long-Range Comms      │  SX1262 LoRa 868 MHz, 3.5–12 km            │
 │  Sponsor               │  Qualcomm Inc. (SIH26177)                  │
 │  Prototype Cost        │  ₹ 37,400 (Arduino UNO Q 4GB/32GB)          │
@@ -218,7 +218,7 @@ Phoenix-SIH26177-SAR-UAV/
 | **AI Brain** | Qualcomm Dragonwing™ QRB2210 *(on Arduino UNO Q)* | Cortex-A53 quad-core + Qualcomm NPU, Linux OS, INT8 YOLOv8n inference |
 | **Flight Controller** | STM32U585 *(on Arduino UNO Q)* | Zephyr RTOS, 250 Hz control loop, 4 ms deterministic cycle, PWM ESC output |
 | **Thermal Camera** | LWIR Radiometric Sensor | 8–14 µm, <50 mK NETD, detects 37°C body heat through smoke |
-| **RGB Camera** | 4K Visible (EO) | 30 FPS HDR, dual-stream sync with thermal |
+| **RGB Camera** | 1080p Visible (EO) | 30 FPS HDR, dual-stream sync with thermal |
 | **Gimbal** | 2-Axis Brushless | 14-bit magnetic absolute encoders for Tait-Bryan ray-casting |
 | **Long-Range Radio** | Semtech SX1262 LoRa | 868 MHz (India unlicensed band), 3.5–12 km, 17-byte binary packets |
 | **RC Override** | ExpressLRS (ELRS) 2.4 GHz | Manual safety takeover, 250 Hz telemetry |

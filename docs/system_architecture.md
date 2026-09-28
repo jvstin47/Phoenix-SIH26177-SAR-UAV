@@ -18,7 +18,7 @@
 │  ┌───────────────────────────┐             ┌──────────────────────────────────┐  │
 │  │    PERCEPTION SENSORS     │             │     FLIGHT CONTROL AVIONICS      │  │
 │  │                           │             │                                  │  │
-│  │  4K RGB Camera (EO)       │             │  STM32U585 — Zephyr RTOS         │  │
+│  │  1080p RGB Camera (EO)       │             │  STM32U585 — Zephyr RTOS         │  │
 │  │  LWIR Thermal (8–14 µm)   │             │  250 Hz control loop (4 ms)      │  │
 │  │  Downward Optical Flow    │             │  Anti-windup cascaded PID        │  │
 │  │  Barometric Altimeter     │             │  PWM/DShot ESC Output (4× ESC)   │  │
@@ -151,7 +151,7 @@
 | Stream | Sensor | Specification |
 |:-------|:-------|:-------------|
 | **Thermal (LWIR)** | Radiometric LWIR sensor | 8–14 µm, <50 mK NETD, detects 37°C body heat |
-| **Visible (EO)** | 4K RGB camera | 30 FPS HDR, morphological & gesture detail |
+| **Visible (EO)** | 1080p RGB camera | 30 FPS HDR, morphological & gesture detail |
 | **Stabilisation** | 2-Axis brushless gimbal | 14-bit absolute encoders for ray-casting accuracy |
 | **Fusion** | Late-fusion CNN pipeline | Thermal detection + RGB confirmation |
 

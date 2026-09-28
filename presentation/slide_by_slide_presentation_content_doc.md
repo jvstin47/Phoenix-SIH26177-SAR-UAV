@@ -73,7 +73,7 @@ During catastrophic disasters (e.g., Wayanad landslides, earthquakes), emergency
 [Badge: PROPOSED SOLUTION]
 Project Phoenix: A deployable autonomous multirotor scout engineered for zero-connectivity disaster zones:
 • 100% Onboard Edge AI: Runs deep learning models directly on an onboard Qualcomm NPU with zero internet reliance.
-• Dual-Band Sensing: Fuses 4K RGB with LWIR Thermal (8-14μm) to detect living body heat (36°C-38°C) through fog and darkness.
+• Dual-Band Sensing: Fuses 1080p RGB with LWIR Thermal (8-14μm) to detect living body heat signatures and thermal contrast anomalies through smoke and darkness.
 • Tait-Bryan Ray-Casting: Calculates victim Lat/Long GPS coordinates instantly from altitude without hovering overhead.
 • Offline Tactical GCS: Displays live victim pins, thermal readings, and safe ground rescue routes on local tablets.
 
