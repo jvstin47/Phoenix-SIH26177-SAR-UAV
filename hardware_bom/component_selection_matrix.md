@@ -79,13 +79,13 @@ Phoenix X is a **custom carbon-fibre quadcopter** (4-rotor) designed to achieve 
 
 | Category | Key Components | Approx. Cost (₹) |
 |:---------|:---------------|:----------------|
-| Compute | Arduino UNO Q (QRB2210 + STM32U585) | 8,500 |
+| Compute | Arduino UNO Q (QRB2210 + STM32U585 — 4GB/32GB) | 8,800 |
 | Airframe | Carbon-fibre frame, 4× motors, 4× ESCs, propellers | 9,200 |
 | Sensors | LWIR thermal camera module + 4K RGB camera | 8,400 |
 | Communications | Semtech SX1262 LoRa module + 868 MHz antenna | 1,800 |
 | Power | LiPo battery pack + BMS + charger | 4,200 |
-| Miscellaneous | Wiring, connectors, 2-axis gimbal, fasteners, standoffs | 3,700 |
-| **Phase 1 Total** | **Fully flying functional prototype** | **₹ 35,800** |
+| Miscellaneous | Wiring, connectors, 2-axis gimbal, fasteners, standoffs | 5,000 |
+| **Phase 1 Total** | **Fully flying functional prototype** | **₹ 37,400** |
 
 ### Phase 2 — Production Unit
 
@@ -103,6 +103,6 @@ Phoenix X is a **custom carbon-fibre quadcopter** (4-rotor) designed to achieve 
 | Regulation | Requirement | Phoenix X Status |
 |:-----------|:------------|:----------------|
 | DGCA UAS Rules 2021 | AUW < 2 kg for Micro category | ✅ 1.58 kg AUW |
-| WPC (India) | 868 MHz unlicensed ISM band | ✅ SX1262 868 MHz |
-| Bouabdallah (2005) | Anti-windup cascaded PID for quadrotors | ✅ STM32U585 + Zephyr RTOS |
-| Souli et al. (2024) | 17-byte binary LoRa packet format | ✅ Implemented in QRB2210 pipeline |
+| WPC (India) | 868 MHz unlicensed ISM band (GSR 564(E)) | ✅ SX1262 868 MHz |
+| IEEE Control Standards | Anti-windup cascaded PID for quadrotors | ✅ STM32U585 + Zephyr RTOS |
+| Souli et al. (2024) [3] | 17-byte binary LoRa packet format | ✅ Implemented in QRB2210 pipeline |

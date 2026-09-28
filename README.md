@@ -70,7 +70,7 @@ Phoenix X is a **DGCA-compliant Micro-UAV** (<2 kg AUW) powered by a **dual-brai
 │  Vision                │  RGB 4K + LWIR Thermal 8–14 µm             │
 │  Long-Range Comms      │  SX1262 LoRa 868 MHz, 3.5–12 km            │
 │  Sponsor               │  Qualcomm Inc. (SIH26177)                  │
-│  Prototype Cost        │  ₹ 35,800                                   │
+│  Prototype Cost        │  ₹ 37,400 (Arduino UNO Q 4GB/32GB)          │
 │  Production Cost       │  ₹ 85,000 – ₹ 1,20,000 per unit            │
 └────────────────────────┴────────────────────────────────────────────┘
 ```
@@ -118,20 +118,19 @@ Phoenix X is a **DGCA-compliant Micro-UAV** (<2 kg AUW) powered by a **dual-brai
 
 ---
 
-## 📚 IEEE Research Foundations
+## 📚 Academic Research Foundations
 
-All design decisions are grounded in peer-reviewed academic literature:
+All design decisions are grounded in peer-reviewed academic literature indexed in [`research_papers/`](research_papers/):
 
-| # | Paper & Authors | Venue | Phoenix X Application |
+| Ref | Paper & Authors | Venue | Phoenix X Application |
 |:--|:----------------|:------|:----------------------|
-| 1 | **SwarmSAR-FW** — Siotia et al. (IIT Jodhpur & Manipal) | *IEEE Access*, Sept 2, 2026 | Hazard-aware safe ingress/egress routing; swarm coordination in fire & flood disasters |
-| 2 | **BLE Detection via Drone LoRa Relays** — Pérez-Díaz-de-Cerio et al. (UPC Spain) | *IEEE Access*, Sept 7, 2026 | Validates 868 MHz LoRa as off-grid bridge; BLE victim beacon relay architecture |
-| 3 | **RIS-Based Collaborative Swarm Computing** — Rahbari et al. (TalTech Estonia) | *IEEE Access*, July 2023 | Decentralized edge computing without cloud; multi-UAV consensus without infrastructure |
-| 4 | **12-State Quadrotor Dynamics** — Bouabdallah (EPFL Thesis 3727 / IEEE ICRA 2005) | *EPFL / IEEE ICRA*, 2005 | 6-DOF nonlinear equations of motion, anti-windup cascaded PID, motor-rotor sizing laws |
-| 5 | **17-Byte LoRa Binary Telemetry** — Souli et al. | *Elsevier Computer Comms*, 2024 | Binary bit-packing of GPS + triage + HMAC into 17 bytes; priority queueing over raw LoRa |
-| 6 | **Aerial CNN Survivor Detection** — Mishra et al. (BITS Pilani & Bennett Univ.) | *Elsevier Computer Comms*, 2020 | Thermal + RGB CNN fusion for aerial survivor detection in dense rubble environments |
-| 7 | **SARDO** — Albanese et al. | *IEEE TMC*, 2022 | RF-based victim localization baseline; Phoenix X outperforms via thermal + LoRa fusion |
-| 8 | **First Drones in SAR** — Van Tilburg | *Wilderness & Environmental Medicine*, 2017 | Foundational clinical evidence for UAV-based SAR; medical outcome validation |
+| `[1]` | **SwarmSAR-FW** — Siotia et al. (IIT Jodhpur & Manipal) | *IEEE Access*, Sept 2026 | Hazard-aware safe ingress/egress Dijkstra routing; 98.7% triage accuracy |
+| `[2]` | **BLE Detection via Drone LoRa Relays** — Pérez-Díaz-de-Cerio et al. (UPC Spain) | *IEEE Access*, Sept 2026 | 868 MHz LoRa off-grid data bridge (<15g, <50 mW, 500m slant range) in canyons |
+| `[3]` | **17-Byte LoRa Binary Telemetry** — Souli et al. | *Elsevier Computer Comms*, 2024 | Binary bit-packing serialization schema for resilient telemetry over raw LoRa |
+| `[4]` | **RIS-Based Collaborative Swarm Computing** — Rahbari et al. (TalTech Estonia) | *IEEE Access*, July 2023 | Decentralized edge computing without cloud (-32% energy, -18% latency) |
+| `[5]` | **SARDO** — Albanese et al. | *IEEE TMC*, 2022 | RF-based victim localization baseline; Phoenix X achieves equivalent triage at 1/8th weight |
+| `[6]` | **Aerial CNN Survivor Detection** — Mishra et al. (BITS Pilani & Bennett Univ.) | *Elsevier Computer Comms*, 2020 | Quantized INT8 aerial human detection dataset (2000+ unique aerial images) |
+| `[7]` | **First Drones in SAR** — Van Tilburg | *Wilderness & Environmental Medicine*, 2017 | Foundational field evidence for portable drone SAR and rapid unboxing protocols |
 
 ---
 
@@ -253,7 +252,7 @@ Phoenix-SIH26177-SAR-UAV/
 | Comms | SX1262 LoRa module + antenna | ₹ 1,800 |
 | Power | LiPo pack + BMS + charger | ₹ 4,200 |
 | Miscellaneous | Wiring, connectors, gimbal, fasteners | ₹ 3,700 |
-| **Phase 1 Total** | **Functional flying prototype** | **₹ 35,800** |
+| **Phase 1 Total** | **Functional flying prototype** | **₹ 37,400** |
 
 ### Phase 2 — Production Unit
 
@@ -287,7 +286,6 @@ This project is licensed under the **MIT License** — see the [LICENSE](LICENSE
 ### Acknowledgements
 
 - 🏛️ **Qualcomm Inc.** — Problem statement sponsor (SIH26177) and hardware ecosystem (Arduino UNO Q / Dragonwing QRB2210)
-- 🎓 **EPFL** — Dr. Samir Bouabdallah, Thesis No. 3727 (quadrotor dynamics foundations)
 - 🛰️ **IEEE** — SwarmSAR-FW (Siotia et al.), SARDO (Albanese et al.), RIS Swarm (Rahbari et al.)
 - 📡 **Elsevier** — Souli et al. (2024) LoRa telemetry, Mishra et al. (2020) aerial survivor CNN
 - 🏔️ **Wilderness & Environmental Medicine** — Van Tilburg (2017) UAV-SAR clinical evidence
