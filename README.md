@@ -149,19 +149,6 @@ A self-contained aerospace mission control simulation platform demonstrating eve
 | 🗺️ **Tactical GCS & Dijkstra Router** | Offline hazard map; route rescue teams around collapse zones |
 | 🌙 **High-Contrast Dark / Light Modes** | Optimised for outdoor field tablets and presentation halls |
 
-### Run Locally
-
-```bash
-# Clone the repo
-git clone https://github.com/jvstin47/Phoenix-SIH26177-SAR-UAV.git
-cd Phoenix-SIH26177-SAR-UAV
-
-# Serve web demo (no build step needed — pure HTML/JS/CSS)
-python3 -m http.server 8080 --directory web_demo
-
-# Open in browser
-open http://localhost:8080
-```
 
 ---
 
