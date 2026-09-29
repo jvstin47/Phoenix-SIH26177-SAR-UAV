@@ -132,3 +132,56 @@ With extreme sub-gigahertz penetration, our encrypted telemetry signal punches t
 | **Scene 6**<br>`3:29 – 4:15` | **Speaker 6**<br>(Command Lead) | • Offline Web GCS dashboard<br>• Dijkstra route recalculation<br>• 11kV wire hazard avoidance<br>• Closing team card & SIH logo | Final punchy delivery directly on camera, cross-cutting with the active rescue corridor visualization. | Outro music swell, fade to black on the official Smart India Hackathon and Qualcomm acknowledgment slide. |
 
 **Total Video Duration:** **4 minutes 15 seconds** (comfortably underneath the strict 5-minute SIH submission cap, leaving generous headroom).
+
+---
+
+## 5. Ready-to-Paste YouTube Video Timestamps (Chapters)
+
+### A. Group Presentation Video (~4:15)
+*Copy and paste directly into the YouTube description of the group pitch video:*
+
+```text
+00:00 - Introduction & The Golden 72 Hours (Speaker 1)
+00:45 - Multi-Spectral Thermal Perception & 37°C Bio-Lock (Speaker 2)
+01:28 - Tait-Bryan 6-DOF Avionics & Ray-Casting Geolocation (Speaker 3)
+02:10 - Dual-Brain Compute: Qualcomm QRB2210 + STM32U585 (Speaker 4)
+02:50 - 100% Off-Grid 868 MHz LoRa & 17-Byte Binary Telemetry (Speaker 5)
+03:32 - Tactical GCS, Hazard-Aware Dijkstra Routing & NDRF Triage (Speaker 6)
+04:05 - Team Phoenix X & Qualcomm Acknowledgments
+```
+
+---
+
+### B. Interactive Web Demo Walkthrough Video (~2:45)
+*Copy and paste directly into the YouTube description of the web simulation demo video:*
+
+```text
+00:00 - Web GCS Mission Control Overview
+00:25 - Autonomous 5-Phase Mission Lifecycle Simulation
+00:50 - Multi-Spectral Perception Lab: RGB & LWIR Thermal Wipe Slider
+01:20 - Tactical FPV Operator HUD: Artificial Horizon & Ray-Casting
+01:45 - Dual-Brain Compute Inspector: Qualcomm QRB2210 + STM32U585
+02:05 - 17-Byte Binary LoRa Serialization Packer
+02:25 - Offline Dijkstra Hazard-Avoidance Routing (11kV & Mudslide Bypass)
+02:40 - Open-Source GitHub Repository & Live Demo Access
+```
+
+---
+
+### C. Combined Full Submission Video (~5:30)
+*Copy and paste if submitting a single comprehensive video covering both the team pitch and live web demo:*
+
+```text
+00:00 - SIH26177 Problem Statement: The Golden 72 Hours
+00:35 - Project Phoenix X Architecture & Qualcomm Edge Platform
+01:15 - Multi-Spectral Perception: 1080p Optical + Radiometric Thermal
+01:50 - 6-DOF Ray-Casting Geolocation & Sub-Meter Positioning
+02:25 - Dual-Brain Partitioning: Qualcomm QRB2210 + Zephyr RTOS STM32U5
+03:00 - 868 MHz SX1262 LoRa 17-Byte Binary Telemetry
+03:35 - LIVE DEMO: Multi-Spectral Thermal HUD & Target Lock
+04:10 - LIVE DEMO: Tait-Bryan Ray-Casting & Instant Coordinate Extraction
+04:40 - LIVE DEMO: 17-Byte LoRa Bit-Packer & GCS Triage
+05:05 - LIVE DEMO: Offline Dijkstra Hazard Ingress Routing for NDRF
+05:25 - Project Summary, Prototype BOM (₹35,800) & Conclusion
+```
+
