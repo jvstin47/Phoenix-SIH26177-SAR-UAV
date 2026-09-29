@@ -67,6 +67,7 @@
 
     <!-- Navigation Anchors Bar -->
     <div class="max-w-7xl mx-auto px-4 flex space-x-2 overflow-x-auto border-t border-[#202D3B] text-xs font-mono font-medium">
+      <a href="#command-center" class="px-3 py-2 text-emerald-400 font-bold hover:text-white transition whitespace-nowrap bg-emerald-950/40 rounded border border-emerald-800/60">★ COMMAND CENTER</a>
       <a href="#mission-sim" class="px-3 py-2 text-sky-400 hover:text-white transition whitespace-nowrap">MISSION SIMULATOR</a>
       <a href="#perception-lab" class="px-3 py-2 text-slate-400 hover:text-white transition whitespace-nowrap">PERCEPTION LAB</a>
       <a href="#operator-hud" class="px-3 py-2 text-slate-400 hover:text-white transition whitespace-nowrap">TACTICAL COCKPIT</a>
@@ -174,6 +175,270 @@
         </div>
 
       </div>
+    </section>
+
+
+    <!-- ================================================================= -->
+    <!-- SECTION A-1: DISASTER MANAGEMENT COMMAND CENTER (SIH REQ #8)      -->
+    <!-- ================================================================= -->
+    <section id="command-center" class="max-w-7xl mx-auto px-4 space-y-6">
+      
+      <div class="mission-panel p-6 space-y-5">
+        
+        <!-- Command Header & Theater Selector -->
+        <div class="flex flex-wrap items-center justify-between gap-4 pb-4 border-b border-[#283544]">
+          <div>
+            <div class="flex items-center space-x-2.5">
+              <span class="text-xs font-mono font-bold px-2.5 py-1 rounded bg-emerald-950 text-emerald-300 border border-emerald-800">NDRF / SEOC AGENCY DASHBOARD</span>
+              <h2 class="text-lg font-bold uppercase tracking-wider text-white font-mono">Disaster Management Command Center</h2>
+            </div>
+            <p class="text-sm text-slate-400 mt-1">Multi-spectral drone surveillance feeds, priority casualty triage manifest, and hazard-aware Dijkstra extraction corridors.</p>
+          </div>
+
+          <!-- Theater / Sector Scenario Selector -->
+          <div class="flex flex-wrap items-center gap-2 font-mono text-xs">
+            <span class="text-slate-400 mr-1 hidden sm:inline">DISASTER SECTOR:</span>
+            <button onclick="CommandCenter.setScenario('wayanad')" class="px-3 py-1.5 rounded bg-sky-900/60 hover:bg-sky-800 text-sky-200 border border-sky-700 font-semibold transition">
+              ⛰️ WAYANAD LANDSLIDE
+            </button>
+            <button onclick="CommandCenter.setScenario('earthquake')" class="px-3 py-1.5 rounded bg-[#101720] hover:bg-slate-800 text-slate-300 border border-[#283544] transition">
+              🏚️ EARTHQUAKE RUBBLE
+            </button>
+            <button onclick="CommandCenter.setScenario('night_smoke')" class="px-3 py-1.5 rounded bg-[#101720] hover:bg-slate-800 text-slate-300 border border-[#283544] transition">
+              🌫️ ZERO-VISIBILITY SMOKE
+            </button>
+          </div>
+        </div>
+
+        <!-- Live Operational Telemetry Bar -->
+        <div class="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-3 font-mono text-xs">
+          <div class="p-3 rounded-lg bg-[#101720] border border-[#283544] space-y-1">
+            <span class="text-slate-400 block text-[10px] uppercase tracking-wider">ACTIVE THEATER</span>
+            <span id="cmd-incident-name" class="text-emerald-400 font-bold block truncate">Sector-4 Wayanad Landslide</span>
+          </div>
+
+          <div class="p-3 rounded-lg bg-[#101720] border border-[#283544] space-y-1">
+            <span class="text-slate-400 block text-[10px] uppercase tracking-wider">MISSION ELAPSED (MET)</span>
+            <span id="cmd-met-timer" class="text-white font-bold block text-sm tracking-wide">T+ 02:21:08</span>
+          </div>
+
+          <div class="p-3 rounded-lg bg-[#101720] border border-amber-900/50 space-y-1">
+            <div class="flex justify-between items-center text-[10px]">
+              <span class="text-amber-400 uppercase font-bold tracking-wider">GOLDEN 72H WINDOW</span>
+              <span id="cmd-golden-hours" class="text-amber-300 font-bold">69.4h REMAINING</span>
+            </div>
+            <div class="w-full h-1.5 rounded-full bg-slate-800 overflow-hidden mt-1">
+              <div id="cmd-golden-bar" class="h-full bg-gradient-to-r from-emerald-500 via-amber-400 to-rose-500" style="width: 96%;"></div>
+            </div>
+          </div>
+
+          <div class="p-3 rounded-lg bg-[#101720] border border-[#283544] space-y-1">
+            <span class="text-slate-400 block text-[10px] uppercase tracking-wider">OFF-GRID TELEMETRY</span>
+            <span class="text-sky-400 font-bold block">868 MHz LoRa [CONNECTED]</span>
+          </div>
+
+          <div class="p-3 rounded-lg bg-[#101720] border border-[#283544] space-y-1 col-span-2 sm:col-span-1">
+            <span class="text-slate-400 block text-[10px] uppercase tracking-wider">UAV PLATFORM</span>
+            <span class="text-emerald-400 font-bold block">Phoenix-01 [AIRBORNE]</span>
+          </div>
+        </div>
+
+        <!-- Central Command 3-Pane Matrix -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+
+          <!-- Pane 1: Live Drone Feeds & Sensor Viewport (4 Cols) -->
+          <div class="lg:col-span-4 p-4 rounded-lg bg-[#090D12] border border-[#283544] space-y-3 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+                <span class="font-mono text-xs font-bold text-white uppercase tracking-wider flex items-center space-x-1.5">
+                  <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+                  <span>UAV LIVE PAYLOAD STREAM</span>
+                </span>
+                
+                <!-- View Mode Switches -->
+                <div class="flex space-x-1">
+                  <button id="btn-mode-fusion" onclick="CommandCenter.setFeedMode('fusion')" class="px-2 py-1 rounded bg-sky-600 text-white font-mono font-bold text-[10px] transition">
+                    FUSION
+                  </button>
+                  <button id="btn-mode-rgb" onclick="CommandCenter.setFeedMode('rgb')" class="px-2 py-1 rounded bg-[#101720] text-slate-400 font-mono text-[10px] hover:bg-slate-800 transition">
+                    1080p RGB
+                  </button>
+                  <button id="btn-mode-thermal" onclick="CommandCenter.setFeedMode('thermal')" class="px-2 py-1 rounded bg-[#101720] text-slate-400 font-mono text-[10px] hover:bg-slate-800 transition">
+                    LWIR THERM
+                  </button>
+                </div>
+              </div>
+
+              <!-- Stream Canvas -->
+              <div class="relative mt-3 rounded-md overflow-hidden border border-slate-800 bg-[#090D12]">
+                <canvas id="cmd-canvas-feed" width="400" height="260" class="w-full block"></canvas>
+                <div class="absolute top-2 left-2 px-2 py-0.5 rounded bg-black/70 backdrop-blur-sm text-[10px] font-mono text-sky-400 border border-sky-800/60">
+                  QUALCOMM QRB2210 // INT8 YOLOv8n
+                </div>
+                <div class="absolute top-2 right-2 px-2 py-0.5 rounded bg-rose-950/80 backdrop-blur-sm text-[10px] font-mono text-rose-300 border border-rose-800/60 font-bold">
+                  BIO-LOCK: 37.1°C
+                </div>
+              </div>
+            </div>
+
+            <!-- Onboard Edge Diagnostics -->
+            <div class="p-2.5 rounded bg-[#101720] border border-slate-800 font-mono text-[11px] space-y-1">
+              <div class="flex justify-between text-slate-400">
+                <span>NPU INFERENCE LATENCY:</span>
+                <span class="text-emerald-400 font-bold">31.2 ms (32 FPS)</span>
+              </div>
+              <div class="flex justify-between text-slate-400">
+                <span>RTOS ATTITUDE LOOP:</span>
+                <span class="text-sky-400 font-bold">250 Hz (4.0ms Zephyr)</span>
+              </div>
+              <div class="flex justify-between text-slate-400">
+                <span>GIMBAL ROTATION (Tait-Bryan):</span>
+                <span class="text-amber-400 font-bold">Pitch -32° // Roll +2°</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Pane 2: Tactical GIS Map & Extraction Corridor (5 Cols) -->
+          <div class="lg:col-span-5 p-4 rounded-lg bg-[#090D12] border border-[#283544] space-y-3 flex flex-col justify-between">
+            <div>
+              <div class="flex items-center justify-between pb-2 border-b border-slate-800">
+                <span class="font-mono text-xs font-bold text-white uppercase tracking-wider flex items-center space-x-1.5">
+                  <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+                  <span>TACTICAL GIS EXTRACTION MAP</span>
+                </span>
+
+                <button onclick="CommandCenter.injectDynamicHazard()" class="px-2.5 py-1 rounded bg-amber-950 hover:bg-amber-900 text-amber-300 font-mono text-[10px] font-bold border border-amber-700 transition">
+                  ⚡ INJECT 11kV BREAK
+                </button>
+              </div>
+
+              <!-- Map Canvas -->
+              <div class="mt-3 rounded-md overflow-hidden border border-slate-800 bg-[#0B1118] flex justify-center">
+                <canvas id="cmd-canvas-map" width="380" height="350" class="block"></canvas>
+              </div>
+
+              <!-- Map Legend -->
+              <div class="flex flex-wrap items-center justify-center gap-3 mt-2.5 text-[10px] font-mono text-slate-400">
+                <span class="flex items-center space-x-1"><span class="w-2 h-2 rounded-full bg-sky-500"></span><span>Base Camp</span></span>
+                <span class="flex items-center space-x-1"><span class="w-2 h-2 rounded-full bg-rose-500"></span><span>Victim Pin</span></span>
+                <span class="flex items-center space-x-1"><span class="w-2 h-2 rounded-full bg-cyan-400"></span><span>Phoenix-01</span></span>
+                <span class="flex items-center space-x-1"><span class="w-2 h-2 bg-amber-500 rounded-sm"></span><span>11kV Hazard</span></span>
+                <span class="flex items-center space-x-1"><span class="w-3.5 h-1 bg-emerald-400 rounded-full"></span><span>Dijkstra Path</span></span>
+              </div>
+            </div>
+
+            <!-- Dynamic Dispatch Button -->
+            <button onclick="CommandCenter.dispatchSquad()" class="w-full py-2.5 rounded bg-emerald-700 hover:bg-emerald-600 text-white font-mono font-bold text-xs uppercase tracking-wider shadow-md transition flex items-center justify-center space-x-2">
+              <span>🚑 DISPATCH NDRF RESCUE TEAM ALPHA (SAFE ROUTE)</span>
+            </button>
+          </div>
+
+          <!-- Pane 3: Survivor Priority Manifest & Actions (3 Cols) -->
+          <div class="lg:col-span-3 space-y-4">
+            
+            <!-- Casualty Cards -->
+            <div class="space-y-2">
+              <div class="flex justify-between items-center text-xs font-mono">
+                <span class="font-bold text-slate-300">SURVIVOR TRIAGE MANIFEST</span>
+                <span class="text-rose-400 font-bold">3 DETECTED</span>
+              </div>
+
+              <!-- Victim 1 -->
+              <div onclick="CommandCenter.selectVictim('VIC-01')" class="p-2.5 rounded-lg bg-[#101720] border border-rose-600/80 cursor-pointer hover:border-rose-500 transition space-y-1 font-mono text-xs">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-white">VIC-01 (Trapped Void)</span>
+                  <span class="px-1.5 py-0.5 rounded bg-rose-950 text-rose-300 text-[10px] font-bold border border-rose-800">CODE RED</span>
+                </div>
+                <div class="text-[11px] text-emerald-400 font-bold">11.581240° N, 76.128450° E</div>
+                <div class="flex justify-between text-[10px] text-slate-400">
+                  <span>HEAT: <strong class="text-amber-400">37.1°C</strong></span>
+                  <span>CONF: <strong class="text-sky-300">98.4%</strong></span>
+                </div>
+              </div>
+
+              <!-- Victim 2 -->
+              <div onclick="CommandCenter.selectVictim('VIC-02')" class="p-2.5 rounded-lg bg-[#101720] border border-slate-800 cursor-pointer hover:border-amber-600 transition space-y-1 font-mono text-xs">
+                <div class="flex justify-between items-center">
+                  <span class="font-bold text-slate-300">VIC-02 (Debris Pinned)</span>
+                  <span class="px-1.5 py-0.5 rounded bg-amber-950 text-amber-300 text-[10px] font-bold border border-amber-800">YELLOW</span>
+                </div>
+                <div class="text-[11px] text-slate-400">11.583190° N, 76.126120° E</div>
+                <div class="flex justify-between text-[10px] text-slate-500">
+                  <span>HEAT: <strong class="text-amber-400">36.8°C</strong></span>
+                  <span>CONF: <strong class="text-slate-300">94.1%</strong></span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Route Summary Box -->
+            <div class="p-3 rounded-lg bg-[#101720] border border-[#283544] space-y-2 font-mono text-xs">
+              <span class="font-bold text-slate-200 block text-[11px] tracking-wider uppercase">EXTRACTION ROUTE STATS</span>
+              <div class="space-y-1.5 text-[11px]">
+                <div class="flex justify-between">
+                  <span class="text-slate-400">DIRECT AIRLINE (LOS):</span>
+                  <span id="cmd-route-direct" class="text-slate-200 font-semibold">320 m</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-400">SAFE HAZARD-FREE PATH:</span>
+                  <span id="cmd-route-routed" class="text-emerald-400 font-bold">480 m</span>
+                </div>
+                <div class="flex justify-between">
+                  <span class="text-slate-400">EXTRACTION SQUAD ETA:</span>
+                  <span id="cmd-route-eta" class="text-sky-300 font-bold">~6.5 min</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="space-y-2 font-mono text-xs">
+              <button onclick="CommandCenter.broadcastLoRa()" class="w-full py-2 rounded bg-sky-900 hover:bg-sky-800 text-sky-200 border border-sky-700 font-bold transition flex items-center justify-center space-x-1.5">
+                <span>📡 BROADCAST 17-BYTE LORA BEACON</span>
+              </button>
+              
+              <div id="cmd-lora-flash" class="hidden p-2 rounded bg-emerald-950 border border-emerald-700 text-emerald-300 font-mono text-[10px] text-center font-bold">
+                ✓ LORA PACKET SENT (868.1 MHz, RSSI: -88 dBm)
+              </div>
+
+              <button onclick="CommandCenter.exportICSReport()" class="w-full py-2 rounded bg-[#101720] hover:bg-slate-800 text-slate-300 border border-[#283544] font-semibold transition flex items-center justify-center space-x-1.5">
+                <span>📄 EXPORT ICS-201 INCIDENT MANIFEST</span>
+              </button>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Live Incident Command Audit Log -->
+        <div class="space-y-1.5 pt-2 border-t border-[#283544]">
+          <div class="flex justify-between items-center text-xs font-mono text-slate-400">
+            <span class="font-bold text-slate-300 uppercase tracking-wider flex items-center space-x-1.5">
+              <span class="w-2 h-2 rounded-full bg-sky-400 animate-pulse"></span>
+              <span>LIVE INCIDENT COMMAND AUDIT LOG</span>
+            </span>
+            <span class="text-[10px] text-slate-500">SX1262 LoRa 868.1 MHz Telemetry Ingestion</span>
+          </div>
+
+          <div id="cmd-log-stream" class="h-24 overflow-y-auto rounded-lg bg-[#090D12] p-2.5 border border-[#283544] space-y-1">
+            <div class="flex space-x-2 text-[11px] font-mono leading-tight py-0.5 border-b border-slate-900">
+              <span class="text-slate-500">08:14:02</span>
+              <span class="text-sky-400 font-bold">[SYS]</span>
+              <span class="text-slate-300">Incident Command Post GCS operational on 868.1 MHz LoRa link.</span>
+            </div>
+            <div class="flex space-x-2 text-[11px] font-mono leading-tight py-0.5 border-b border-slate-900">
+              <span class="text-slate-500">08:14:15</span>
+              <span class="text-sky-400 font-bold">[UAV]</span>
+              <span class="text-slate-300">Phoenix-01 airborne AGL 42.5m; INT8 YOLOv8n inference stable @ 31.2ms.</span>
+            </div>
+            <div class="flex space-x-2 text-[11px] font-mono leading-tight py-0.5 border-b border-slate-900">
+              <span class="text-slate-500">08:14:32</span>
+              <span class="text-sky-400 font-bold">[AI]</span>
+              <span class="text-slate-300">Multi-Spectral Bio-Lock confirmed on target VIC-01 (37.1°C, 98.4%).</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
     </section>
 
 
@@ -1073,6 +1338,7 @@
   <script src="js/tech_showcase.js"></script>
   <script src="js/network_simulator.js"></script>
   <script src="js/mission_controller.js"></script>
+  <script src="js/command_center.js"></script>
 
   <script>
     function toggleFullscreen() {
@@ -1102,6 +1368,7 @@
       const isLight = html.classList.toggle('light');
       localStorage.setItem('phoenix_theme', isLight ? 'light' : 'dark');
       updateThemeUI(isLight);
+      if (window.CommandCenter && CommandCenter.render) CommandCenter.render();
       if (window.TechShowcase && TechShowcase.drawGCS) TechShowcase.drawGCS();
       if (window.PerceptionLab && PerceptionLab.render) PerceptionLab.render();
       if (window.OperatorHUD && OperatorHUD.drawHUD) OperatorHUD.drawHUD();
@@ -1121,6 +1388,7 @@
 
     window.addEventListener('DOMContentLoaded', () => {
       initTheme();
+      CommandCenter.init();
       MissionState.init();
       PerceptionLab.init();
       OperatorHUD.init();
