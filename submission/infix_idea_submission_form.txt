@@ -1,0 +1,120 @@
+================================================================================
+INFIX IDEA SUBMISSION FORM - COMPLETE APPLICATION TEXT
+Group Code: FRIDYI
+Project: Project Phoenix (Autonomous Disaster Search & Rescue UAV)
+================================================================================
+
+--------------------------------------------------------------------------------
+SECTION 1: PROBLEM DETAILS
+--------------------------------------------------------------------------------
+
+Please choose the theme of idea *
+Disaster Management & Public Safety
+
+Select sub theme *
+Search, Rescue & Emergency Response
+
+Problem Title *
+[183 / 200 characters]
+A deployable AI-powered autonomous drone that aids search-and-rescue operations by detecting people and hazards, thereby improving responder safety and reducing victim discovery time.
+
+Explain the problem statement & Background *
+[Word count: ~230 words | Limit: 500 words]
+India experiences frequent catastrophic disasters—including landslides, urban flash floods, structural collapses, and industrial fires—where the initial 72-hour "Golden Window" dictates victim survivability. Traditional ground search operations in severely damaged or remote environments are slow, perilous, and constrained by four critical failure points:
+
+1. TOTAL COMMS BLACKOUT: Terrestrial 4G/5G cellular towers and broadband infrastructure collapse during catastrophic events, instantly paralyzing cloud-dependent commercial drones and video streaming links.
+2. ZERO OPTICAL VISIBILITY: Dense smoke, airborne rubble dust, total darkness, and heavy foliage completely blind conventional RGB cameras and human spotters.
+3. UNLOCALIZED CASUALTIES: Visual sightings without precise geo-coordinates lead to disoriented rescue operations where response teams dig blindly without prioritized triage.
+4. SECONDARY RESCUER HAZARDS: First responders entering unmapped collapse zones face fatal secondary threats—including live fallen power lines, combustible gas pockets, flash structural collapses, and toxic chemical runoffs.
+
+Current response methodologies lack an integrated, edge-autonomous aerial reconnaissance platform that operates in zero-connectivity environments, fuses multi-spectral imaging, and instantly converts raw aerial feeds into actionable, prioritized rescue coordinates for incident commanders.
+
+
+Who is affected by this problem? (Stakeholders) *
+[Word count: ~210 words | Limit: 500 words]
+The problem impacts four primary stakeholder groups across national, state, and community levels:
+
+1. Disaster Victims & Trapped Survivors: Citizens pinned beneath debris, stranded on isolated rooftops, or trapped in floodwaters where hypothermia, asphyxiation, and physical trauma reduce survival rates by over 50% after the first 24 hours.
+2. First Responders & Tactical Rescue Forces (NDRF, SDRF, Fire & Emergency Services): Ground teams who enter hazardous, unstable disaster zones without prior structural threat assessment, risking entrapment, electrocution, or toxic gas inhalation.
+3. Incident Commanders & Disaster Management Authorities (NDMA, DDMA, District Collectors): Decision-makers operating in "fog of war" conditions who require immediate, prioritized spatial situational awareness to allocate finite heavy machinery, ambulances, and rescue squads effectively.
+4. Critical Infrastructure Operators & Civic Utilities: Power grid operators, municipal water authorities, and transport departments who need rapid aerial damage assessments to isolate live electrical hazards, evaluate breached bridges, and clear arterial logistics routes for aid convoys.
+
+
+What is the root cause of the problem? *
+[Word count: ~180 words | Limit: 500 words]
+The root cause lies in the architectural fragility and centralized cloud dependency of modern commercial drone and reconnaissance systems:
+
+1. Cloud & High-Bandwidth Tethering: Existing commercial UAVs depend on continuous high-bandwidth video downlink (Wi-Fi/4G/5G) to offload video to cloud servers for computer vision inference. When ground cellular towers fail, these drones lose intelligence capability.
+2. Single-Spectrum Optical Perception: Drones rely predominantly on optical RGB CMOS sensors that fail under darkness, dense particulate matter, and canopy occlusion.
+3. High Latency Human-in-the-Loop Analysis: Standard protocols require human pilots to fly manually and inspect hours of video manually, inducing cognitive fatigue, spatial disorientation, and fatal multi-hour assessment delays.
+4. Absence of Resilient Tactical RF Links: Conventional drone systems lack low-frequency, long-range, narrow-band telemetry fallback (e.g., sub-GHz LoRa) capable of penetrating kilometers of reinforced concrete rubble and extreme terrain.
+
+
+What are the existing solutions and their limitations? *
+[Word count: ~225 words | Limit: 500 words]
+Existing disaster assessment approaches fall into three categories, each burdened by severe operational limitations:
+
+1. Commercial Consumer & Enterprise Drones (e.g., DJI Enterprise):
+- Limitations: Highly dependent on active RF control links and video downlinks. They lack fully autonomous edge-AI victim triage and feature proprietary closed telemetry protocols that fail during electronic jamming or communication collapse.
+2. Satellite & High-Altitude Imagery:
+- Limitations: Suffer from revisit latency (hours to days), cloud cover occlusion, and insufficient ground resolution to detect individual human thermal signatures or micro-hazards like downed wires.
+3. Ground Search Teams with K9 Units & Borescopes:
+- Limitations: Extremely slow speed of advance across treacherous debris, high physical risk to search dogs and handlers, limited line-of-sight penetration, and inability to survey wide flooded or landslide-blocked areas quickly.
+4. Heavy Military/Defense UAVs:
+- Limitations: Prohibitively expensive (crores per unit), require dedicated airstrips and logistics, cannot be rapidly backpack-deployed by local municipal fire stations, and are not designed for close-quarter tactical survivor detection.
+
+
+What is the expected outcome of solving this problem? *
+[Word count: ~210 words | Limit: 500 words]
+Deploying this autonomous edge-AI search-and-rescue platform achieves four transformative tactical outcomes:
+
+1. 90% Reduction in Victim Localization Time: Slashes the time needed to locate stranded survivors from 2+ hours to under 10 minutes within a 1 km² disaster grid.
+2. 100% Offline Operational Autonomy: Zero reliance on cloud, cellular, or ground pilot control; autonomous flight, edge inference, and collision avoidance execute directly on board.
+3. Zero Rescuer Casualties from Secondary Hazards: Real-time geo-fencing and detection of high-risk threats (downed electrical lines, open gas plumes, unstable structures) warns ground crews before entry.
+4. Sub-Second Tactical Mesh Alerting: Immediate transmission of lightweight 24-byte triage packets (containing Victim GPS coordinates, confidence score, and hazard proximity) over a resilient 868 MHz LoRa mesh to responder handhelds up to 10+ km away.
+5. Automated ICS-201 Incident Mapping: Automatically compiles spatial disaster maps and situational triage reports, giving incident commanders clear, immediate operational awareness.
+
+
+--------------------------------------------------------------------------------
+SECTION 2: IDEA DETAILS
+--------------------------------------------------------------------------------
+
+Idea Title *
+[187 / 200 characters]
+Project Phoenix: Dual-Spectrum Edge-AI Autonomous UAV with Sub-GHz LoRa Mesh Telemetry for Offline Disaster Victim Triage & Rescuer Hazard Mapping
+
+Why is this problem important to solve? *
+[Word count: ~220 words | Limit: 500 words]
+Disaster response is an unforgiving race against time. In severe events like landslides (e.g., Wayanad 2024), urban flooding, and structural collapses, over 80% of preventable deaths occur because search teams cannot pinpoint survivor locations beneath rubble or isolated zones before hypothermia or asphyxiation sets in. 
+
+Furthermore, secondary hazards routinely kill or incapacitate first responders, compounding the catastrophe. Existing rescue technology is trapped in a costly paradox: commercial systems are too reliant on fragile telecommunication networks, while military solutions are far too heavy and expensive for local municipal deployment.
+
+Solving this problem bridges the gap between high-performance artificial intelligence and front-line disaster survival. Providing NDRF and local fire brigades with an affordable, backpack-deployable autonomous drone that detects human thermal signatures in zero-visibility conditions and operates without internet connectivity directly aligns with India's Disaster Management Vision 2030, NDMA guidelines, and Prime Minister’s 10-Point Agenda on Disaster Risk Reduction. It transforms unpredictable disaster search into a deterministic, data-driven life-saving operation.
+
+Idea in a paragraph *
+[Word count: ~165 words]
+Project Phoenix is an autonomous disaster search-and-rescue quadcopter engineered for zero-connectivity environments. Built on a dual-brain architecture combining high-performance on-device AI compute (Qualcomm NPU) with a deterministic real-time companion microcontroller (Arduino Uno Q), the drone autonomously navigates disaster zones using GPS-denied visual-inertial odometry. It captures simultaneous RGB and Long-Wave Infrared (LWIR) thermal video streams, fusing them through quantized on-device neural networks (YOLOv8-Nano) to detect human signatures through smoke, darkness, and foliage while classifying environmental hazards (live electrical lines, flash floods, structural collapse). Rather than streaming bandwidth-heavy video, Phoenix serializes vital telemetry into compressed 24-byte emergency packets transmitted over a resilient 868 MHz LoRa mesh network directly to first responder tactical handhelds and command dashboards up to 10+ km away, generating live geo-referenced triage maps within minutes.
+
+Advantages of the idea which you proposed *
+- 100% Cloud-Free On-Device Edge AI: Real-time human and hazard detection runs fully locally on an on-board NPU (at 25+ FPS), ensuring seamless operation during total cellular and internet blackouts.
+- Multi-Spectral Sensor Fusion (RGB + LWIR Thermal): Unlocks 24/7 all-weather vision, detecting trapped survivors through zero-visibility conditions, thick smoke, dust clouds, and darkness.
+- Fail-Safe Dual-Brain Avionics: High-level AI vision processing is isolated from the real-time flight control loop (running deterministic FreeRTOS), guaranteeing motor stability and failsafe return-to-home even under compute stress.
+- Long-Range Sub-GHz LoRa Mesh (868 MHz): Bypasses destroyed cellular infrastructure to broadcast lightweight 24-byte casualty triage packets across a 10+ km radius directly to responder tablets.
+- Automated Rescuer Hazard Geofencing: Flags fallen high-voltage power lines, gas leaks, and collapsing structures on tactical GIS maps, safeguarding ground rescue crews.
+- Cost-Effective & Rapid Field Deployment: Engineered for under Rs 65,000 prototype cost, fitting inside a single responder backpack and launching in under 60 seconds.
+
+
+--------------------------------------------------------------------------------
+SECTION 3: IMPLEMENTATION
+--------------------------------------------------------------------------------
+
+Idea is a? *
+Product
+
+Have you completed the Voice of Stakeholder survey? *
+No
+
+Whether a prototype has been developed? *
+Yes
+(Description / Details if prompted):
+Yes, a functional working prototype has been developed. It features an integrated dual-camera gimbal (RGB + FLIR Lepton LWIR thermal), Qualcomm/embedded companion processing running quantized YOLOv8 edge inference, an active 868 MHz LoRa telemetry broadcast link, and a standalone browser-based Tactical Command Center GIS dashboard for real-time incident mapping.
